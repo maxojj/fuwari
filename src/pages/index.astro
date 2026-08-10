@@ -1,4 +1,21 @@
 ---
+/**
+ * 首页文件
+ *
+ * 文件位置：
+ * src/pages/index.astro
+ *
+ * 用途：
+ * 网站首页
+ *
+ * 将来你可以在这里调整：
+ * 1. 首页欢迎语
+ * 2. Works 卡片
+ * 3. Google Map 区块
+ * 4. Blog 入口
+ * 5. Projects 入口
+ */
+
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 ---
 
@@ -7,48 +24,171 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
   description="Product Manager · AI Explorer"
 >
 
-  <div class="card-base p-6">
+  <!-- ===================================== -->
+  <!-- Hero 区域（首页大标题） -->
+  <!-- ===================================== -->
 
-    <h1 class="text-4xl font-bold">
+  <div class="card-base p-8">
+
+    <!-- 修改名字 -->
+    <h1 class="text-5xl font-bold">
       Max Lu
     </h1>
 
-    <p class="mt-3">
+    <!-- 修改副标题 -->
+    <p class="mt-4 text-lg">
       Product Manager · AI Explorer
     </p>
 
-  </div>
-
-  <div class="card-base p-6 mt-6">
-
-    <h2>🌍 Travel Map</h2>
-
-    <p>
-      Coming Soon
+    <!-- 修改个人简介 -->
+    <p class="mt-4 opacity-70">
+      Building products, exploring AI, and documenting journeys.
     </p>
 
   </div>
 
-  <div class="card-base p-6 mt-6">
 
-    <h2>🚀 Projects</h2>
 
-    <a href="/iew Projects</a>
+  <!-- ===================================== -->
+  <!-- Works 区域 -->
+  <!-- ===================================== -->
 
-  </div>
+  <section class="mt-10">
 
-  <div class="card-base p-6 mt-6">
+    <h2 class="text-2xl font-bold mb-4">
+      🚀 Works
+    </h2>
 
-    <h2>📚 Resources</h2>
+    <!--
+      卡片布局
 
-    <a href="/resources">View/a>
+      如果以后新增栏目：
 
-  </div>
+      Flash Thoughts
+      Moments
+      Blog
+      Projects
+      Resources
 
-  <div class="card-base p-6 mt-6">
+      复制一份 card-base 即可
+    -->
 
-    <h2>📝 Blog</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-    <a href="/posts">View Articles</a>
+      <!-- Flash Thoughts -->
 
-/MainGridLayout>
+      <a
+        href="/thoughts"
+        class="text-lg">
+          💊 Flash Thoughts
+        </h3>
+
+        <p class="mt-2 opacity-70">
+          Quick notes and random thoughts.
+        </p>
+      </a>
+
+
+      <!-- Moments -->
+
+      <a
+        href="/moments"
+        classd text-lg">
+          📸 Moments
+        </h3>
+
+        <p class="mt-2 opacity-70">
+          Photos and snapshots.
+        </p>
+      </a>
+
+
+      <!-- Blog -->
+
+      <a
+        href="/posts"
+        classd text-lg">
+          📝 Blog
+        </h3>
+
+        <p class="mt-2 opacity-70">
+          Long-form writing and sharing.
+        </p>
+      </a>
+
+
+      <!-- Projects -->
+
+      /projects
+        <h3 class="font-semibold text-lg">
+          🚧 Projects
+        </h3>
+
+        <p class="mt-2 opacity-70">
+          Side projects and experiments.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ===================================== -->
+  <!-- Journey 区域 -->
+  <!-- ===================================== -->
+
+  <section class="mt-10">
+
+    <h2 class="text-2xl font-bold mb-4">
+      🌍 Journey
+    </h2>
+
+    <div class="card-base p-6">
+
+      <p>
+        Places I've been and journeys I've taken.
+      </p>
+
+      <!--
+        后面有两种方案
+
+        方案A（推荐）
+        跳转到单独地图页
+
+        方案B
+        直接在这里嵌入 Google Map
+      -->
+
+      <a
+        href="/places"
+        class="mt-4 inline-block text-blue-500
+
+  <!-- ===================================== -->
+  <!-- Latest Posts -->
+  <!-- ===================================== -->
+
+  <section class="mt-10">
+
+    <h2 class="text-2xl font-bold mb-4">
+      📰 Latest Posts
+    </h2>
+
+    <div class="card-base p-6">
+
+      <!--
+        后面我们会自动读取文章
+
+        暂时只是占位
+      -->
+
+      <p>
+        Recent articles will appear here.
+      </p>
+
+    </div>
+
+  </section>
+
+</MainGridLayout>
