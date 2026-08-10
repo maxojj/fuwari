@@ -89,8 +89,8 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/demo-avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-	name: "Lorem Ipsum",
-	bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+	name: "西灵号 欢迎你",
+	bio: "「西灵号」取自阿瑟·克拉克的科幻小说《月海沉船》。它因人类的高傲显得不可一世，在宇宙面前不堪一击，却使得人类幸存。愿你也能拥有一艘「西灵号」。",
 	links: [
 		{
 			name: "Twitter",
