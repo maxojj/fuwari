@@ -39,15 +39,56 @@ export const siteConfig: SiteConfig = {
 	],
 };
 
+/**
+ * 顶部导航栏配置
+ *
+ * 修改位置：
+ * src/config.ts
+ *
+ * 每增加一个菜单：
+ * 增加一个对象即可
+ *
+ * 例如：
+ *
+ * {
+ *   name: "Resources",
+ *   url: "/resources"
+ * }
+ *
+ */
+
 export const navBarConfig: NavBarConfig = {
 	links: [
+
+		// 首页
 		LinkPreset.Home,
-		LinkPreset.Archive,
+
+		// 博客
+		{
+			name: "Blog",
+			url: "/posts",
+		},
+
+		// Moments
+		{
+			name: "Moments",
+			url: "/moments",
+		},
+
+		// Projects
+		{
+			name: "Projects",
+			url: "/projects",
+		},
+
+		// About
 		LinkPreset.About,
+
+		// GitHub
 		{
 			name: "GitHub",
-			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
+			url: "https://github.com/maxojj",
+			external: true,
 		},
 	],
 };
