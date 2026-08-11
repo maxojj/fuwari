@@ -1,7 +1,7 @@
 ---
 title: Vision Pro 试用
 english_slug: tryapplevisionpro
-published: 2025-02-23T00:24
+published: 2025-02-23T00:00
 description: 体验 Vision Pro 之后
 image: ''
 tags:
