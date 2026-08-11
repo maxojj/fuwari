@@ -1,9 +1,9 @@
 # About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
+如果妳在读这个博客，我会感激。但是毋庸置疑：我是没法知道妳喜欢什么的。人类创造出的产品里，只有那些为了满足自己而作的，才是真正值得读、值得看、值得听的。满足全世界这个目标太大，妳很难射中靶心。
+—— Tim Bray（Lawrence Li 译）
 
-::github{repo="saicaca/fuwari"}
+这间 blog，走到今天，在形式和定位上，算是到了更成熟和确定的阶段。这里「成熟」并不指内容，那是跟人生一样漫长的过程，完全不同。
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+截至目前算是找到一个自己比较满意、支持向外界展示大部分想法的渠道。他需要包罗万象，不仅仅是文章和 RSS。他需要形式多变，就像我们的生活。每一天都是崭新的，每一个想法都不应该被输入框的格式所束缚，如果 blog 仅仅限于长文字，那可能真的需要改变了。
+
+最后，感谢辅助造就我们的工具。
