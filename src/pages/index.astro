@@ -3,9 +3,9 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 ---
 
 <MainGridLayout title="西灵号" description="Digital Space">
-  <div class="card-base welcome-card p-8 md:p-10">
-
-    <div class="mt-6 max-w-2xl space-y-4 leading-8 text-black/65 dark:text-white/65">
+  <!-- 优化后的引言部分：去掉了背景框，增强了文字质感 -->
+  <div class="welcome-card-clean mt-4 mb-10 px-2 md:px-4">
+    <div class="max-w-2xl space-y-4 leading-9 text-black/70 dark:text-white/70 italic-quote">
       <p>「西灵号」取自阿瑟·克拉克的科幻小说《月海沉船》。</p>
       <p>它因人类的高傲显得不可一世，在宇宙面前不堪一击，却使得人类幸存。</p>
       <p>愿你也能拥有一艘「西灵号」。</p>
@@ -15,7 +15,7 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
   <section class="section-block" aria-labelledby="works-title">
     <div class="section-heading">
       <div>
-        <h2 id="works-title" class="mt-2 text-3xl font-bold tracking-tight">Works</h2>
+        <h2 id="works-title" class="mt-2 text-3xl font-bold tracking-tight">👨‍🌾 Works</h2>
       </div>
       <span class="section-mark" aria-hidden="true">✦</span>
     </div>
@@ -54,7 +54,6 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
       </div>
     </div>
 
-
     <div class="card-base embed-card">
       <iframe
         src="https://www.google.com/maps/d/embed?mid=1tVuHkUA1rEgdLptEIvFdNLwiMmHY1vM&ehbc=2E312F"
@@ -83,23 +82,118 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 </MainGridLayout>
 
 <style>
-  .section-block { margin-top: 3.5rem; }
-  .section-heading { display: flex; align-items: end; justify-content: space-between; border-bottom: 1px solid rgb(0 0 0 / 0.1); padding-bottom: 1rem; margin-bottom: 1.5rem; }
-  :global(.dark) .section-heading { border-color: rgb(255 255 255 / 0.1); }
-  .eyebrow { color: var(--primary); font-size: .7rem; font-weight: 700; letter-spacing: .16em; }
-  .section-mark { color: var(--primary); font-size: 1.5rem; }
-  .works-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .work-card { position: relative; min-height: 9.5rem; border: 1px solid rgb(0 0 0 / .1); border-radius: 1rem; padding: 1.35rem; background: rgb(255 255 255 / .42); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-  :global(.dark) .work-card { border-color: rgb(255 255 255 / .12); background: rgb(255 255 255 / .04); }
-  .work-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 30px rgb(0 0 0 / .08); }
-  .work-card:focus-visible, .travel-link:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
-  .work-card h3 { padding-right: 1.5rem; font-size: 1.2rem; font-weight: 700; }
-  .work-card p { margin-top: .75rem; color: rgb(0 0 0 / .52); font-size: 1rem; line-height: 1.6; }
-  :global(.dark) .work-card p { color: rgb(255 255 255 / .52); }
-  .card-arrow { position: absolute; right: 1.25rem; bottom: 1.15rem; color: var(--primary); font-size: 1.2rem; }
-  .travel-link { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; color: var(--primary); font-size: .9rem; font-weight: 600; }
-  .embed-card { overflow: hidden; padding: .5rem; }
-  .embed-card iframe { display: block; width: 100%; height: 31.25rem; border: 0; border-radius: .75rem; }
-  @media (max-width: 640px) { .works-grid { grid-template-columns: 1fr; } .welcome-card { padding: 1.5rem; } .embed-card iframe { height: 25rem; } }
-  @media (prefers-reduced-motion: reduce) { .work-card { transition: none; } .work-card:hover { transform: none; } }
+  /* 基础布局 */
+  .section-block { margin-top: 4rem; }
+  
+  /* 引言部分优化：去掉背景，增加优雅度 */
+  .italic-quote p {
+    font-style: italic;
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+  
+  .section-heading { 
+    display: flex; 
+    align-items: end; 
+    justify-content: space-between; 
+    border-bottom: 1px solid rgb(0 0 0 / 0.08); 
+    padding-bottom: 1rem; 
+    margin-bottom: 1.5rem; 
+  }
+  :global(.dark) .section-heading { border-color: rgb(255 255 255 / 0.08); }
+  
+  .section-mark { 
+    color: var(--primary); 
+    font-size: 1.5rem; 
+    opacity: 0.8;
+  }
+
+  /* Works 网格与卡片 */
+  .works-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 1.25rem; 
+  }
+
+  .work-card { 
+    position: relative; 
+    min-height: 9.5rem; 
+    border: 1px solid rgb(0 0 0 / 0.05); 
+    border-radius: 1.25rem; 
+    padding: 1.5rem; 
+    background: rgb(255 255 255 / 0.5); 
+    backdrop-filter: blur(4px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+  }
+
+  :global(.dark) .work-card { 
+    border-color: rgb(255 255 255 / 0.1); 
+    background: rgb(255 255 255 / 0.03); 
+  }
+
+  .work-card:hover { 
+    transform: translateY(-5px); 
+    border-color: var(--primary); 
+    box-shadow: 0 15px 30px -10px rgb(var(--primary-rgb) / 0.2); 
+    background: rgb(255 255 255 / 0.8);
+  }
+  :global(.dark) .work-card:hover {
+    background: rgb(255 255 255 / 0.06);
+  }
+
+  .work-card h3 { 
+    padding-right: 1.5rem; 
+    font-size: 1.25rem; 
+    font-weight: 700; 
+    color: var(--btn-content);
+  }
+
+  .work-card p { 
+    margin-top: 0.75rem; 
+    color: rgb(0 0 0 / 0.5); 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+  }
+  :global(.dark) .work-card p { color: rgb(255 255 255 / 0.5); }
+
+  .card-arrow { 
+    position: absolute; 
+    right: 1.25rem; 
+    bottom: 1.25rem; 
+    color: var(--primary); 
+    font-size: 1.2rem; 
+    opacity: 0.6;
+    transition: transform 0.3s ease;
+  }
+  .work-card:hover .card-arrow {
+    transform: translate(2px, -2px);
+    opacity: 1;
+  }
+
+  /* 嵌入卡片优化 */
+  .embed-card { 
+    overflow: hidden; 
+    padding: 0.5rem; 
+    border-radius: 1.25rem;
+  }
+  .embed-card iframe { 
+    display: block; 
+    width: 100%; 
+    height: 32rem; 
+    border: 0; 
+    border-radius: 0.75rem; 
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 640px) { 
+    .works-grid { grid-template-columns: 1fr; } 
+    .section-block { margin-top: 3rem; }
+    .embed-card iframe { height: 25rem; }
+    .work-card { padding: 1.25rem; min-height: 8rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { 
+    .work-card { transition: none; } 
+    .work-card:hover { transform: none; } 
+  }
 </style>
