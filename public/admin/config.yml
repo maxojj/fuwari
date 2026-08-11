@@ -15,36 +15,15 @@ collections:
     extension: "md"
     format: "frontmatter"
     create: true
-    # 保持简单的 slug，避免非法字符
     slug: "{{year}}-{{month}}-{{day}}-{{english_slug}}"
     
     fields:
       - { label: "标题", name: "title", widget: "string" }
-      - { label: "URL 英文名", name: "english_slug", widget: "string" }
-
-      # 【修复点 1】Fuwari 需要完整的 ISO 日期格式，去掉 format: "YYYY-MM-DD"
+      - { label: "URL 英文名", name: "english_slug", widget: "string", hint: "仅限小写字母、数字和横线" }
       - { label: "发布日期", name: "published", widget: "datetime" }
-      
-      # 【修复点 2】这些字段在 Fuwari 中是可选的，必须显式允许为空，否则会变成空字符串 "" 导致报错
-      - { label: "描述", name: "description", widget: "string", required: false, default: "" }
-      - { label: "封面图片", name: "image", widget: "image", required: false, default: "" }
-      
-      # 【修复点 3】标签和分类的空值处理
+      - { label: "描述", name: "description", widget: "string", required: false }
+      - { label: "封面图片", name: "image", widget: "image", required: false }
       - { label: "标签", name: "tags", widget: "list", required: false }
-      - { 
-          label: "分类", 
-          name: "category", 
-          widget: "relation", 
-          collection: "posts", 
-          search_fields: ["category"], 
-          value_field: "category", 
-          display_fields: ["category"], 
-          required: false 
-        }
-
+      - { label: "分类", name: "category", widget: "string", required: false }
       - { label: "草稿", name: "draft", widget: "boolean", default: false }
       - { label: "正文内容", name: "body", widget: "markdown" }
-
-      # 【修复点 4】移除之前添加的 hidden 字段。
-      # 因为你在 Astro config.ts 里设置了 .default("")，Astro 会自动处理。
-      # CMS 手动写入空值反而可能导致字段冲突。
