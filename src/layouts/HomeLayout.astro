@@ -1,0 +1,53 @@
+---
+/**
+ * 首页专用布局
+ *
+ * 与 MainGridLayout 的区别：
+ *
+ * ✅ 保留 Navbar
+ * ✅ 保留 Footer
+ * ✅ 保留深色模式
+ * ✅ 保留搜索
+ *
+ * ❌ 不显示 Sidebar
+ */
+
+import Layout from "./Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title,
+  description
+} = Astro.props;
+---
+
+<Layout
+  title={title}
+  description={description}
+>
+
+  <!-- 导航栏 -->
+
+  <div class="max-w-[var(--page-width)] mx-auto px-4">
+    <Navbar />
+  </div>
+
+  <!-- 首页主体 -->
+
+  <main class="max-w-4xl mx-auto px-4 mt-12">
+    <slot />
+  </main>
+
+  <!-- 页脚 -->
+
+  <div class="max-w-[var(--page-width)] mx-auto px-4 mt-20">
+    <Footer />
+  </div>
+
+</Layout>
