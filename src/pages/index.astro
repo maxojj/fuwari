@@ -1,4 +1,17 @@
 ---
+/**
+ * 首页
+ *
+ * 文件：
+ * src/pages/index.astro
+ *
+ * 修改欢迎语：
+ * 修改下面的 h1 和 p
+ *
+ * 修改入口：
+ * 修改 href
+ */
+
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 ---
 
@@ -7,6 +20,94 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
   description="Max Lu's Digital Space"
 >
 
-  <!-- 这里放首页内容 -->
+  <!-- 欢迎语 -->
+
+  <div class="card-base p-8 mb-8">
+
+    <h1 class="text-3xl font-bold mb-4">
+      「西灵号」欢迎您
+    </h1>
+
+    <p class="leading-8 opacity-80">
+      「西灵号」取自阿瑟·克拉克的科幻小说《与拉玛相会》。
+
+      愿你也能拥有一艘属于自己的「西灵号」。
+    </p>
+
+  </div>
+
+
+  <!-- Works -->
+
+  <section class="mb-8">
+
+    <h2 class="text-2xl font-bold mb-4">
+      🚀 Works
+    </h2>
+
+    <div class="space-y-4">
+
+      <div class="card-base p-6">
+        <h3 class="font-semibold text-lg">
+          💊 Flash Thoughts
+        </h3>
+        <p class="opacity-70 mt-2">
+          Quick thoughts and notes.
+        </p>
+      </div>
+
+      <div class="card-base p-6">
+        <h3 class="font-semibold text-lg">
+          📸 Moments
+        </h3>
+        <p class="opacity-70 mt-2">
+          Photos and snapshots.
+        </p>
+      </div>
+
+      <div class="card-base p-6">
+        <h3 class="font-semibold text-lg">
+          📝 Blog
+        </h3>
+        <p class="opacity-70 mt-2">
+          Long-form writing.
+        </p>
+      </div>
+
+      <div class="card-base p-6">
+        <h3 class="font-semibold text-lg">
+          ➕ More
+        </h3>
+        <p class="opacity-70 mt-2">
+          More explorations.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Journey -->
+
+  <section>
+
+    <h2 class="text-2xl font-bold mb-4">
+      🌍 Journey
+    </h2>
+
+    <div class="card-base p-6">
+
+      <p>
+        Places I've been and journeys I've taken.
+      </p>
+
+      <p class="mt-3 text-[var(--primary)]">
+        Open Travel Map →
+      </p>
+
+    </div>
+
+  </section>
 
 </MainGridLayout>
