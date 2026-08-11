@@ -5,14 +5,14 @@ backend:
   base_url: https://decap-cms-oss-oauth.vercel.app
 
 # 媒体文件存放在哪里（Fuwari 默认通常是 public/assets）
-media_folder: "src/pages/posts"
+media_folder: "src/assets/images"
 public_folder: "src/assets/images"
 
 collections:
   - name: "posts"
     label: "文章"
     label_singular: "文章"
-    folder: "src/pages/posts"  # Fuwari 的文章存放位置
+    folder: "src/content/posts"  # Fuwari 的文章存放位置
     extension: "md"              # 或者 "mdx"，取决于你用的格式
     format: "frontmatter"
     create: true
