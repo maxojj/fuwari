@@ -12,13 +12,20 @@ collections:
   - name: "posts"
     label: "文章"
     label_singular: "文章"
-    folder: "src/content/posts"  # Fuwari 的文章存放位置
-    extension: "md"              # 或者 "mdx"，取决于你用的格式
+    folder: "src/content/posts"
+    extension: "md"
     format: "frontmatter"
     create: true
+    # 【核心修改点】
+    # 这里的 {{slug}} 默认会抓取 title 的内容。
+    # 但在 Sveltia 界面中，你可以手动覆盖这个 slug。
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    
+    # 告诉 CMS 列表里显示标题字段，方便你找文章
+    identifier_field: title 
+    
     fields:
-      - { label: "标题", name: "title", widget: "string" }
+      - { label: "标题 (网页显示的中文标题)", name: "title", widget: "string" }
       - { label: "发布日期", name: "published", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "描述", name: "description", widget: "string", required: false }
       - { label: "封面图片", name: "image", widget: "image", required: false }
@@ -26,3 +33,5 @@ collections:
       - { label: "分类", name: "category", widget: "string", required: false }
       - { label: "草稿", name: "draft", widget: "boolean", default: false }
       - { label: "正文内容", name: "body", widget: "markdown" }
+
+
