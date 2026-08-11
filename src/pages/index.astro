@@ -1,77 +1,64 @@
 ---
 /**
- * 首页文件
+ * 首页
  *
  * 文件位置：
  * src/pages/index.astro
  *
  * 用途：
- * 网站首页
+ * 网站门户页
  *
- * 将来你可以在这里调整：
+ * 修改说明：
+ *
  * 1. 首页欢迎语
- * 2. Works 卡片
- * 3. Google Map 区块
- * 4. Blog 入口
- * 5. Projects 入口
+ * 修改「西灵号欢迎您」和下面那段文字
+ *
+ * 2. Works入口
+ * 修改对应链接即可
+ *
+ * 3. Journey
+ * 后续换成 Google Map
  */
 
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 ---
 
 <MainGridLayout
-  title="Max Lu"
-  description="Product Manager · AI Explorer"
+  title="西灵号"
+  description="Max Lu's Digital Space"
 >
 
-  <!-- ===================================== -->
-  <!-- Hero 区域（首页大标题） -->
-  <!-- ===================================== -->
+  <!-- ===================== -->
+  <!-- 欢迎语 -->
+  <!-- ===================== -->
 
   <div class="card-base p-8">
 
-    <!-- 修改名字 -->
-    <h1 class="text-5xl font-bold">
-      Max Lu
+    <h1 class="text-4xl font-bold">
+      「西灵号」欢迎您
     </h1>
 
-    <!-- 修改副标题 -->
-    <p class="mt-4 text-lg">
-      Product Manager · AI Explorer
-    </p>
+    <p class="mt-6 leading-8 opacity-80">
+      「西灵号」取自阿瑟·克拉克的科幻小说《与拉玛相会》。
+      它因人类的高傲而显得不可一世，
+      在宇宙面前却不堪一击，
+      却使得人类幸存。
 
-    <!-- 修改个人简介 -->
-    <p class="mt-4 opacity-70">
-      Building products, exploring AI, and documenting journeys.
+      愿你也能拥有一艘「西灵号」。
     </p>
 
   </div>
 
 
-
-  <!-- ===================================== -->
-  <!-- Works 区域 -->
-  <!-- ===================================== -->
+  <!-- ===================== -->
+  <!-- Works -->
+  <!-- ===================== -->
 
   <section class="mt-10">
 
-    <h2 class="text-2xl font-bold mb-4">
+    <h2 class="text-3xl font-bold mb-6">
       🚀 Works
     </h2>
-
-    <!--
-      卡片布局
-
-      如果以后新增栏目：
-
-      Flash Thoughts
-      Moments
-      Blog
-      Projects
-      Resources
-
-      复制一份 card-base 即可
-    -->
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
@@ -79,11 +66,11 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 
       <a
         href="/thoughts"
-        class="text-lg">
+ text-xl font-semibold">
           💊 Flash Thoughts
         </h3>
 
-        <p class="mt-2 opacity-70">
+        <p class="mt-3 opacity-70">
           Quick notes and random thoughts.
         </p>
       </a>
@@ -93,11 +80,11 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 
       <a
         href="/moments"
-        classd text-lg">
+        class-semibold">
           📸 Moments
         </h3>
 
-        <p class="mt-2 opacity-70">
+        <p class="mt-3 opacity-70">
           Photos and snapshots.
         </p>
       </a>
@@ -107,25 +94,25 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 
       <a
         href="/posts"
-        classd text-lg">
+        class="emibold">
           📝 Blog
         </h3>
 
-        <p class="mt-2 opacity-70">
+        <p class="mt-3 opacity-70">
           Long-form writing and sharing.
         </p>
       </a>
 
 
-      <!-- Projects -->
+      <!-- More -->
 
-      /projects
-        <h3 class="font-semibold text-lg">
-          🚧 Projects
+      <a
+        href<h3 class="text-xl font-semibold">
+          ➕ More
         </h3>
 
-        <p class="mt-2 opacity-70">
-          Side projects and experiments.
+        <p class="mt-3 opacity-70">
+          More explorations and adventures.
         </p>
       </a>
 
@@ -134,60 +121,25 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
   </section>
 
 
-
-  <!-- ===================================== -->
-  <!-- Journey 区域 -->
-  <!-- ===================================== -->
+  <!-- ===================== -->
+  <!-- Journey -->
+  <!-- ===================== -->
 
   <section class="mt-10">
 
-    <h2 class="text-2xl font-bold mb-4">
+    <h2 class="text-3xl font-bold mb-6">
       🌍 Journey
     </h2>
 
-    <div class="card-base p-6">
-
-      <p>
-        Places I've been and journeys I've taken.
+    <a
+      href="/places"
+      class="card-basees I've been and journeys I've taken.
       </p>
 
-      <!--
-        后面有两种方案
-
-        方案A（推荐）
-        跳转到单独地图页
-
-        方案B
-        直接在这里嵌入 Google Map
-      -->
-
-      <a
-        href="/places"
-        class="mt-4 inline-block text-blue-500
-
-  <!-- ===================================== -->
-  <!-- Latest Posts -->
-  <!-- ===================================== -->
-
-  <section class="mt-10">
-
-    <h2 class="text-2xl font-bold mb-4">
-      📰 Latest Posts
-    </h2>
-
-    <div class="card-base p-6">
-
-      <!--
-        后面我们会自动读取文章
-
-        暂时只是占位
-      -->
-
-      <p>
-        Recent articles will appear here.
+      <p class="mt-4 text-[var(--primary)]">
+        Open Travel Map →
       </p>
-
-    </div>
+    </a>
 
   </section>
 
