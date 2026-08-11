@@ -19,11 +19,19 @@ collections:
     
     fields:
       - { label: "标题", name: "title", widget: "string" }
-      - { label: "URL 英文名", name: "english_slug", widget: "string", hint: "仅限小写字母、数字和横线" }
-      - { label: "发布日期", name: "published", widget: "datetime" }
+      - { label: "URL 英文名", name: "english_slug", widget: "string", hint: "仅限小写字母、数字和横线，用于生成文件名" }
+      - { 
+          label: "发布日期", 
+          name: "published", 
+          widget: "datetime", 
+          format: "YYYY-MM-DD HH:mm:ss",
+          date_format: "YYYY-MM-DD",
+          time_format: "HH:mm:ss",
+          picker_utc: false 
+        }
       - { label: "描述", name: "description", widget: "string", required: false }
       - { label: "封面图片", name: "image", widget: "image", required: false }
-      - { label: "标签", name: "tags", widget: "list", required: false }
+      - { label: "标签", name: "tags", widget: "list", required: false, hint: "输入后按回车添加多个" }
       - { label: "分类", name: "category", widget: "string", required: false }
       - { label: "草稿", name: "draft", widget: "boolean", default: false }
       - { label: "正文内容", name: "body", widget: "markdown" }
