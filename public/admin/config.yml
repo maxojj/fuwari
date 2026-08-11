@@ -16,16 +16,20 @@ collections:
     extension: "md"
     format: "frontmatter"
     create: true
-    # 【核心修改点】
-    # 这里的 {{slug}} 默认会抓取 title 的内容。
-    # 但在 Sveltia 界面中，你可以手动覆盖这个 slug。
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    
-    # 告诉 CMS 列表里显示标题字段，方便你找文章
-    identifier_field: title 
+    # 【关键修改 1】让文件名直接使用你填写的那个自定义英文名字段
+    slug: "{{year}}-{{month}}-{{day}}-{{english_slug}}"
     
     fields:
-      - { label: "标题 (网页显示的中文标题)", name: "title", widget: "string" }
+      - { label: "标题 (中文标题)", name: "title", widget: "string" }
+      
+      # 【关键修改 2】新增一个专门填英文链接的字段
+      - { 
+          label: "URL 英文名 (用于链接，例如: my-new-post)", 
+          name: "english_slug", 
+          widget: "string", 
+          hint: "只能填英文、数字和横杠，不要填中文" 
+        }
+
       - { label: "发布日期", name: "published", widget: "datetime", format: "YYYY-MM-DD" }
       - { label: "描述", name: "description", widget: "string", required: false }
       - { label: "封面图片", name: "image", widget: "image", required: false }
@@ -33,5 +37,3 @@ collections:
       - { label: "分类", name: "category", widget: "string", required: false }
       - { label: "草稿", name: "draft", widget: "boolean", default: false }
       - { label: "正文内容", name: "body", widget: "markdown" }
-
-
