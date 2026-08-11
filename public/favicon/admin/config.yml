@@ -2,6 +2,7 @@ backend:
   name: github
   repo: maxojj/fuwari  # 修改这里
   branch: main             # 你的默认分支名
+  base_url: https://decap-cms-oss-oauth.vercel.app
 
 # 媒体文件存放在哪里（Fuwari 默认通常是 public/assets）
 media_folder: "src/pages/posts"
