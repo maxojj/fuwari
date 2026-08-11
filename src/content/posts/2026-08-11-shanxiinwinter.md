@@ -1,7 +1,7 @@
 ---
 title: 如果你也想去冬天的山西
 english_slug: shanxiinwinter
-published: 2024-01-07T18:55
+published: 2024-01-07T18:56
 description: -20° 山西古建游的经验分享
 image: ''
 tags:
