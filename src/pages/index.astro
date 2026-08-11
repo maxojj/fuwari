@@ -76,6 +76,7 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
         src="https://www.joey.team/b/AEkuEWE9U33TvwLosM63"
         title="Guestbook 留言板"
         loading="lazy"
+        class="guestbook-iframe"
       ></iframe>
     </div>
   </section>
@@ -183,6 +184,19 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
     border: 0; 
     border-radius: 0.75rem; 
   }
+
+
+  /* 仅针对留言板的高度设置 */
+.guestbook-iframe {
+  height: 50rem !important; /* 电脑端高度，你可以根据喜好调整数字 */
+}
+
+@media (max-width: 640px) {
+  .guestbook-iframe {
+    height: 40rem !important; /* 手机端高度 */
+  }
+}
+
 
   /* 移动端适配 */
   @media (max-width: 640px) { 
