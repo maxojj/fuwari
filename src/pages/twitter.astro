@@ -1,0 +1,24 @@
+---
+import MainGridLayout from '../layouts/MainGridLayout.astro';
+import { i18n } from '../i18n/translation';
+import I18nKey from '../i18n/i18nKey';
+---
+
+<MainGridLayout title="Twitter Archive" description="My Twitter Archive">
+    <div class="card-base w-full rounded-[var(--radius-large)] overflow-hidden" style="height: 85vh;">
+        <!-- 这里的 src 替换成你的 Notion 页面地址 -->
+        <iframe 
+            src="https://twitter.feimind.xyz/908644799ee341759a3fc9eb73ecff1b" 
+            class="w-full h-full border-none"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+        ></iframe>
+    </div>
+</MainGridLayout>
+
+<style>
+    /* 适配 Fuwari 的深色模式：如果 Notion 没变黑，给 iframe 加一点滤镜（可选） */
+    :global([data-theme='dark']) iframe {
+        opacity: 0.9;
+    }
+</style>
