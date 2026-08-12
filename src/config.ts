@@ -66,7 +66,7 @@ export const navBarConfig: NavBarConfig = {
 		// 博客
 		{
 			name: "Blog",
-			url: "/posts",
+			url: "/blog",
 		},
 		
 		// Twitter
@@ -97,17 +97,17 @@ export const profileConfig: ProfileConfig = {
 			icon: "fa6-solid:envelope", // Visit https://icones.js.org/ for icon codes
 			// You will need to install the corresponding icon set if it's not already included
 			// `pnpm add @iconify-json/<icon-set-name>`
-			url: "https://twitter.com",
+			url: "mailto:hello@feimind.xyz",
 		},
 		{
-			name: "Steam",
-			icon: "fa6-brands:steam",
-			url: "https://store.steampowered.com",
+			name: "Untappd",
+			icon: "fa6-brands:untappd",
+			url: "https://untappd.com/user/Van_Debiao",
 		},
 		{
 			name: "GitHub",
-			icon: "fa6-brands:github",
-			url: "https://github.com/saicaca/fuwari",
+			icon: "fa6-brands:creative-commons",
+			url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 		},
 	],
 };
