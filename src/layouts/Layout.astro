@@ -76,9 +76,24 @@ const bannerOffset =
 <html lang={siteLang} class="bg-[var(--page-bg)] transition text-[14px] md:text-[16px]"
 	  data-overlayscrollbars-initialize
 >
-	<head>
-
+		<head>
 		<title>{pageTitle}</title>
+
+		<!-- Google tag (gtag.js) -->
+		<!-- 把下面的 G-XXXXXXXXXX 换成你自己的 ID -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HBMWM4PJLX"></script>
+		<script is:inline>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-HBMWM4PJLX');
+		</script>
+
+		<meta charset="UTF-8" />
+        <!-- ... 以下是原有的其他 meta 标签 ... -->
+
+		
 
 		<meta charset="UTF-8" />
 		<meta name="description" content={description || pageTitle}>
