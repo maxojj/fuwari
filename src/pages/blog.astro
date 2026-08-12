@@ -1,31 +1,47 @@
 ---
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 import { getCollection } from "astro:content";
-import { formatDate } from "../utils/date-utils"; // 确保路径正确，Fuwari 通常有这个工具函数
 
-// 获取所有文章并按时间排序
+// 1. 获取所有文章
 const allPosts = await getCollection("posts");
-const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 2. 排序：过滤掉草稿，并按发布日期倒序排列
+const sortedPosts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 3. 自定义一个简单的日期格式化函数，不再依赖外部文件
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).replace(/\//g, '-'); // 格式化为 2023-10-27 这种形式
+};
 ---
 
 <MainGridLayout title="文章列表">
   <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
     <div class="card-base z-10 px-9 py-6 w-full">
-      <h1 class="text-3xl font-bold bus-text-main mb-8">📝 全部文章</h1>
+      <div class="flex items-center gap-2 mb-8">
+        <div class="w-1 h-7 bg-[var(--primary)] rounded-full"></div>
+        <h1 class="text-3xl font-bold text-black/80 dark:text-white/90">📝 全部文章</h1>
+      </div>
       
-      <div class="space-y-6">
+      <div class="grid grid-cols-1 gap-4">
         {sortedPosts.map((post) => (
-          <a href={`/posts/${post.slug}`} class="group flex flex-col gap-1 pb-6 border-b border-black/5 dark:border-white/5 last:border-0">
+          <a href={`/posts/${post.slug}`} 
+             class="group flex flex-col gap-2 p-4 -mx-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all">
             <div class="flex justify-between items-center">
               <h2 class="text-xl font-bold group-hover:text-[var(--primary)] transition-colors text-black/80 dark:text-white/90">
                 {post.data.title}
               </h2>
-              <time class="text-sm text-black/40 dark:text-white/40 font-mono">
+              <time class="text-sm text-black/30 dark:text-white/30 font-mono">
                 {formatDate(post.data.pubDate)}
               </time>
             </div>
             {post.data.description && (
-              <p class="text-sm text-black/60 dark:text-white/60 line-clamp-2">
+              <p class="text-sm text-black/50 dark:text-white/50 line-clamp-2">
                 {post.data.description}
               </p>
             )}
