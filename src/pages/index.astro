@@ -85,6 +85,12 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 <style>
   /* 基础布局 */
   .section-block { margin-top: 4rem; }
+
+    /* 修复大标题在深色模式下的颜色 */
+  .section-block h2 {
+    color: var(--text-main);
+  }
+
   
   /* 引言部分优化：去掉背景，增加优雅度 */
   .italic-quote p {
@@ -146,7 +152,7 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
     padding-right: 1.5rem; 
     font-size: 1.25rem; 
     font-weight: 700; 
-    color: var(--btn-content);
+    color: var(--text-main);
   }
 
   .work-card p { 
