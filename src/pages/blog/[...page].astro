@@ -1,0 +1,115 @@
+---
+import MainGridLayout from "../../layouts/MainGridLayout.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../../utils/date-utils"; // 假设你有这个工具类，如果没有我会直接写在下面
+
+export async function getStaticPaths({ paginate }: any) {
+  const allPosts = await getCollection("posts", ({ data }) => {
+    return data.draft !== true;
+  });
+  
+  // 排序：按发表日期倒序
+  const sortedPosts = allPosts.sort((a, b) => {
+    const dateA = new Date(a.data.published || a.data.pubDate || 0).valueOf();
+    const dateB = new Date(b.data.published || b.data.pubDate || 0).valueOf();
+    return dateB - dateA;
+  });
+
+  return paginate(sortedPosts, { pageSize: 6 });
+}
+
+const { page } = Astro.props;
+
+// 提取所有不重复的分类用于顶部导航
+const allPostsForTags = await getCollection("posts");
+const allCategories = [...new Set(allPostsForTags.map(post => post.data.category).filter(Boolean))];
+
+// 内部日期处理函数
+const displayDate = (date: any) => {
+  if (!date) return "";
+  const d = new Date(date);
+  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
+};
+---
+
+<MainGridLayout title="博客文章" hasSidebar={false}>
+  <div class="max-w-[850px] mx-auto transition-all duration-500">
+    
+    <!-- 顶部 header 与 分类 -->
+    <header class="mb-10 mt-4">
+      <h1 class="text-4xl font-bold text-black/80 dark:text-white/90 mb-6 flex items-center gap-3">
+        <div class="w-2 h-10 bg-[var(--primary)] rounded-full"></div>
+        文章归档
+      </h1>
+      
+      <div class="flex flex-wrap gap-3">
+        <a href="/blog" class="px-4 py-1.5 rounded-lg bg-[var(--primary)] text-white text-sm font-medium">
+          全部
+        </a>
+        {allCategories.map(cat => (
+          <a href={`/archive/category/${cat}`} 
+             class="px-4 py-1.5 rounded-lg bg-black/5 dark:bg-white/5 text-sm text-black/60 dark:text-white/60 hover:bg-[var(--primary)] hover:text-white transition-all">
+            {cat}
+          </a>
+        ))}
+      </div>
+    </header>
+
+    <!-- 文章列表 -->
+    <div class="flex flex-col gap-6">
+      {page.data.map((post: any) => (
+        <a href={`/posts/${post.slug}`} class="group relative card-base p-7 block transition-all hover:border-[var(--primary)] border border-transparent">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+            <h2 class="text-2xl font-bold group-hover:text-[var(--primary)] transition-colors text-black/80 dark:text-white/90">
+              {post.data.title}
+            </h2>
+            <time class="text-sm font-mono text-black/30 dark:text-white/30 whitespace-nowrap">
+              {displayDate(post.data.published || post.data.pubDate)}
+            </time>
+          </div>
+          
+          <!-- Tags 显示 -->
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-4">
+              {post.data.tags.map((tag: string) => (
+                <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-black/5 dark:bg-white/5 text-black/40 dark:text-white/40">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <p class="text-black/50 dark:text-white/50 line-clamp-2 leading-relaxed text-sm">
+            {post.data.description}
+          </p>
+          
+          <div class="absolute right-6 bottom-6 opacity-0 group-hover:opacity-100 transition-opacity text-[var(--primary)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- 分页导航 -->
+    <nav class="flex items-center justify-between mt-12 mb-20">
+      {page.url.prev ? (
+        <a href={page.url.prev} class="flex items-center gap-2 px-4 py-2 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--primary)] hover:text-white transition-all group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          上一页
+        </a>
+      ) : <div />}
+
+      <div class="font-mono text-sm text-black/40 dark:text-white/40">
+        Page {page.currentPage} / {page.lastPage}
+      </div>
+
+      {page.url.next ? (
+        <a href={page.url.next} class="flex items-center gap-2 px-4 py-2 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--primary)] hover:text-white transition-all group">
+          下一页
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      ) : <div />}
+    </nav>
+
+  </div>
+</MainGridLayout>
