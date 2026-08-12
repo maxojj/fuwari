@@ -8,6 +8,7 @@ import { siteConfig } from "@/config";
 
 const parser = new MarkdownIt();
 
+// 过滤掉 XML 不支持的非法控制字符，防止 RSS 解析失败
 function stripInvalidXmlChars(str: string): string {
 	return str.replace(
 		// biome-ignore lint/suspicious/noControlCharactersInRegex: https://www.w3.org/TR/xml/#charsets
@@ -19,11 +20,12 @@ function stripInvalidXmlChars(str: string): string {
 export async function GET(context: APIContext) {
 	const blog = await getSortedPosts();
 
-	// 1. 先获取 rss 生成的结果
-	const rssResponse = await rss({
+	// 直接返回 rss() 函数的结果，Astro 会自动处理 Content-Type 和 XML 头部
+	return rss({
 		title: siteConfig.title,
 		description: siteConfig.subtitle || "No description",
-		site: context.site ?? "https://fuwari.vercel.app",
+		// 使用 context.site 获取 astro.config.mjs 中配置的 site 域名
+		site: context.site ?? "https://blog.feimind.xyz",
 		items: blog.map((post) => {
 			const content =
 				typeof post.body === "string" ? post.body : String(post.body || "");
@@ -32,20 +34,14 @@ export async function GET(context: APIContext) {
 				title: post.data.title,
 				pubDate: post.data.published,
 				description: post.data.description || "",
+				// 生成绝对路径 URL
 				link: url(`/posts/${post.slug}/`),
+				// 渲染 Markdown 为 HTML 供 RSS 阅读器直接展示
 				content: sanitizeHtml(parser.render(cleanedContent), {
 					allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
 				}),
 			};
 		}),
 		customData: `<language>${siteConfig.lang}</language>`,
-	});
-
-	// 2. 返回一个新的 Response 对象，并强制指定 Content-Type 为 XML
-	return new Response(rssResponse.body, {
-		headers: {
-			'Content-Type': 'application/xml; charset=utf-8',
-			'x-content-type-options': 'nosniff' // 防止某些浏览器尝试猜测类型
-		},
 	});
 }
