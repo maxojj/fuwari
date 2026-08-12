@@ -1,0 +1,37 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../utils/date-utils"; // 确保路径正确，Fuwari 通常有这个工具函数
+
+// 获取所有文章并按时间排序
+const allPosts = await getCollection("posts");
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<MainGridLayout title="文章列表">
+  <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-9 py-6 w-full">
+      <h1 class="text-3xl font-bold bus-text-main mb-8">📝 全部文章</h1>
+      
+      <div class="space-y-6">
+        {sortedPosts.map((post) => (
+          <a href={`/posts/${post.slug}`} class="group flex flex-col gap-1 pb-6 border-b border-black/5 dark:border-white/5 last:border-0">
+            <div class="flex justify-between items-center">
+              <h2 class="text-xl font-bold group-hover:text-[var(--primary)] transition-colors text-black/80 dark:text-white/90">
+                {post.data.title}
+              </h2>
+              <time class="text-sm text-black/40 dark:text-white/40 font-mono">
+                {formatDate(post.data.pubDate)}
+              </time>
+            </div>
+            {post.data.description && (
+              <p class="text-sm text-black/60 dark:text-white/60 line-clamp-2">
+                {post.data.description}
+              </p>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</MainGridLayout>
