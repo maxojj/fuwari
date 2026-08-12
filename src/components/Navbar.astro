@@ -25,15 +25,21 @@ let links: NavBarLink[] = navBarConfig.links.map(
     <div class:list={[
         className,
         "card-base !overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4"]}>
-        <a href={url('/')} class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
+        
+        <!-- 修改点：添加 data-astro-reload 属性 -->
+        <!-- 这会强制浏览器在点击首页时重新加载页面，从而重新初始化 MainGridLayout 的侧边栏逻辑 -->
+        <a href={url('/')} data-astro-reload class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
             <div class="flex flex-row text-[var(--primary)] items-center text-md">
                 <Icon name="material-symbols:home-outline-rounded" class="text-[1.75rem] mb-1 mr-2" />
                 {siteConfig.title}
             </div>
         </a>
+
         <div class="hidden md:flex">
             {links.map((l) => {
+                // 如果其他导航链接也涉及布局切换（比如从 Blog 跳回 Archive 等），建议也加上 data-astro-reload
                 return <a aria-label={l.name} href={l.external ? l.url : url(l.url)} target={l.external ? "_blank" : null}
+                          data-astro-reload={!l.external ? "" : null}
                           class="btn-plain scale-animation rounded-lg h-11 font-bold px-5 active:scale-95"
                 >
                     <div class="flex items-center">
@@ -102,6 +108,8 @@ function loadButtonScript() {
 }
 
 loadButtonScript();
+// 兼容 Swup 的重载逻辑
+document.addEventListener('swup:contentReplaced', loadButtonScript);
 </script>
 
 {import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>
