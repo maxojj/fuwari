@@ -26,9 +26,13 @@ import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-cop
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://fuwari.vercel.app/",
+	site: "https://blog.feimind.xyz/", // 1. 修改为你自己的域名
 	base: "/",
 	trailingSlash: "always",
+    // 2. 添加重定向配置
+    redirects: {
+        '/feed': '/feed.xml',
+    },
 	integrations: [
 		tailwind({
 			nesting: true,
