@@ -72,13 +72,15 @@ export const navBarConfig: NavBarConfig = {
 		// Twitter
 		{
 			name: "Twitter",
-			url: "https://twitter.feimind.xyz/",
+			url: 'https://twitter.feimind.xyz/908644799ee341759a3fc9eb73ecff1b',
+  			external: true, // Fuwari 会自动处理 target="_blank"
 		},
 		
 		// Moments
 		{
 			name: "Moments",
 			url: "https://ins.feimind.xyz/",
+			external: true, // Fuwari 会自动处理 target="_blank"
 		},
 
 		// About
