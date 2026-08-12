@@ -15,32 +15,32 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
   <section class="section-block" aria-labelledby="works-title">
     <div class="section-heading">
       <div>
-        <h2 id="works-title" class="mt-2 text-3xl font-bold tracking-tight text-main">👨‍🌾 Works</h2>
+        <h2 id="works-title" class="mt-2 text-3xl font-bold tracking-tight text-black/80 dark:text-white/90">👨‍🌾 Works</h2>
       </div>
       <span class="section-mark" aria-hidden="true">✦</span>
     </div>
 
     <div class="works-grid">
       <a href="https://twitter.feimind.xyz/" target="_blank" rel="noopener noreferrer" class="work-card">
-        <h3>💊 闪念胶囊</h3>
+        <h3 class="text-black/80 dark:text-white/90">💊 闪念胶囊</h3>
         <p>即时想法、吐槽和日常</p>
         <span class="card-arrow" aria-hidden="true">↗</span>
       </a>
 
       <a href="https://ins.feimind.xyz/" target="_blank" rel="noopener noreferrer" class="work-card">
-        <h3>📷 Moments</h3>
+        <h3 class="text-black/80 dark:text-white/90">📷 Moments</h3>
         <p>一些瞬间</p>
         <span class="card-arrow" aria-hidden="true">↗</span>
       </a>
 
       <a href="/posts" class="work-card">
-        <h3>📝 Classic Blog</h3>
+        <h3 class="text-black/80 dark:text-white/90">📝 Classic Blog</h3>
         <p>长文、思考</p>
         <span class="card-arrow" aria-hidden="true">→</span>
       </a>
 
       <a href="/about" class="work-card">
-        <h3>🚧 More</h3>
+        <h3 class="text-black/80 dark:text-white/90">🚧 More</h3>
         <p>施工中</p>
         <span class="card-arrow" aria-hidden="true">→</span>
       </a>
@@ -50,7 +50,7 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
   <section class="section-block" aria-labelledby="journey-title">
     <div class="section-heading">
       <div>
-        <h2 id="journey-title" class="mt-2 text-3xl font-bold tracking-tight text-main">🌍 Journey</h2>
+        <h2 id="journey-title" class="mt-2 text-3xl font-bold tracking-tight text-black/80 dark:text-white/90">🌍 Journey</h2>
       </div>
     </div>
 
@@ -67,7 +67,7 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
   <section class="section-block" aria-labelledby="guestbook-title">
     <div class="section-heading">
       <div>
-        <h2 id="guestbook-title" class="mt-2 text-3xl font-bold tracking-tight text-main">📮 Guestbook</h2>
+        <h2 id="guestbook-title" class="mt-2 text-3xl font-bold tracking-tight text-black/80 dark:text-white/90">📮 Guestbook</h2>
       </div>
     </div>
 
@@ -85,11 +85,6 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 <style>
   /* 基础布局 */
   .section-block { margin-top: 4rem; }
-
-    /* 修复大标题在深色模式下的颜色 */
-  .section-block h2 {
-    color: var(--text-main);
-  }
 
   
   /* 引言部分优化：去掉背景，增加优雅度 */
@@ -152,7 +147,6 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
     padding-right: 1.5rem; 
     font-size: 1.25rem; 
     font-weight: 700; 
-    color: var(--text-main);
   }
 
   .work-card p { 
