@@ -5,18 +5,25 @@ import { getCollection } from "astro:content";
 // 1. 获取所有文章
 const allPosts = await getCollection("posts");
 
-// 2. 排序：过滤掉草稿，并按发布日期倒序排列
+// 2. 排序：使用你文件中的 "published" 字段进行排序
 const sortedPosts = allPosts
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  .filter(post => !post.data.draft) // 过滤草稿
+  .sort((a, b) => {
+    // 兼容处理：优先找 published，没有的话找 pubDate，再没有就给 0
+    const dateA = new Date(a.data.published || a.data.pubDate || 0).valueOf();
+    const dateB = new Date(b.data.published || b.data.pubDate || 0).valueOf();
+    return dateB - dateA;
+  });
 
-// 3. 自定义一个简单的日期格式化函数，不再依赖外部文件
-const formatDate = (date: Date) => {
-  return date.toLocaleDateString('zh-CN', {
+// 3. 日期格式化函数
+const formatDate = (date: any) => {
+  if (!date) return '未知日期';
+  const d = new Date(date);
+  return d.toLocaleDateString('zh-CN', {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
-  }).replace(/\//g, '-'); // 格式化为 2023-10-27 这种形式
+  }).replace(/\//g, '-');
 };
 ---
 
@@ -29,24 +36,28 @@ const formatDate = (date: Date) => {
       </div>
       
       <div class="grid grid-cols-1 gap-4">
-        {sortedPosts.map((post) => (
-          <a href={`/posts/${post.slug}`} 
-             class="group flex flex-col gap-2 p-4 -mx-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all">
-            <div class="flex justify-between items-center">
-              <h2 class="text-xl font-bold group-hover:text-[var(--primary)] transition-colors text-black/80 dark:text-white/90">
-                {post.data.title}
-              </h2>
-              <time class="text-sm text-black/30 dark:text-white/30 font-mono">
-                {formatDate(post.data.pubDate)}
-              </time>
-            </div>
-            {post.data.description && (
-              <p class="text-sm text-black/50 dark:text-white/50 line-clamp-2">
-                {post.data.description}
-              </p>
-            )}
-          </a>
-        ))}
+        {sortedPosts.length === 0 ? (
+          <p class="text-center py-10 text-black/30 dark:text-white/30">暂无文章</p>
+        ) : (
+          sortedPosts.map((post) => (
+            <a href={`/posts/${post.slug}`} 
+               class="group flex flex-col gap-2 p-4 -mx-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+              <div class="flex justify-between items-center">
+                <h2 class="text-xl font-bold group-hover:text-[var(--primary)] transition-colors text-black/80 dark:text-white/90">
+                  {post.data.title || "无标题"}
+                </h2>
+                <time class="text-sm text-black/30 dark:text-white/30 font-mono">
+                  {formatDate(post.data.published || post.data.pubDate)}
+                </time>
+              </div>
+              {post.data.description && (
+                <p class="text-sm text-black/50 dark:text-white/50 line-clamp-2">
+                  {post.data.description}
+                </p>
+              )}
+            </a>
+          ))
+        )}
       </div>
     </div>
   </div>
