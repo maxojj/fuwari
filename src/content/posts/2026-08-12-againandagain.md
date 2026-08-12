@@ -6,7 +6,8 @@ description: 反复螺旋上升
 image: ''
 tags:
   - 瞎评论
-category: 生活日常
+  - 往昔
+category: 吐槽
 draft: false
 ---
 
