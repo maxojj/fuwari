@@ -67,11 +67,10 @@ export const navBarConfig: NavBarConfig = {
 			url: "/blog",
 		},
 		
-		// Twitter
+		// 电影墙
 		{
-			name: "Twitter",
-			url: 'https://twitter.feimind.xyz/908644799ee341759a3fc9eb73ecff1b',
-  			external: true, // Fuwari 会自动处理 target="_blank"
+			name: "Movies",
+			url: "/movies",
 		},
 		
 		// Moments
