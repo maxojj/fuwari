@@ -2,7 +2,6 @@ import requests
 import json
 import os
 import random
-import re
 
 TOKEN = os.getenv('NEODB_TOKEN')
 OUTPUT_PATH = "src/content/movies.json"
@@ -17,9 +16,10 @@ def get_movies():
         'Accept-Language': 'zh-cn'
     }
 
-    print(f"开始从 NeoDB 抓取数据 (目标: {MAX_ITEMS} 条)...")
+    print(f"开始抓取 NeoDB 数据 (目标: {MAX_ITEMS} 条)...")
 
     while len(results) < MAX_ITEMS:
+        # 电影完成列表 API
         url = f"https://neodb.social/api/me/shelf/complete?category=movie&page={page}"
         
         try:
@@ -37,38 +37,31 @@ def get_movies():
                 
                 item = entry.get('item', {})
                 
-                # 1. 标题
+                # 1. 标题 (display_title 是 NeoDB 推荐的本地化标题)
                 title = item.get('display_title') or item.get('title')
                 
-                # 2. 评分
+                # 2. 评分 (NeoDB 标记对象的评分)
                 rating = entry.get('rating_grade') or 0
                 
-                # 3. 解析年份 (NeoDB 的年份通常在 pubdate 数组里)
-                year = ""
-                pubdates = item.get('pubdate', [])
-                if pubdates and len(pubdates) > 0:
-                    # 取 pubdate 第一项的前四位数字，如 "2023-11-20" -> "2023"
-                    match = re.search(r'\d{4}', pubdates[0])
-                    if match:
-                        year = match.group()
+                # 3. 关键：年份字段。NeoDB 电影模型中使用 year_released
+                # 如果 year_released 依然没有，则尝试取 pubdate 的年份
+                year = item.get('year_released')
+                if not year and item.get('pubdate'):
+                    pub_list = item.get('pubdate', [])
+                    if pub_list:
+                        # 提取第一个日期的前四位
+                        year = pub_list[0][:4]
                 
-                # 如果 pubdate 没拿到，尝试从 orig_title 拿，例如 "Oppenheimer (2023)"
-                if not year:
-                    orig_title = item.get('orig_title', '')
-                    match = re.search(r'\((\d{4})\)', orig_title)
-                    if match:
-                        year = match.group(1)
-
                 # 4. 评论
                 comment = entry.get('comment_text') or ""
 
-                print(f"成功抓取: {title} | 年份: {year or '未知'} | 评分: {rating}")
+                print(f"已抓取: {title} | 年份: {year or 'N/A'} | 评分: {rating}")
 
                 results.append({
                     "title": title,
                     "poster": item.get('cover_image_url'),
                     "rating": rating,
-                    "year": year,
+                    "year": str(year) if year else "", # 确保是字符串
                     "comment": comment,
                     "date": entry.get('created_time')[:10] if entry.get('created_time') else "",
                     "link": f"https://neodb.social{item.get('url')}"
@@ -81,13 +74,13 @@ def get_movies():
             break
     
     if results:
-        # 随机乱序
+        # 保存前随机乱序
         random.shuffle(results)
         
         os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
         with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
-        print(f"更新完成，已随机打乱并存入 {len(results)} 条数据到 {OUTPUT_PATH}")
+        print(f"更新完成，最新 {len(results)} 条数据已存入 {OUTPUT_PATH}")
 
 if __name__ == "__main__":
     get_movies()
