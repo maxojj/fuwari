@@ -5,7 +5,7 @@ import random
 
 TOKEN = os.getenv('NEODB_TOKEN')
 OUTPUT_PATH = "src/content/movies.json"
-MAX_ITEMS = 50  # 增加到 50 条
+MAX_ITEMS = 50  # 调整为 50 条
 
 def get_movies():
     results = []
@@ -36,21 +36,25 @@ def get_movies():
                 
                 item = entry.get('item', {})
                 
-                # 提取标题
+                # 1. 提取标题
                 title = item.get('display_title') or item.get('title')
                 
-                # 提取年份：NeoDB 电影 item 中通常有 year 字段
+                # 2. 提取评分 (rating_grade)
+                rating = entry.get('rating_grade') or 0
+                
+                # 3. 提取年份 (year)
                 year = item.get('year') or ""
                 
-                # 提取评论
+                # 4. 提取评论 (comment_text)
                 comment = entry.get('comment_text') or ""
 
-                print(f"成功抓取: {title} ({year})")
+                print(f"成功抓取: {title} | 评分: {rating} | 年份: {year}")
 
                 results.append({
                     "title": title,
                     "poster": item.get('cover_image_url'),
-                    "year": year,    # 新增年份字段
+                    "rating": rating, # 重新加入评分字段
+                    "year": year,     # 加入年份字段
                     "comment": comment,
                     "date": entry.get('created_time')[:10] if entry.get('created_time') else "",
                     "link": f"https://neodb.social{item.get('url')}"
