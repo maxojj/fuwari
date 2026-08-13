@@ -1,16 +1,32 @@
 ---
+import moviesData from "../content/movies.json";
 import MainLayout from "../layouts/MainGridLayout.astro";
-import movies from "../content/movies.json";
+
+// 定义电影数据的类型，防止 Biome 报 any 警告
+interface Movie {
+  title: string;
+  poster: string;
+  rating: number;
+  date: string;
+  link: string;
+}
+
+const movies = (moviesData as Movie[]) || [];
 ---
 
 <MainLayout title="我的观影记录">
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
     {movies.map((movie) => (
-      <a href={movie.link} target="_blank" class="card-base block hover:scale-105 transition-all">
+      <a 
+        href={movie.link} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="card-base block hover:scale-105 transition-all overflow-hidden"
+      >
         <img src={movie.poster} alt={movie.title} class="w-full aspect-[2/3] object-cover" />
         <div class="p-2 text-sm">
           <div class="font-bold truncate">{movie.title}</div>
-          <div class="flex justify-between text-xs text-gray-500">
+          <div class="flex justify-between text-xs text-neutral-500">
             <span>{movie.date}</span>
             <span class="text-orange-500">★ {movie.rating}</span>
           </div>
