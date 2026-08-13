@@ -6,21 +6,24 @@ interface Movie {
   title: string;
   poster: string;
   year: string;
+  rating: number; // 重新加入评分
   comment: string;
   link: string;
 }
 
-// 随机洗牌函数
-const shuffle = (array: any[]) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-};
+const movies = (moviesData || []) as Movie[];
 
-// 获取数据 -> 随机洗牌 -> 取前 50 条
-const movies = shuffle([...(moviesData || [])]).slice(0, 50) as Movie[];
+// 评分转换函数：NeoDB 10分制 -> 5.0分制
+const formatRating = (rating: number) => {
+  if (!rating || rating === 0) return "未评分";
+  return (rating / 2).toFixed(1);
+}
+
+// 星星生成逻辑
+const getStars = (rating: number) => {
+  if (!rating || rating === 0) return "";
+  return "⭐".repeat(Math.floor(rating / 2));
+}
 ---
 
 <MainGridLayout title="电影墙">
@@ -41,7 +44,7 @@ const movies = shuffle([...(moviesData || [])]).slice(0, 50) as Movie[];
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
                             <p class="text-white text-[13px] leading-relaxed italic line-clamp-6 mb-4">
-                                {movie.comment ? `“ ${movie.comment} ”` : "观毕，暂无评论"}
+                                {movie.comment ? `“ ${movie.comment} ”` : "观毕，暂无评价"}
                             </p>
                             <a href={movie.link} target="_blank" class="w-full text-[11px] text-center py-2 bg-white/10 hover:bg-[var(--primary)] text-white border border-white/20 rounded-lg transition-colors">
                                 查看详情
@@ -53,11 +56,19 @@ const movies = shuffle([...(moviesData || [])]).slice(0, 50) as Movie[];
                         <h3 class="text-sm font-bold truncate mb-2" title={movie.title}>
                             {movie.title}
                         </h3>
-                        <div class="flex items-center">
-                            {/* 显示年份 */}
-                            <span class="text-[10px] font-mono bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2 py-0.5 rounded">
-                                {movie.year || "Unknown"}
-                            </span>
+                        <div class="flex flex-col gap-2">
+                            {/* 第一行：星星和数字评分 */}
+                            <div class="flex items-center gap-2">
+                                <span class="text-yellow-500 text-[10px]">{getStars(movie.rating)}</span>
+                                <span class="text-zinc-400 font-mono text-[11px]">{formatRating(movie.rating)}</span>
+                            </div>
+                            
+                            {/* 第二行：年份标签 */}
+                            <div class="flex items-center">
+                                <span class="text-[9px] font-mono bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 px-1.5 py-0.5 rounded uppercase tracking-wider">
+                                    {movie.year || "Unknown"}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,39 +76,26 @@ const movies = shuffle([...(moviesData || [])]).slice(0, 50) as Movie[];
         </div>
     </div>
 
+    {/* 侧边栏控制脚本逻辑不变 */}
     <script is:inline>
         function handleSidebarDisplay() {
             const sidebar = document.getElementById('sidebar-container');
             const mainGrid = document.getElementById('main-grid');
             const mainElement = document.querySelector('main');
             const isMoviePage = window.location.pathname.includes('/movies');
-
             if (isMoviePage) {
                 if (sidebar) sidebar.style.display = 'none';
-                if (mainGrid) {
-                    mainGrid.style.gridTemplateColumns = '1fr';
-                    mainGrid.style.maxWidth = '100%';
-                }
-                if (mainElement) {
-                    mainElement.style.gridColumn = 'span 1 / span 1';
-                    mainElement.style.width = '100%';
-                }
+                if (mainGrid) { mainGrid.style.gridTemplateColumns = '1fr'; mainGrid.style.maxWidth = '100%'; }
+                if (mainElement) { mainElement.style.gridColumn = 'span 1 / span 1'; mainElement.style.width = '100%'; }
             } else {
                 if (sidebar) sidebar.style.display = '';
-                if (mainGrid) {
-                    mainGrid.style.gridTemplateColumns = '';
-                    mainGrid.style.maxWidth = '';
-                }
-                if (mainElement) {
-                    mainElement.style.gridColumn = '';
-                    mainElement.style.width = '';
-                }
+                if (mainGrid) { mainGrid.style.gridTemplateColumns = ''; mainGrid.style.maxWidth = ''; }
+                if (mainElement) { mainElement.style.gridColumn = ''; mainElement.style.width = ''; }
             }
         }
         handleSidebarDisplay();
         document.addEventListener('swup:content_replaced', handleSidebarDisplay);
     </script>
-
 </MainGridLayout>
 
 <style>
