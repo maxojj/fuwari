@@ -2,8 +2,9 @@ name: Sync NeoDB Movies
 
 on:
   schedule:
-    - cron: '0 16 * * *' # 每天北京时间 0 点自动执行
-  workflow_dispatch:      # 允许你手动点击按钮执行
+    - cron: '0 16 * * *' # 每天北京时间 0 点运行
+  workflow_dispatch:      # 允许你手动点击按钮运行
+  # 去掉 push: 这一行，这样你平时改代码，它就不会跑
 
 jobs:
   sync:
