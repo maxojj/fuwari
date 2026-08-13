@@ -1,23 +1,29 @@
 ---
-const response = await fetch(
-  new URL('../../public/data/movie.json', import.meta.url)
-);
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import moviesData from "../content/movies.json";
 
-const data = await response.json();
-const movies = data.data ?? [];
+// 定义类型，确保数据渲染不出错
+interface Movie {
+  title: string;
+  poster: string;
+  rating: number;
+  date: string;
+  link: string;
+}
+
+const movies = (moviesData || []) as Movie[];
 ---
 
-<h1>Movies</h1>
-
-<div>
-{
-  movies.map((m) => (
-    <div>
-      <img
-        src={m.item.cover_image_url}
-        width="120"
-     {m.rating_grade / 2} ★</p>
+<MainGridLayout title="电影墙">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {movies.map((movie) => (
+            <a href={movie.link} target="_blank" class="group relative overflow-hidden rounded-xl bg-black/5 dark:bg-white/5 transition-all hover:scale-105">
+                <img src={movie.poster} alt={movie.title} class="w-full h-64 object-cover" />
+                <div class="p-2 text-center">
+                    <div class="text-sm font-bold truncate">{movie.title}</div>
+                    <div class="text-xs text-zinc-500">{movie.date} · ⭐{movie.rating}</div>
+                </div>
+            </a>
+        ))}
     </div>
-  ))
-}
-</div>
+</MainGridLayout>
