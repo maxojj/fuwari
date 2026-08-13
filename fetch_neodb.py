@@ -17,7 +17,6 @@ def get_movies():
     print("开始从 NeoDB 抓取数据...")
 
     while len(results) < MAX_ITEMS:
-        # 使用 shelf/complete 接口获取“看过”列表
         url = f"https://neodb.social/api/me/shelf/complete?category=movie&page={page}"
         
         try:
@@ -33,25 +32,25 @@ def get_movies():
                 if len(results) >= MAX_ITEMS:
                     break
                 
-                # entry 包含你的交互数据（评分、评价）
-                # item 包含电影本身的数据（标题、海报）
+                # 核心：电影详情在 item 里
                 item = entry.get('item', {})
                 
-                # 提取评分：NeoDB API 中 rating 通常直接在 entry 下
-                rating = entry.get('rating')
-                # 提取评价：NeoDB API 中评论字段可能是 comment 或内容描述
-                comment = entry.get('comment') or ""
+                # 1. 拿中文名：优先取 display_title，没有就取 title
+                title = item.get('display_title') or item.get('title')
                 
-                # 提取标题：优先取 item 里的 title，这通常是 NeoDB 存储的中文名
-                title = item.get('title')
+                # 2. 拿评分：NeoDB API 的评分字段是 rating-grade 或 rating
+                rating = entry.get('rating-grade') or entry.get('rating') or 0
                 
-                # 打印一条日志到 GitHub Actions 控制台，方便调试
-                print(f"成功抓取: {title} | 评分: {rating} | 评论长度: {len(comment)}")
+                # 3. 拿评论：评论字段是 comment_text 或 comment
+                comment = entry.get('comment_text') or entry.get('comment') or ""
+                
+                # 打印日志方便我们验证
+                print(f"抓取成功: {title} | 评分: {rating} | 评论长度: {len(comment)}")
 
                 results.append({
                     "title": title,
                     "poster": item.get('cover_image_url'),
-                    "rating": rating if rating else 0,
+                    "rating": rating,
                     "comment": comment,
                     "date": entry.get('created_time')[:10] if entry.get('created_time') else "",
                     "link": f"https://neodb.social{item.get('url')}"
@@ -60,10 +59,12 @@ def get_movies():
             page += 1
             
         except Exception as e:
-            print(f"抓取失败: {e}")
+            print(f"同步失败: {e}")
             break
     
     if results:
+        # 必须确保目录存在
+        os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
         with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
         print(f"任务完成：成功同步 {len(results)} 条数据到 {OUTPUT_PATH}")
