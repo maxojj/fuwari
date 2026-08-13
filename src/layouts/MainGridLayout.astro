@@ -65,7 +65,11 @@ const mainPanelTop = siteConfig.banner.enable
     <div class="relative max-w-[var(--page-width)] mx-auto pointer-events-auto">
         <div id="swup-container" class="transition-swup-fade">
             <div id="main-grid" class="transition duration-700 w-full mx-auto grid grid-cols-1 lg:grid-cols-[17.5rem_auto] gap-4 px-0 md:px-4">
-                <SideBar class="mb-4 row-start-2 row-end-3 col-span-2 lg:row-start-1 lg:row-end-2 lg:col-span-1 lg:max-w-[17.5rem] onload-animation" headings={headings}></SideBar>
+                
+                <!-- 关键点：添加了 sidebar-container ID -->
+                <div id="sidebar-container" class="mb-4 row-start-2 row-end-3 col-span-2 lg:row-start-1 lg:row-end-2 lg:col-span-1 lg:max-w-[17.5rem] onload-animation">
+                    <SideBar headings={headings}></SideBar>
+                </div>
 
                 <main id="swup-main" class="col-span-2 lg:col-span-1 overflow-hidden">
                     <div id="content-wrapper" class="onload-animation">
