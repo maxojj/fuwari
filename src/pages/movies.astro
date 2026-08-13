@@ -2,28 +2,56 @@
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 import moviesData from "../content/movies.json";
 
-// 定义类型，确保数据渲染不出错
 interface Movie {
   title: string;
   poster: string;
   rating: number;
+  comment: string;
   date: string;
   link: string;
 }
 
 const movies = (moviesData || []) as Movie[];
+
+// 简单的星星转换函数
+const getStars = (rating: number) => {
+  if (!rating) return "未评分";
+  return "⭐".repeat(Math.round(rating / 2)) || "⭐"; // NeoDB通常是10分制，转为5星
+}
 ---
 
 <MainGridLayout title="电影墙">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {movies.map((movie) => (
-            <a href={movie.link} target="_blank" class="group relative overflow-hidden rounded-xl bg-black/5 dark:bg-white/5 transition-all hover:scale-105">
-                <img src={movie.poster} alt={movie.title} class="w-full h-64 object-cover" />
-                <div class="p-2 text-center">
-                    <div class="text-sm font-bold truncate">{movie.title}</div>
-                    <div class="text-xs text-zinc-500">{movie.date} · ⭐{movie.rating}</div>
+            <div class="flex flex-col rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-lg transition-all">
+                {/* 海报与基本信息 */}
+                <div class="flex p-4 gap-4">
+                    <img src={movie.poster} alt={movie.title} class="w-24 h-36 object-cover rounded-lg shadow-md" />
+                    <div class="flex flex-col justify-between py-1">
+                        <div>
+                            <a href={movie.link} target="_blank" class="text-lg font-bold hover:text-[var(--primary)] transition-colors">
+                                {movie.title}
+                            </a>
+                            <div class="text-sm text-yellow-500 mt-1">
+                                {getStars(movie.rating)} <span class="text-zinc-400 text-xs ml-1">({movie.rating})</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-zinc-400">
+                            看过日期：{movie.date}
+                        </div>
+                    </div>
                 </div>
-            </a>
+
+                {/* 评价部分 - 如果有评价才显示 */}
+                {movie.comment && (
+                    <div class="px-4 pb-4">
+                        <div class="relative p-3 rounded-lg bg-white/50 dark:bg-black/20 text-sm italic text-zinc-600 dark:text-zinc-300">
+                            <span class="absolute -top-2 left-2 text-2xl text-[var(--primary)] opacity-30">“</span>
+                            {movie.comment}
+                        </div>
+                    </div>
+                )}
+            </div>
         ))}
     </div>
 </MainGridLayout>
