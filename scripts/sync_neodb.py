@@ -1,0 +1,33 @@
+name: Sync NeoDB Movies
+
+on:
+  schedule:
+    - cron: '0 16 * * *' # 每天北京时间凌晨 0 点自动抓取
+  workflow_dispatch:      # 允许手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch Data
+        env:
+          NEODB_TOKEN: ${{ secrets.NEODB_TOKEN }}
+        run: python scripts/sync_neodb.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add src/content/movies.json
+          git commit -m "chore: sync movies from NeoDB" || exit 0
+          git push
