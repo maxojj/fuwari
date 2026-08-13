@@ -2,10 +2,11 @@ import requests
 import json
 import os
 import random
+import re
 
 TOKEN = os.getenv('NEODB_TOKEN')
 OUTPUT_PATH = "src/content/movies.json"
-MAX_ITEMS = 50  # 调整为 50 条
+MAX_ITEMS = 50 
 
 def get_movies():
     results = []
@@ -36,25 +37,38 @@ def get_movies():
                 
                 item = entry.get('item', {})
                 
-                # 1. 提取标题
+                # 1. 标题
                 title = item.get('display_title') or item.get('title')
                 
-                # 2. 提取评分 (rating_grade)
+                # 2. 评分
                 rating = entry.get('rating_grade') or 0
                 
-                # 3. 提取年份 (year)
-                year = item.get('year') or ""
+                # 3. 解析年份 (NeoDB 的年份通常在 pubdate 数组里)
+                year = ""
+                pubdates = item.get('pubdate', [])
+                if pubdates and len(pubdates) > 0:
+                    # 取 pubdate 第一项的前四位数字，如 "2023-11-20" -> "2023"
+                    match = re.search(r'\d{4}', pubdates[0])
+                    if match:
+                        year = match.group()
                 
-                # 4. 提取评论 (comment_text)
+                # 如果 pubdate 没拿到，尝试从 orig_title 拿，例如 "Oppenheimer (2023)"
+                if not year:
+                    orig_title = item.get('orig_title', '')
+                    match = re.search(r'\((\d{4})\)', orig_title)
+                    if match:
+                        year = match.group(1)
+
+                # 4. 评论
                 comment = entry.get('comment_text') or ""
 
-                print(f"成功抓取: {title} | 评分: {rating} | 年份: {year}")
+                print(f"成功抓取: {title} | 年份: {year or '未知'} | 评分: {rating}")
 
                 results.append({
                     "title": title,
                     "poster": item.get('cover_image_url'),
-                    "rating": rating, # 重新加入评分字段
-                    "year": year,     # 加入年份字段
+                    "rating": rating,
+                    "year": year,
                     "comment": comment,
                     "date": entry.get('created_time')[:10] if entry.get('created_time') else "",
                     "link": f"https://neodb.social{item.get('url')}"
@@ -67,7 +81,7 @@ def get_movies():
             break
     
     if results:
-        # 在保存前进行随机乱序处理
+        # 随机乱序
         random.shuffle(results)
         
         os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
