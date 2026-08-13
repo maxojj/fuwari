@@ -2,64 +2,105 @@
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 import moviesData from "../content/movies.json";
 
-// ... 之前的接口和函数保持不变 ...
+interface Movie {
+  title: string;
+  poster: string;
+  rating: number;
+  comment: string;
+  date: string;
+  link: string;
+}
 
 const movies = (moviesData || []) as Movie[];
+
+// 评分转换函数：8分 -> 4.0
+const formatRating = (rating: number) => {
+  if (!rating || rating === 0) return "未评分";
+  return (rating / 2).toFixed(1);
+}
+
+// 星星显示函数
+const getStars = (rating: number) => {
+  if (!rating || rating === 0) return "";
+  const score = Math.floor(rating / 2);
+  return "⭐".repeat(score);
+}
 ---
 
-<!-- 这里的 hasSidebar={false} 会触发你刚才在 Layout 里写的逻辑 -->
 <MainGridLayout title="电影墙" hasSidebar={false}>
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
-        {movies.map((movie) => (
-            <div class="group relative flex flex-col rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-xl transition-all duration-300">
-                
-                {/* 海报与悬浮层代码保持不变 */}
-                <div class="relative aspect-[2/3] overflow-hidden">
-                    <img 
-                        src={movie.poster} 
-                        alt={movie.title} 
-                        loading="lazy"
-                        referrerpolicy="no-referrer"
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                    />
+    <div class="max-w-[1200px] mx-auto">
+        <!-- 响应式网格：移动端2列，平板3列，桌面端固定5列以保持大尺寸 -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {movies.map((movie) => (
+                <div class="group relative flex flex-col rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                     
-                    <div class="absolute inset-0 bg-black/80 flex flex-col justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
-                        <p class="text-white text-sm leading-relaxed italic line-clamp-6">
-                            {movie.comment ? `“ ${movie.comment} ”` : "暂无评价"}
-                        </p>
-                        <a href={movie.link} target="_blank" class="mt-4 text-[10px] text-[var(--primary)] border border-[var(--primary)] rounded py-1 px-2 text-center hover:bg-[var(--primary)] hover:text-white transition-colors">
-                            查看详情
-                        </a>
+                    {/* 海报区域 */}
+                    <div class="relative aspect-[2/3] overflow-hidden">
+                        <img 
+                            src={movie.poster} 
+                            alt={movie.title} 
+                            loading="lazy"
+                            referrerpolicy="no-referrer"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                        />
+                        
+                        {/* 悬浮遮罩层：显示评论 */}
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-sm leading-relaxed italic line-clamp-8 mb-4">
+                                {movie.comment ? `“ ${movie.comment} ”` : "暂无评价"}
+                            </p>
+                            <a 
+                                href={movie.link} 
+                                target="_blank" 
+                                class="w-full text-xs text-center py-2 bg-white/10 hover:bg-[var(--primary)] text-white border border-white/20 rounded-lg transition-colors backdrop-blur-md"
+                            >
+                                查看详情
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                {/* 底部标题和评分 */}
-                <div class="p-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
-                    <h3 class="text-xs font-bold truncate mb-1" title={movie.title}>
-                        {movie.title}
-                    </h3>
-                    <div class="flex items-center justify-between">
-                        <div class="text-[10px] text-yellow-500 flex items-center">
-                            {movie.rating > 0 ? (
-                                <>
-                                    <span class="mr-1">{"⭐".repeat(Math.floor(movie.rating/2))}</span>
-                                    <span class="text-zinc-400 font-mono">{(movie.rating/2).toFixed(1)}</span>
-                                </>
-                            ) : (
-                                <span class="text-zinc-500 italic">未评分</span>
-                            )}
+                    {/* 底部标题和评分 */}
+                    <div class="p-4 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
+                        <h3 class="text-base font-bold truncate mb-2" title={movie.title}>
+                            {movie.title}
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <span class="text-yellow-500 text-xs">
+                                {getStars(movie.rating)}
+                            </span>
+                            <span class="text-zinc-400 font-mono text-sm">
+                                {formatRating(movie.rating)}
+                            </span>
                         </div>
                     </div>
                 </div>
-            </div>
-        ))}
+            ))}
+        </div>
     </div>
+
+    {/* 强制布局脚本：解决 Swup.js 导致的侧边栏切换残留问题 */}
+    <script is:inline>
+        function fixMovieLayout() {
+            const mainGrid = document.getElementById('main-grid');
+            if (window.location.pathname.includes('/movies')) {
+                if (mainGrid) {
+                    mainGrid.classList.remove('lg:grid-cols-[17.5rem_auto]');
+                    mainGrid.classList.add('lg:grid-cols-1');
+                }
+            }
+        }
+        // 初始加载执行
+        fixMovieLayout();
+        // 页面切换后执行
+        document.addEventListener('swup:content_replaced', fixMovieLayout);
+    </script>
 </MainGridLayout>
 
 <style>
-    .line-clamp-6 {
+    /* 评价文字自动截断，最多显示8行 */
+    .line-clamp-8 {
         display: -webkit-box;
-        -webkit-line-clamp: 6;
+        -webkit-line-clamp: 8;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
