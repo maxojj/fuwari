@@ -13,45 +13,82 @@ interface Movie {
 
 const movies = (moviesData || []) as Movie[];
 
-// 简单的星星转换函数
+// 评分转换函数：8分 -> 4.0
+const formatRating = (rating: number) => {
+  if (!rating || rating === 0) return null;
+  return (rating / 2).toFixed(1);
+}
+
+// 星星显示函数
 const getStars = (rating: number) => {
-  if (!rating) return "未评分";
-  return "⭐".repeat(Math.round(rating / 2)) || "⭐"; // NeoDB通常是10分制，转为5星
+  const score = rating / 2;
+  return "⭐".repeat(Math.floor(score));
 }
 ---
 
 <MainGridLayout title="电影墙">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {movies.map((movie) => (
-            <div class="flex flex-col rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-lg transition-all">
-                {/* 海报与基本信息 */}
-                <div class="flex p-4 gap-4">
-                    <img src={movie.poster} alt={movie.title} class="w-24 h-36 object-cover rounded-lg shadow-md" />
-                    <div class="flex flex-col justify-between py-1">
-                        <div>
-                            <a href={movie.link} target="_blank" class="text-lg font-bold hover:text-[var(--primary)] transition-colors">
-                                {movie.title}
-                            </a>
-                            <div class="text-sm text-yellow-500 mt-1">
-                                {getStars(movie.rating)} <span class="text-zinc-400 text-xs ml-1">({movie.rating})</span>
-                            </div>
-                        </div>
-                        <div class="text-xs text-zinc-400">
-                            看过日期：{movie.date}
-                        </div>
+            <div class="group relative flex flex-col rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-xl transition-all duration-300">
+                
+                {/* 海报容器 */}
+                <div class="relative aspect-[2/3] overflow-hidden">
+                    <img 
+                        src={movie.poster} 
+                        alt={movie.title} 
+                        loading="lazy"
+                        referrerpolicy="no-referrer"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                    
+                    {/* 悬浮遮罩层：显示评论 */}
+                    <div class="absolute inset-0 bg-black/80 flex flex-col justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
+                        {movie.comment ? (
+                            <p class="text-white text-sm leading-relaxed italic line-clamp-6">
+                                “ {movie.comment} ”
+                            </p>
+                        ) : (
+                            <p class="text-zinc-400 text-sm text-center">暂无评价</p>
+                        )}
+                        <a 
+                            href={movie.link} 
+                            target="_blank" 
+                            class="mt-4 text-xs text-[var(--primary)] border border-[var(--primary)] rounded py-1 px-2 text-center hover:bg-[var(--primary)] hover:text-white transition-colors"
+                        >
+                            查看详情
+                        </a>
                     </div>
                 </div>
 
-                {/* 评价部分 - 如果有评价才显示 */}
-                {movie.comment && (
-                    <div class="px-4 pb-4">
-                        <div class="relative p-3 rounded-lg bg-white/50 dark:bg-black/20 text-sm italic text-zinc-600 dark:text-zinc-300">
-                            <span class="absolute -top-2 left-2 text-2xl text-[var(--primary)] opacity-30">“</span>
-                            {movie.comment}
+                {/* 底部标题和评分 */}
+                <div class="p-3 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
+                    <h3 class="text-sm font-bold truncate mb-1" title={movie.title}>
+                        {movie.title}
+                    </h3>
+                    <div class="flex items-center justify-between">
+                        <div class="text-[10px] text-yellow-500 flex items-center">
+                            {movie.rating > 0 ? (
+                                <>
+                                    <span class="mr-1">{getStars(movie.rating)}</span>
+                                    <span class="text-zinc-400 font-mono">{formatRating(movie.rating)}</span>
+                                </>
+                            ) : (
+                                <span class="text-zinc-500 italic">未评分</span>
+                            )}
                         </div>
                     </div>
-                )}
+                </div>
             </div>
         ))}
     </div>
 </MainGridLayout>
+
+<style>
+    /* 简单的多行文本省略，如果评价很长的话 */
+    .line-clamp-6 {
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
