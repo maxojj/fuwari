@@ -6,14 +6,15 @@ interface Movie {
   title: string;
   poster: string;
   year: string;
-  rating: number; // 重新加入评分
+  rating: number; 
   comment: string;
   link: string;
 }
 
-const movies = (moviesData || []) as Movie[];
+// 这里保留 json 中的原始顺序（已经在 Python 端打乱过，直接取最近的 50 条）
+const movies = (moviesData || []).slice(0, 50) as Movie[];
 
-// 评分转换函数：NeoDB 10分制 -> 5.0分制
+// 评分转换函数
 const formatRating = (rating: number) => {
   if (!rating || rating === 0) return "未评分";
   return (rating / 2).toFixed(1);
@@ -53,20 +54,16 @@ const getStars = (rating: number) => {
                     </div>
 
                     <div class="p-4 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
-                        <h3 class="text-sm font-bold truncate mb-2" title={movie.title}>
+                        {/* 标题：调大到 text-base (16px) 并加粗 */}
+                        <h3 class="text-base font-bold truncate mb-1 text-zinc-800 dark:text-zinc-100" title={movie.title}>
                             {movie.title}
                         </h3>
-                        <div class="flex flex-col gap-2">
-                            {/* 第一行：星星和数字评分 */}
+                        <div class="flex flex-col gap-1">
+                            {/* 评分行：星星和加粗的数字评分 */}
                             <div class="flex items-center gap-2">
-                                <span class="text-yellow-500 text-[10px]">{getStars(movie.rating)}</span>
-                                <span class="text-zinc-400 font-mono text-[11px]">{formatRating(movie.rating)}</span>
-                            </div>
-                            
-                            {/* 第二行：年份标签 */}
-                            <div class="flex items-center">
-                                <span class="text-[9px] font-mono bg-zinc-200/50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 px-1.5 py-0.5 rounded uppercase tracking-wider">
-                                    {movie.year || "Unknown"}
+                                <span class="text-yellow-500 text-[11px]">{getStars(movie.rating)}</span>
+                                <span class="text-zinc-500 dark:text-zinc-400 font-bold font-mono text-[13px]">
+                                    {formatRating(movie.rating)}
                                 </span>
                             </div>
                         </div>
