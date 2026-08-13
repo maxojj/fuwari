@@ -4,23 +4,20 @@ import os
 
 TOKEN = os.getenv('NEODB_TOKEN')
 OUTPUT_PATH = "src/content/movies.json"
-MAX_ITEMS = 30 
+MAX_ITEMS = 50  # 改为最近 50 条
 
 def get_movies():
     results = []
     page = 1
-    # 按照开发文档，我们保持 headers 规范
     headers = {
         'Authorization': f'Bearer {TOKEN}',
         'Accept': 'application/json',
-        # 强制请求中文环境
         'Accept-Language': 'zh-cn'
     }
 
-    print("开始从 NeoDB 抓取数据...")
+    print("开始从 NeoDB 抓取最近 50 条电影数据...")
 
     while len(results) < MAX_ITEMS:
-        # 文档路径: /api/me/shelf/complete
         url = f"https://neodb.social/api/me/shelf/complete?category=movie&page={page}"
         
         try:
@@ -28,7 +25,6 @@ def get_movies():
             res.raise_for_status()
             data = res.json()
             
-            # data 包含 'data', 'pages', 'count'
             entries = data.get('data', [])
             if not entries:
                 break
@@ -39,21 +35,18 @@ def get_movies():
                 
                 item = entry.get('item', {})
                 
-                # 1. 标题逻辑：优先显示标题，如果 API 没给中文，我们取 title
                 title = item.get('display_title') or item.get('title')
-                
-                # 2. 评分逻辑：根据文档，标记对象的评分字段是 rating_grade
-                rating = entry.get('rating_grade') or 0
-                
-                # 3. 评论逻辑：文档明确指出是 comment_text
                 comment = entry.get('comment_text') or ""
+                
+                # 获取年份逻辑
+                year = item.get('year') or ""
 
-                print(f"成功获取: {title} | 评分: {rating} | 评论长度: {len(comment)}")
+                print(f"成功获取: {title} | 年份: {year}")
 
                 results.append({
                     "title": title,
                     "poster": item.get('cover_image_url'),
-                    "rating": rating,
+                    "year": year, # 保存年份
                     "comment": comment,
                     "date": entry.get('created_time')[:10] if entry.get('created_time') else "",
                     "link": f"https://neodb.social{item.get('url')}"
