@@ -2,36 +2,18 @@
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 import moviesData from "../content/movies.json";
 
-interface Movie {
-  title: string;
-  poster: string;
-  rating: number;
-  comment: string;
-  date: string;
-  link: string;
-}
+// ... 之前的接口和函数保持不变 ...
 
 const movies = (moviesData || []) as Movie[];
-
-// 评分转换函数：8分 -> 4.0
-const formatRating = (rating: number) => {
-  if (!rating || rating === 0) return null;
-  return (rating / 2).toFixed(1);
-}
-
-// 星星显示函数
-const getStars = (rating: number) => {
-  const score = rating / 2;
-  return "⭐".repeat(Math.floor(score));
-}
 ---
 
-<MainGridLayout title="电影墙">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+<!-- 这里的 hasSidebar={false} 会触发你刚才在 Layout 里写的逻辑 -->
+<MainGridLayout title="电影墙" hasSidebar={false}>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
         {movies.map((movie) => (
             <div class="group relative flex flex-col rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-xl transition-all duration-300">
                 
-                {/* 海报容器 */}
+                {/* 海报与悬浮层代码保持不变 */}
                 <div class="relative aspect-[2/3] overflow-hidden">
                     <img 
                         src={movie.poster} 
@@ -41,36 +23,27 @@ const getStars = (rating: number) => {
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                     />
                     
-                    {/* 悬浮遮罩层：显示评论 */}
                     <div class="absolute inset-0 bg-black/80 flex flex-col justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
-                        {movie.comment ? (
-                            <p class="text-white text-sm leading-relaxed italic line-clamp-6">
-                                “ {movie.comment} ”
-                            </p>
-                        ) : (
-                            <p class="text-zinc-400 text-sm text-center">暂无评价</p>
-                        )}
-                        <a 
-                            href={movie.link} 
-                            target="_blank" 
-                            class="mt-4 text-xs text-[var(--primary)] border border-[var(--primary)] rounded py-1 px-2 text-center hover:bg-[var(--primary)] hover:text-white transition-colors"
-                        >
+                        <p class="text-white text-sm leading-relaxed italic line-clamp-6">
+                            {movie.comment ? `“ ${movie.comment} ”` : "暂无评价"}
+                        </p>
+                        <a href={movie.link} target="_blank" class="mt-4 text-[10px] text-[var(--primary)] border border-[var(--primary)] rounded py-1 px-2 text-center hover:bg-[var(--primary)] hover:text-white transition-colors">
                             查看详情
                         </a>
                     </div>
                 </div>
 
                 {/* 底部标题和评分 */}
-                <div class="p-3 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
-                    <h3 class="text-sm font-bold truncate mb-1" title={movie.title}>
+                <div class="p-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
+                    <h3 class="text-xs font-bold truncate mb-1" title={movie.title}>
                         {movie.title}
                     </h3>
                     <div class="flex items-center justify-between">
                         <div class="text-[10px] text-yellow-500 flex items-center">
                             {movie.rating > 0 ? (
                                 <>
-                                    <span class="mr-1">{getStars(movie.rating)}</span>
-                                    <span class="text-zinc-400 font-mono">{formatRating(movie.rating)}</span>
+                                    <span class="mr-1">{"⭐".repeat(Math.floor(movie.rating/2))}</span>
+                                    <span class="text-zinc-400 font-mono">{(movie.rating/2).toFixed(1)}</span>
                                 </>
                             ) : (
                                 <span class="text-zinc-500 italic">未评分</span>
@@ -84,7 +57,6 @@ const getStars = (rating: number) => {
 </MainGridLayout>
 
 <style>
-    /* 简单的多行文本省略，如果评价很长的话 */
     .line-clamp-6 {
         display: -webkit-box;
         -webkit-line-clamp: 6;
