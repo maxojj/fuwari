@@ -1,40 +1,24 @@
 ---
-// 使用相对路径，确保文件确实在 src/content/ 下
-import moviesData from "../content/movies.json";
-import MainLayout from "../layouts/MainGridLayout.astro";
+const response = await fetch(
+  new URL('../../public/data/movie.json', import.meta.url)
+);
 
-// 显式定义接口
-interface Movie {
-  title: string;
-  poster: string;
-  rating: number;
-  date: string;
-  link: string;
-}
-
-// 强制转换类型以跳过 TS 检查
-const movies = (moviesData as any) as Movie[];
+const data = await response.json();
+const movies = data.data ?? [];
 ---
 
+<h1>Movies</h1>
 
-<MainLayout title="我的观影记录">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    {movies.map((movie) => (
-      <a 
-        href={movie.link} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="card-base block hover:scale-105 transition-all overflow-hidden"
-      >
-        <img src={movie.poster} alt={movie.title} class="w-full aspect-[2/3] object-cover" />
-        <div class="p-2 text-sm">
-          <div class="font-bold truncate">{movie.title}</div>
-          <div class="flex justify-between text-xs text-neutral-500">
-            <span>{movie.date}</span>
-            <span class="text-orange-500">★ {movie.rating}</span>
-          </div>
-        </div>
-      </a>
-    ))}
-  </div>
-</MainLayout>
+<div>
+{
+  movies.map((m) => (
+    <div>
+      <img
+        src={m.item.cover_image_url}
+        width="120"
+     {m.rating_grade / 2} ★</p>
+    </div>
+  ))
+}
+</div>
+``
