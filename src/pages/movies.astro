@@ -1,0 +1,21 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import movies from "../content/movies.json";
+---
+
+<MainLayout title="我的观影记录">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {movies.map((movie) => (
+      <a href={movie.link} target="_blank" class="card-base block hover:scale-105 transition-all">
+        <img src={movie.poster} alt={movie.title} class="w-full aspect-[2/3] object-cover" />
+        <div class="p-2 text-sm">
+          <div class="font-bold truncate">{movie.title}</div>
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>{movie.date}</span>
+            <span class="text-orange-500">★ {movie.rating}</span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</MainLayout>
