@@ -13,7 +13,7 @@ import requests
 # 基础配置
 # --------------------------------------------------
 
-NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+NOTION_TOKEN = os.getenv("NOTION_CAPSULES_TOKEN")
 
 CAPSULE_DATABASE_ID = os.getenv(
     "CAPSULE_DATABASE_ID",
@@ -41,7 +41,7 @@ NOTION_VERSION = "2022-06-28"
 
 if not NOTION_TOKEN:
     raise RuntimeError(
-        "没有找到 NOTION_TOKEN 环境变量"
+        "没有找到 NOTION_CAPSULES_TOKEN 环境变量"
     )
 
 
