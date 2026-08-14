@@ -76,7 +76,7 @@ export const navBarConfig: NavBarConfig = {
 		// Moments
 		{
 			name: "Moments",
-			url: "https://ins.feimind.xyz/",
+			url: "/moments",
 			external: true, // Fuwari 会自动处理 target="_blank"
 		},
 
