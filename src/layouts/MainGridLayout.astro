@@ -24,13 +24,13 @@ interface Props {
 
 	/**
 	 * 是否显示侧边栏。
-	 * 默认 true，保证博客页面保持原来的布局。
+	 * 默认显示，博客页面无需额外设置。
 	 */
 	showSidebar?: boolean;
 
 	/**
-	 * 无侧边栏页面是否使用较宽的内容区域。
-	 * 例如 Twitter、Projects、About 可以设置为 true。
+	 * 无侧边栏页面是否使用宽布局。
+	 * Twitter、Projects、About 等页面可以设置为 true。
 	 */
 	wide?: boolean;
 }
@@ -46,27 +46,35 @@ const {
 	wide = false,
 } = Astro.props;
 
-const hasBannerCredit =
-	siteConfig.banner.enable && siteConfig.banner.credit.enable;
-
-const hasBannerLink = !!siteConfig.banner.credit.url;
-
 const mainPanelTop = siteConfig.banner.enable
 	? `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)`
 	: "5.5rem";
 
 /**
- * 有侧边栏时使用站点原有宽度。
+ * 正文区域宽度：
  *
- * 无侧边栏时：
- * - wide=true：使用较宽的 max-w-5xl；
- * - wide=false：使用普通的 max-w-4xl。
+ * 博客页面：
+ * 使用 Fuwari 原来的 page-width，并显示侧边栏。
+ *
+ * 普通无侧边栏页面：
+ * 使用 max-w-4xl。
+ *
+ * 宽版无侧边栏页面：
+ * 使用 max-w-5xl。
  */
 const contentWidthClass = showSidebar
 	? "max-w-[var(--page-width)]"
 	: wide
 		? "max-w-5xl"
 		: "max-w-4xl";
+
+/**
+ * 导航栏单独使用宽度，不跟随正文区域变化。
+ *
+ * max-w-6xl 约为 1152px。
+ * 如果导航项目仍然拥挤，可以改成 max-w-7xl。
+ */
+const navbarWidthClass = "max-w-6xl";
 ---
 
 <Layout
@@ -82,14 +90,14 @@ const contentWidthClass = showSidebar
 	<div
 		id="top-row"
 		class:list={[
-			"pointer-events-none relative z-50 mx-auto transition-all duration-700",
-			contentWidthClass,
+			"pointer-events-none relative z-50 mx-auto w-full transition-all duration-700",
+			navbarWidthClass,
 			"px-0 md:px-4",
 		]}
 	>
 		<div
 			id="navbar-wrapper"
-			class="pointer-events-auto sticky top-0 transition-all"
+			class="pointer-events-auto sticky top-0 min-w-0 transition-all"
 		>
 			<Navbar></Navbar>
 		</div>
@@ -124,7 +132,7 @@ const contentWidthClass = showSidebar
 	>
 		<div
 			class:list={[
-				"pointer-events-auto relative mx-auto min-w-0",
+				"pointer-events-auto relative mx-auto min-w-0 w-full",
 				contentWidthClass,
 			]}
 		>
@@ -154,10 +162,7 @@ const contentWidthClass = showSidebar
 					<main
 						id="swup-main"
 						class:list={[
-							"onload-animation min-w-0 max-w-full overflow-hidden",
-							showSidebar
-								? "lg:col-span-1"
-								: "col-span-1",
+							"onload-animation col-span-1 min-w-0 max-w-full overflow-hidden",
 						]}
 					>
 						<div id="content-wrapper" class="min-w-0 max-w-full">
@@ -183,13 +188,13 @@ const contentWidthClass = showSidebar
 
 	<!-- TOC -->
 	<div class="absolute z-0 hidden w-full 2xl:block">
-		<div class:list={["relative mx-auto", contentWidthClass]}>
+		<div class:list={["relative mx-auto w-full", contentWidthClass]}>
 			{
 				siteConfig.toc.enable && (
 					<div
 						id="toc-wrapper"
 						class:list={[
-							"hidden items-center transition absolute top-0 -right-[var(--toc-width)] w-[var(--toc-width)] lg:block",
+							"absolute -right-[var(--toc-width)] top-0 hidden w-[var(--toc-width)] items-center transition lg:block",
 							{ "toc-hide": siteConfig.banner.enable },
 						]}
 					>
@@ -202,7 +207,9 @@ const contentWidthClass = showSidebar
 								class="h-full w-full transition-swup-fade"
 							>
 								<div class="h-8 w-full"></div>
+
 								<TOC headings={headings}></TOC>
+
 								<div class="h-8 w-full"></div>
 							</div>
 						</div>
