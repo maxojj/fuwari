@@ -77,7 +77,6 @@ export const navBarConfig: NavBarConfig = {
 		{
 			name: "Moments",
 			url: "/moments",
-			external: true, // Fuwari 会自动处理 target="_blank"
 		},
 
 		// About
