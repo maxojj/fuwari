@@ -30,7 +30,7 @@ interface CapsuleBlock {
 interface Capsule {
   id?: string;
   date?: string;
-  tags?: string[];
+  tag?: string | string[];
   blocks?: CapsuleBlock[];
 }
 
@@ -209,7 +209,22 @@ const hasMore = capsules.length > pageSize;
     };
 
     const renderCapsule = (capsule) => {
-      const tags = (capsule.tags || [])
+      const tags = [
+        ...(Array.isArray(capsule.tags) ? capsule.tags : []),
+        ...(Array.isArray(capsule.tag)
+          ? capsule.tag
+          : capsule.tag
+            ? [capsule.tag]
+            : []),
+]
+  .filter(Boolean)
+  .map(
+    (tag) =>
+      `<span class="text-[var(--primary)]">#${escapeHtml(tag)}</span>`,
+  )
+  .join("");
+
+
         .map((tag) => `<span class="text-[var(--primary)]">#${escapeHtml(tag)}</span>`)
         .join("");
 
