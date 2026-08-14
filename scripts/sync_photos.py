@@ -1,6 +1,8 @@
 import json
+import mimetypes
 import os
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 
@@ -10,6 +12,7 @@ DATABASE_ID = "d698aeed-cb97-46fd-aa0c-de95cd87da38"
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = PROJECT_ROOT / "src" / "content" / "photos.json"
+IMAGE_DIR = PROJECT_ROOT / "public" / "images" / "photos"
 
 if not NOTION_TOKEN:
     raise RuntimeError("没有找到环境变量 NOTION_TOKEN")
@@ -79,16 +82,17 @@ def get_page_blocks(page_id):
 
 def get_title(properties):
     title_property = properties.get("Name", {})
-
     title_items = title_property.get("title", [])
 
     if not title_items:
         return "未命名照片"
 
-    return "".join(
+    title = "".join(
         item.get("plain_text", "")
         for item in title_items
-    ).strip() or "未命名照片"
+    ).strip()
+
+    return title or "未命名照片"
 
 
 def get_date(properties):
@@ -128,14 +132,54 @@ def find_images_in_blocks(blocks):
     image_urls = []
 
     for block in blocks:
-        if block.get("type") == "image":
-            image_data = block.get("image", {})
-            image_url = get_image_url(image_data)
+        if block.get("type") != "image":
+            continue
 
-            if image_url:
-                image_urls.append(image_url)
+        image_data = block.get("image", {})
+        image_url = get_image_url(image_data)
+
+        if image_url:
+            image_urls.append(image_url)
 
     return image_urls
+
+
+def get_file_extension(url, response):
+    """根据响应类型或 URL 获取图片扩展名"""
+    content_type = response.headers.get("Content-Type", "").split(";")[0].lower()
+
+    extension = mimetypes.guess_extension(content_type)
+
+    if extension in [".jpe", ".jpeg"]:
+        return ".jpg"
+
+    if extension:
+        return extension
+
+    url_path = urlparse(url).path.lower()
+    url_extension = Path(url_path).suffix
+
+    if url_extension in [".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"]:
+        return ".jpg" if url_extension == ".jpeg" else url_extension
+
+    return ".jpg"
+
+
+def download_image(image_url, image_number):
+    """下载图片到 public/images/photos/"""
+    response = requests.get(image_url, timeout=60)
+    response.raise_for_status()
+
+    extension = get_file_extension(image_url, response)
+    filename = f"{image_number:04d}{extension}"
+    output_path = IMAGE_DIR / filename
+
+    with output_path.open("wb") as file:
+        file.write(response.content)
+
+    print(f"已下载：{output_path}")
+
+    return f"/images/photos/{filename}"
 
 
 def main():
@@ -143,7 +187,10 @@ def main():
 
     print(f"数据库返回 {len(pages)} 个页面")
 
+    IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+
     photos = []
+    image_number = 1
 
     for index, page in enumerate(pages, start=1):
         page_id = page.get("id")
@@ -164,17 +211,28 @@ def main():
             print(f"[{index}/{len(pages)}] 没有找到图片：{title}")
             continue
 
-        for image_index, image_url in enumerate(image_urls):
-            photos.append({
-                "title": title,
-                "url": image_url,
-                "date": date,
-                "location": location,
-            })
+        downloaded_count = 0
+
+        for image_url in image_urls:
+            try:
+                local_url = download_image(image_url, image_number)
+
+                photos.append({
+                    "title": title,
+                    "url": local_url,
+                    "date": date,
+                    "location": location,
+                })
+
+                image_number += 1
+                downloaded_count += 1
+
+            except Exception as error:
+                print(f"下载图片失败：{title}，原因：{error}")
 
         print(
             f"[{index}/{len(pages)}] "
-            f"{title}：找到 {len(image_urls)} 张图片"
+            f"{title}：下载 {downloaded_count} 张图片"
         )
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -182,7 +240,9 @@ def main():
     with OUTPUT_PATH.open("w", encoding="utf-8") as file:
         json.dump(photos, file, ensure_ascii=False, indent=2)
 
-    print(f"✅ 成功！抓取了 {len(photos)} 张照片到 {OUTPUT_PATH}")
+    print(f"✅ 成功！下载了 {len(photos)} 张照片")
+    print(f"✅ JSON 已保存到：{OUTPUT_PATH}")
+    print(f"✅ 图片已保存到：{IMAGE_DIR}")
 
 
 if __name__ == "__main__":
