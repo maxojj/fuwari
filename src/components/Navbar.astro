@@ -108,8 +108,12 @@ function loadButtonScript() {
 }
 
 loadButtonScript();
-// 兼容 Swup 的重载逻辑
-document.addEventListener('swup:contentReplaced', loadButtonScript);
+if (window.swup) {
+  window.swup.hooks.on(
+    'page:view',
+    loadButtonScript
+  );
+}
 </script>
 
 {import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>
