@@ -2,107 +2,150 @@ name: Build and Check
 
 on:
   push:
-    branches: [ main ] # Adjust branches as needed
+    branches:
+      - main
+
   pull_request:
-    branches: [ main ] # Adjust branches as needed
+    branches:
+      - main
+
+  # 每小时执行一次
+  schedule:
+    - cron: "0 * * * *"
+
+  # 支持在 GitHub Actions 页面手动执行
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
-  contents: write 
+  contents: write
+
 
 jobs:
   check:
     strategy:
       matrix:
-        node: [ 22 ]
+        node:
+          - 22
+
     runs-on: ubuntu-latest
+
     name: Astro Check for Node.js ${{ matrix.node }}
-    steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
-        with:
-          node-version: ${{ matrix.node }} # Use LTS
-
-      - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-        with:
-          run_install: false # Disable auto-install
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Run Astro Check
-        run: pnpm astro check || true 
-
-  build:
-    strategy:
-      matrix:
-        node: [ 22 ]
-    runs-on: ubuntu-latest
-    name: Astro Build for Node.js ${{ matrix.node }}
 
     steps:
       - name: Setup Node.js
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
+        uses: actions/setup-node@cdca7367b2dadb8aad0a33bc7601856ffabcc48e
         with:
           node-version: ${{ matrix.node }}
 
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-
-      # 新增：准备 Python
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-
-      # 新增：安装 Python 依赖
-      - name: Install Python dependencies
-        run: python -m pip install requests pillow pillow-heif
-
-      # 新增：确认脚本确实存在
-      - name: Check photo sync script
-        run: |
-          pwd
-          ls -la scripts
-          test -f scripts/sync_photos.py
-
-      # 新增：从 Notion 同步照片
-      - name: Sync Notion Photos
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-        run: python scripts/sync_photos.py
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
         with:
           run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Commit synced photos
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - name: Run Astro Check
+        run: pnpm astro check || true
+
+
+  build:
+    strategy:
+      matrix:
+        node:
+          - 22
+
+    runs-on: ubuntu-latest
+
+    name: Astro Build for Node.js ${{ matrix.node }}
+
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests pillow pillow-heif
+
+      - name: Check sync scripts
+        run: |
+          pwd
+          ls -la scripts
+          test -f scripts/sync_photos.py
+          test -f scripts/sync_capsules.py
+
+      # Pull Request 不执行同步：
+      # PR 通常无法读取仓库 Secrets，而且不应该修改仓库内容。
+      - name: Sync Notion Photos
+        if: >
+          github.event_name == 'push' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          python scripts/sync_photos.py
+
+      - name: Sync Notion Capsules
+        if: >
+          github.event_name == 'push' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
+        env:
+          NOTION_CAPSULES_TOKEN: ${{ secrets.NOTION_CAPSULES_TOKEN }}
+        run: |
+          python scripts/sync_capsules.py
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 同步完成后提交照片和闪念文件
+      - name: Commit synced Notion content
+        if: >
+          github.event_name == 'push' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add public/images/photos src/content/photos.json
+          git add \
+            public/images/photos \
+            src/content/photos.json \
+            public/images/capsules \
+            src/content/capsules.json
 
           if git diff --cached --quiet; then
-            echo "没有新的照片变化"
+            echo "没有新的 Notion 内容变化"
           else
-            git commit -m "Sync photos from Notion"
+            git commit -m "Sync content from Notion"
             git push
           fi
 
       - name: Run Astro Build
         run: pnpm astro build
-
-
