@@ -46,6 +46,13 @@ const {
 	wide = false,
 } = Astro.props;
 
+console.log("MainGridLayout", {
+	title,
+	showSidebar,
+	wide,
+});
+
+
 const mainPanelTop = siteConfig.banner.enable
 	? `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)`
 	: "5.5rem";
