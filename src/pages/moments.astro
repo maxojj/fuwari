@@ -1,0 +1,116 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import photosData from "../content/photos.json";
+
+interface Photo {
+  title: string;
+  url: string;
+  date: string;
+  location?: string;
+}
+
+const photos = (photosData || []) as Photo[];
+
+const formatMonth = (date: string) => {
+  if (!date) return "";
+
+  const parsedDate = new Date(`${date}T00:00:00`);
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return "";
+  }
+
+  return parsedDate.toLocaleDateString("zh-CN", {
+    year: "numeric",
+    month: "long",
+  });
+};
+
+const isUnnamedPhoto = (title: string) => {
+  return !title || title.trim() === "未命名照片";
+};
+---
+
+<MainGridLayout title="Moments">
+    <div class="max-w-[1200px] mx-auto pb-10 px-4 md:px-0">
+        <!-- 页面标题和介绍 -->
+        <header class="mb-8 pt-2 md:pt-4">
+            <div class="mb-2 flex items-center gap-2">
+                <span class="text-3xl leading-none" aria-hidden="true">📸</span>
+
+                <h1 class="text-3xl font-bold tracking-tight text-black/85 dark:text-white/90 md:text-4xl">
+                    Moments
+                </h1>
+            </div>
+
+            <div class="max-w-2xl text-sm leading-7 text-black/55 dark:text-white/55 md:text-base">
+                <p>
+                    感谢 Notion、NOMO、理光 GR3x、iPhone 对环节的大力支持
+                </p>
+                <p>
+                    希望你也可以拿起任何工具，记录生活和碎片。（部分 moments 非原创）
+                </p>
+            </div>
+        </header>
+
+        <!-- 原有瀑布流布局 -->
+        <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {photos.map((photo) => (
+                <div class="break-inside-avoid group relative rounded-2xl overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                    <img
+                        src={photo.url}
+                        alt={isUnnamedPhoto(photo.title) ? "Moment" : photo.title}
+                        loading="lazy"
+                        class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+
+                    <!-- 悬浮信息 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        {!isUnnamedPhoto(photo.title) && (
+                            <h3 class="text-white text-lg font-bold">
+                                {photo.title}
+                            </h3>
+                        )}
+
+                        <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/75">
+                            {photo.location && (
+                                <span>
+                                    {photo.location}
+                                </span>
+                            )}
+
+                            {photo.location && photo.date && (
+                                <span class="text-white/40">·</span>
+                            )}
+
+                            {photo.date && (
+                                <time datetime={photo.date}>
+                                    {formatMonth(photo.date)}
+                                </time>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+
+    <script is:inline>
+        function handleSidebar() {
+            const isPhotoPage = window.location.pathname.includes("/photos");
+            const sidebar = document.getElementById("sidebar-container");
+            const mainGrid = document.getElementById("main-grid");
+
+            if (isPhotoPage && sidebar) {
+                sidebar.style.display = "none";
+
+                if (mainGrid) {
+                    mainGrid.style.gridTemplateColumns = "1fr";
+                }
+            }
+        }
+
+        handleSidebar();
+        document.addEventListener("swup:content_replaced", handleSidebar);
+    </script>
+</MainGridLayout>
