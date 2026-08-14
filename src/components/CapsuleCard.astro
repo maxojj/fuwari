@@ -27,6 +27,7 @@ interface Capsule {
   id?: string;
   date?: string;
   tags?: string[];
+  tag?: string | string[];
   blocks?: CapsuleBlock[];
 }
 
@@ -37,7 +38,16 @@ interface Props {
 const { capsule } = Astro.props;
 
 const date = capsule.date || "";
-const tags = capsule.tags || [];
+
+const tags = [
+  ...(Array.isArray(capsule.tags) ? capsule.tags : []),
+  ...(Array.isArray(capsule.tag)
+    ? capsule.tag
+    : capsule.tag
+      ? [capsule.tag]
+      : []),
+].filter(Boolean);
+
 const blocks = capsule.blocks || [];
 
 function escapeHtml(value: unknown) {
@@ -47,10 +57,6 @@ function escapeHtml(value: unknown) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
-}
-
-function escapeAttribute(value: unknown) {
-  return escapeHtml(value);
 }
 
 function formatDate(value: string) {
@@ -86,35 +92,22 @@ function getPlainText(block: CapsuleBlock) {
 function renderRichText(items: RichText[]) {
   return items
     .map((item) => {
-      const text = escapeHtml(item.text || "");
+      let content = escapeHtml(item.text || "");
       const annotations = item.annotations || {};
-
-      let content = text;
 
       if (annotations.code) {
         content = `<code class="rounded bg-black/5 px-1 py-0.5 font-mono text-sm dark:bg-white/10">${content}</code>`;
       }
 
-      if (annotations.bold) {
-        content = `<strong>${content}</strong>`;
-      }
-
-      if (annotations.italic) {
-        content = `<em>${content}</em>`;
-      }
-
-      if (annotations.strikethrough) {
-        content = `<s>${content}</s>`;
-      }
-
-      if (annotations.underline) {
-        content = `<u>${content}</u>`;
-      }
+      if (annotations.bold) content = `<strong>${content}</strong>`;
+      if (annotations.italic) content = `<em>${content}</em>`;
+      if (annotations.strikethrough) content = `<s>${content}</s>`;
+      if (annotations.underline) content = `<u>${content}</u>`;
 
       if (item.href) {
         content = `
           <a
-            href="${escapeAttribute(item.href)}"
+            href="${escapeHtml(item.href)}"
             target="_blank"
             rel="noopener noreferrer"
             class="text-[var(--primary)] underline decoration-[var(--primary)]/40 underline-offset-4"
@@ -132,6 +125,7 @@ function renderRichText(items: RichText[]) {
 function renderBlock(block: CapsuleBlock) {
   const type = block.type || "paragraph";
   const richText = getRichText(block);
+
   const content =
     richText.length > 0
       ? renderRichText(richText)
@@ -141,8 +135,8 @@ function renderBlock(block: CapsuleBlock) {
     return `
       <figure class="mt-4 overflow-hidden rounded-xl">
         <img
-          src="${escapeAttribute(block.url)}"
-          alt="${escapeAttribute(block.alt || block.caption || "")}"
+          src="${escapeHtml(block.url)}"
+          alt="${escapeHtml(block.alt || block.caption || "")}"
           loading="lazy"
           class="h-auto w-full object-cover"
         />
@@ -164,7 +158,7 @@ function renderBlock(block: CapsuleBlock) {
   }
 
   if (type === "heading_1") {
-    return `<h2 class="mt-4 mb-2 text-xl font-bold">${content}</h2>`;
+    return `<h2 class="mt-5 mb-2 text-xl font-bold">${content}</h2>`;
   }
 
   if (type === "heading_2") {
@@ -177,7 +171,7 @@ function renderBlock(block: CapsuleBlock) {
 
   if (type === "quote") {
     return `
-      <blockquote class="my-3 border-l-4 border-[var(--primary)]/40 pl-4 text-black/60 italic dark:text-white/60">
+      <blockquote class="my-4 border-l-4 border-[var(--primary)]/40 pl-4 text-black/60 italic dark:text-white/60">
         ${content}
       </blockquote>
     `;
@@ -192,19 +186,17 @@ function renderBlock(block: CapsuleBlock) {
   }
 
   if (
-    (type === "bookmark" ||
-      type === "embed" ||
-      type === "link_preview") &&
+    ["bookmark", "embed", "link_preview"].includes(type) &&
     (block.url || block.href)
   ) {
     const url = block.url || block.href || "";
 
     return `
       <a
-        href="${escapeAttribute(url)}"
+        href="${escapeHtml(url)}"
         target="_blank"
         rel="noopener noreferrer"
-        class="my-3 block truncate rounded-xl border border-black/10 px-4 py-3 text-sm text-[var(--primary)] dark:border-white/10"
+        class="my-4 block truncate rounded-xl border border-black/10 px-4 py-3 text-sm text-[var(--primary)] transition hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/5"
       >
         ${escapeHtml(url)}
       </a>
@@ -218,20 +210,19 @@ const renderedBlocks = blocks.map(renderBlock).join("");
 ---
 
 <article
-  class="capsule-card rounded-2xl border border-black/10 bg-[var(--card-bg)] p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10"
-  data-capsule-card
+  class="capsule-card rounded-xl border border-black/10 bg-white/70 p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-white/[0.03]"
 >
-  <header class="mb-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm">
+  <header class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
     <time
       datetime={date}
-      class="font-mono text-black/45 dark:text-white/45"
+      class="shrink-0 font-mono text-black/45 dark:text-white/45"
     >
       {formatDate(date)}
     </time>
 
     {
       tags.length > 0 && (
-        <div class="flex flex-wrap justify-end gap-x-3 gap-y-1">
+        <div class="flex flex-wrap gap-x-3 gap-y-1">
           {tags.map((tag) => (
             <span class="text-[var(--primary)]">#{tag}</span>
           ))}
