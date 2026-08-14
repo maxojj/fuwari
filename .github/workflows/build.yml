@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write 
 
 jobs:
   check:
@@ -87,6 +87,22 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Commit synced photos
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add public/images/photos src/content/photos.json
+
+          if git diff --cached --quiet; then
+            echo "没有新的照片变化"
+          else
+            git commit -m "Sync photos from Notion"
+            git push
+          fi
+
       - name: Run Astro Build
         run: pnpm astro build
+
 
