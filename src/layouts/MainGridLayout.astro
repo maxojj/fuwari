@@ -46,12 +46,6 @@ const {
 	wide = false,
 } = Astro.props;
 
-console.log("MainGridLayout", {
-	title,
-	showSidebar,
-	wide,
-});
-
 
 const mainPanelTop = siteConfig.banner.enable
 	? `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)`
@@ -138,11 +132,14 @@ const navbarWidthClass = "max-w-6xl";
 		style={`top: ${mainPanelTop}`}
 	>
 		<div
-			class:list={[
-				"pointer-events-auto relative mx-auto min-w-0 w-full",
-				contentWidthClass,
-			]}
-		>
+  data-sidebar={String(showSidebar)}
+  data-wide={String(wide)}
+  data-width={contentWidthClass}
+  class:list={[
+    "pointer-events-auto relative mx-auto min-w-0 w-full",
+    contentWidthClass,
+  ]}
+>
 			<div id="swup-container" class="transition-swup-fade">
 				<div
 					id="main-grid"
