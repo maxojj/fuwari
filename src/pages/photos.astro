@@ -6,43 +6,114 @@ interface Photo {
   title: string;
   url: string;
   date: string;
+  location?: string;
 }
 
 const photos = (photosData || []) as Photo[];
+
+const formatMonth = (date: string) => {
+  if (!date) return "";
+
+  const parsedDate = new Date(`${date}T00:00:00`);
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return "";
+  }
+
+  return parsedDate.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+};
+
+const isUnnamed = (title: string) => {
+  return !title || title.trim() === "未命名照片";
+};
 ---
 
-<MainGridLayout title="相册">
-    <div class="max-w-[1200px] mx-auto pb-10 px-4 md:px-0">
-        <!-- 瀑布流布局 -->
-        <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+<MainGridLayout title="Moments">
+    <div class="mx-auto max-w-[1200px] px-4 pb-12 md:px-0">
+        <!-- 页面介绍 -->
+        <header class="mb-8 pt-2 md:pt-4">
+            <div class="mb-2 flex items-center gap-2">
+                <span class="text-3xl leading-none" aria-hidden="true">📸</span>
+                <h1 class="text-3xl font-bold tracking-tight text-black/85 dark:text-white/90 md:text-4xl">
+                    Moments
+                </h1>
+            </div>
+
+            <div class="max-w-2xl text-sm leading-7 text-black/55 dark:text-white/55 md:text-base">
+                <p>
+                    感谢 Notion、NOMO、理光 GR3x、iPhone 对环节的大力支持
+                </p>
+                <p>
+                    希望你也可以拿起任何工具，记录生活和碎片。（部分 moments 非原创）
+                </p>
+            </div>
+        </header>
+
+        <!-- 照片瀑布流 -->
+        <div class="columns-1 gap-6 space-y-6 md:columns-2 lg:columns-3">
             {photos.map((photo) => (
-                <div class="break-inside-avoid group relative rounded-2xl overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                    <img 
-                        src={photo.url} 
-                        alt={photo.title}
-                        loading="lazy"
-                        class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <h3 class="text-white text-lg font-bold">{photo.title}</h3>
-                        <p class="text-white/60 text-sm font-mono">{photo.date}</p>
+                <article
+                    class="group relative mb-6 break-inside-avoid overflow-hidden rounded-2xl border border-black/5 bg-black/5 shadow-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
+                >
+                    <div class="overflow-hidden">
+                        <img
+                            src={photo.url}
+                            alt={isUnnamed(photo.title) ? "Moment" : photo.title}
+                            loading="lazy"
+                            class="block h-auto w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
                     </div>
-                </div>
+
+                    <!-- 底部信息 -->
+                    <div class="flex min-h-[52px] items-center gap-2 bg-white/90 px-4 py-3 dark:bg-black/75">
+                        {photo.location && (
+                            <span class="shrink-0 rounded-md bg-amber-100 px-2 py-1 text-xs font-medium text-amber-900/75 dark:bg-amber-200/15 dark:text-amber-100/80">
+                                {photo.location}
+                            </span>
+                        )}
+
+                        {photo.date && (
+                            <time
+                                datetime={photo.date}
+                                class="text-sm text-black/75 dark:text-white/75"
+                            >
+                                {formatMonth(photo.date)}
+                            </time>
+                        )}
+                    </div>
+
+                    <!-- 有标题时，鼠标悬浮显示标题 -->
+                    {!isUnnamed(photo.title) && (
+                        <div class="pointer-events-none absolute inset-x-0 bottom-[52px] bg-gradient-to-t from-black/80 via-black/30 to-transparent px-5 pb-5 pt-16 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            <h2 class="text-base font-semibold leading-6 text-white drop-shadow-md">
+                                {photo.title}
+                            </h2>
+                        </div>
+                    )}
+                </article>
             ))}
         </div>
     </div>
 
     <script is:inline>
         function handleSidebar() {
-            const isPhotoPage = window.location.pathname.includes('/photos');
-            const sidebar = document.getElementById('sidebar-container');
-            const mainGrid = document.getElementById('main-grid');
+            const isPhotoPage = window.location.pathname.includes("/photos");
+            const sidebar = document.getElementById("sidebar-container");
+            const mainGrid = document.getElementById("main-grid");
+
             if (isPhotoPage && sidebar) {
-                sidebar.style.display = 'none';
-                if (mainGrid) mainGrid.style.gridTemplateColumns = '1fr';
+                sidebar.style.display = "none";
+
+                if (mainGrid) {
+                    mainGrid.style.gridTemplateColumns = "1fr";
+                }
             }
         }
+
         handleSidebar();
-        document.addEventListener('swup:content_replaced', handleSidebar);
+        document.addEventListener("swup:content_replaced", handleSidebar);
     </script>
 </MainGridLayout>
