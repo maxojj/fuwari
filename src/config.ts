@@ -79,6 +79,12 @@ export const navBarConfig: NavBarConfig = {
 			url: "/moments",
 		},
 
+		// Twitter
+		{
+			name: "Twitter",
+			url: "/twitter",
+		},
+
 		// About
 		LinkPreset.About,
 
