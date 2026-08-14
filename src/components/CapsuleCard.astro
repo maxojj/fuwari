@@ -1,0 +1,230 @@
+---
+interface RichText {
+  type?: string;
+  text?: string;
+  href?: string;
+  annotations?: {
+    bold?: boolean;
+    italic?: boolean;
+    strikethrough?: boolean;
+    underline?: boolean;
+    code?: boolean;
+  };
+}
+
+interface CapsuleBlock {
+  type?: string;
+  text?: string;
+  url?: string;
+  href?: string;
+  caption?: string;
+  alt?: string;
+  children?: RichText[];
+  rich_text?: RichText[];
+}
+
+interface Capsule {
+  id?: string;
+  date?: string;
+  tags?: string[];
+  blocks?: CapsuleBlock[];
+}
+
+interface Props {
+  capsule: Capsule;
+}
+
+const { capsule } = Astro.props;
+
+const date = capsule.date || "";
+const tags = capsule.tags || [];
+const blocks = capsule.blocks || [];
+
+function formatDate(value: string) {
+  if (!value) return "";
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return value.replaceAll("-", ".");
+  }
+
+  return new Intl.DateTimeFormat("zh-CN", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  })
+    .format(date)
+    .replaceAll("/", ".");
+}
+
+function getRichText(block: CapsuleBlock) {
+  return block.rich_text || block.children || [];
+}
+
+function getPlainText(block: CapsuleBlock) {
+  if (block.text) return block.text;
+
+  return getRichText(block)
+    .map((item) => item.text || "")
+    .join("");
+}
+
+function renderRichText(items: RichText[]) {
+  return items.map((item) => {
+    const text = item.text || "";
+    const annotations = item.annotations || {};
+
+    const content = (
+      <span
+        class:list={[
+          { "font-bold": annotations.bold },
+          { italic: annotations.italic },
+          { "line-through": annotations.strikethrough },
+          { underline: annotations.underline },
+          { "rounded bg-black/5 px-1 py-0.5 font-mono text-sm dark:bg-white/10": annotations.code },
+        ]}
+      >
+        {text}
+      </span>
+    );
+
+    if (item.href) {
+      return (
+        <a
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[var(--primary)] underline decoration-[var(--primary)]/40 underline-offset-4 hover:decoration-[var(--primary)]"
+        >
+          {content}
+        </a>
+      );
+    }
+
+    return content;
+  });
+}
+
+function renderBlock(block: CapsuleBlock) {
+  const type = block.type || "paragraph";
+  const richText = getRichText(block);
+
+  if (type === "image" && block.url) {
+    return (
+      <figure class="mt-4 overflow-hidden rounded-xl">
+        <img
+          src={block.url}
+          alt={block.alt || block.caption || ""}
+          loading="lazy"
+          class="h-auto w-full object-cover"
+        />
+        {block.caption && (
+          <figcaption class="mt-2 text-center text-sm text-black/40 dark:text-white/40">
+            {block.caption}
+          </figcaption>
+        )}
+      </figure>
+    );
+  }
+
+  if (type === "divider") {
+    return <hr class="my-5 border-black/10 dark:border-white/10" />;
+  }
+
+  if (
+    type === "heading_1" ||
+    type === "heading_2" ||
+    type === "heading_3"
+  ) {
+    const Tag = type === "heading_1"
+      ? "h2"
+      : type === "heading_2"
+        ? "h3"
+        : "h4";
+
+    return (
+      <Tag class="mt-4 mb-2 font-bold">
+        {richText.length > 0 ? renderRichText(richText) : getPlainText(block)}
+      </Tag>
+    );
+  }
+
+  if (type === "quote") {
+    return (
+      <blockquote class="my-3 border-l-4 border-[var(--primary)]/40 pl-4 text-black/60 italic dark:text-white/60">
+        {richText.length > 0 ? renderRichText(richText) : getPlainText(block)}
+      </blockquote>
+    );
+  }
+
+  if (type === "bulleted_list_item") {
+    return (
+      <li class="ml-5 list-disc">
+        {richText.length > 0 ? renderRichText(richText) : getPlainText(block)}
+      </li>
+    );
+  }
+
+  if (type === "numbered_list_item") {
+    return (
+      <li class="ml-5 list-decimal">
+        {richText.length > 0 ? renderRichText(richText) : getPlainText(block)}
+      </li>
+    );
+  }
+
+  if (type === "bookmark" || type === "embed" || type === "link_preview") {
+    const url = block.url || block.href;
+
+    if (url) {
+      return (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="my-3 block truncate rounded-xl border border-black/10 px-4 py-3 text-sm text-[var(--primary)] transition hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/5"
+        >
+          {url}
+        </a>
+      );
+    }
+  }
+
+  return (
+    <p class="mb-3 last:mb-0">
+      {richText.length > 0 ? renderRichText(richText) : getPlainText(block)}
+    </p>
+  );
+}
+---
+
+<article
+  class="capsule-card rounded-2xl border border-black/10 bg-[var(--card-bg)] p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10"
+  data-capsule-card
+>
+  <header class="mb-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm">
+    <time
+      datetime={date}
+      class="font-mono text-black/45 dark:text-white/45"
+    >
+      {formatDate(date)}
+    </time>
+
+    {
+      tags.length > 0 && (
+        <div class="flex flex-wrap justify-end gap-x-3 gap-y-1">
+          {tags.map((tag) => (
+            <span class="text-[var(--primary)]">#{tag}</span>
+          ))}
+        </div>
+      )
+    }
+  </header>
+
+  <div class="break-words text-[1rem] leading-8 text-black/80 dark:text-white/80">
+    {
+      blocks.map((block) => renderBlock(block))
+    }
+  </div>
+</article>
