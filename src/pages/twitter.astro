@@ -1,0 +1,262 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import CapsuleCard from "../components/CapsuleCard.astro";
+import capsulesData from "../content/capsules.json";
+
+interface RichText {
+  type?: string;
+  text?: string;
+  href?: string;
+  annotations?: {
+    bold?: boolean;
+    italic?: boolean;
+    strikethrough?: boolean;
+    underline?: boolean;
+    code?: boolean;
+  };
+}
+
+interface CapsuleBlock {
+  type?: string;
+  text?: string;
+  url?: string;
+  href?: string;
+  caption?: string;
+  alt?: string;
+  children?: RichText[];
+  rich_text?: RichText[];
+}
+
+interface Capsule {
+  id?: string;
+  date?: string;
+  tags?: string[];
+  blocks?: CapsuleBlock[];
+}
+
+const capsules = (capsulesData as Capsule[])
+  .filter((capsule) => capsule && capsule.date)
+  .sort((a, b) => {
+    const dateA = new Date(a.date || 0).getTime();
+    const dateB = new Date(b.date || 0).getTime();
+
+    return dateB - dateA;
+  });
+
+const pageSize = 20;
+const initialCapsules = capsules.slice(0, pageSize);
+const hasMore = capsules.length > pageSize;
+---
+
+<MainGridLayout
+  title="Twitter"
+  description="短内容、即时想法与生活观察"
+>
+  <div class="mx-auto w-full max-w-3xl px-4 pb-16 pt-8">
+    <header class="mb-8">
+      <h1 class="mb-2 text-3xl font-bold">Twitter</h1>
+
+      <p class="text-black/55 dark:text-white/55">
+        短内容、即时想法与生活观察
+      </p>
+    </header>
+
+    {
+      capsules.length > 0 ? (
+        <>
+          <section
+            id="capsule-feed"
+            class="grid gap-4"
+            aria-label="Twitter 信息流"
+          >
+            {initialCapsules.map((capsule) => (
+              <CapsuleCard capsule={capsule} />
+            ))}
+          </section>
+
+          {hasMore && (
+            <div class="mt-8 flex justify-center">
+              <button
+                id="load-more-capsules"
+                type="button"
+                class="rounded-full border border-black/10 px-5 py-2.5 text-sm text-black/65 transition hover:bg-black/5 hover:text-black dark:border-white/10 dark:text-white/65 dark:hover:bg-white/5 dark:hover:text-white"
+              >
+                加载更多
+              </button>
+            </div>
+          )}
+        </>
+      ) : (
+        <div class="rounded-2xl border border-black/10 p-8 text-center text-black/50 dark:border-white/10 dark:text-white/50">
+          暂时还没有闪念内容。
+        </div>
+      )
+    }
+  </div>
+</MainGridLayout>
+
+<script define:vars={{ capsules, pageSize }}>
+  const feed = document.querySelector("#capsule-feed");
+  const button = document.querySelector("#load-more-capsules");
+
+  if (feed && button) {
+    let offset = pageSize;
+
+    const escapeHtml = (value) => {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    };
+
+    const formatDate = (value) => {
+      if (!value) return "";
+
+      const date = new Date(value);
+
+      if (Number.isNaN(date.getTime())) {
+        return String(value).replaceAll("-", ".");
+      }
+
+      return new Intl.DateTimeFormat("zh-CN", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      })
+        .format(date)
+        .replaceAll("/", ".");
+    };
+
+    const renderText = (items = []) => {
+      return items
+        .map((item) => {
+          const text = escapeHtml(item.text || "");
+
+          if (item.href) {
+            return `<a href="${escapeHtml(item.href)}" target="_blank" rel="noopener noreferrer" class="text-[var(--primary)] underline decoration-[var(--primary)]/40 underline-offset-4">${text}</a>`;
+          }
+
+          return text;
+        })
+        .join("");
+    };
+
+    const renderBlock = (block) => {
+      const type = block.type || "paragraph";
+      const items = block.rich_text || block.children || [];
+      const text = items.length
+        ? renderText(items)
+        : escapeHtml(block.text || "");
+
+      if (type === "image" && block.url) {
+        return `
+          <figure class="mt-4 overflow-hidden rounded-xl">
+            <img
+              src="${escapeHtml(block.url)}"
+              alt="${escapeHtml(block.alt || block.caption || "")}"
+              loading="lazy"
+              class="h-auto w-full object-cover"
+            />
+            ${
+              block.caption
+                ? `<figcaption class="mt-2 text-center text-sm text-black/40 dark:text-white/40">${escapeHtml(block.caption)}</figcaption>`
+                : ""
+            }
+          </figure>
+        `;
+      }
+
+      if (type === "divider") {
+        return `<hr class="my-5 border-black/10 dark:border-white/10" />`;
+      }
+
+      if (type === "quote") {
+        return `<blockquote class="my-3 border-l-4 border-[var(--primary)]/40 pl-4 text-black/60 italic dark:text-white/60">${text}</blockquote>`;
+      }
+
+      if (type === "heading_1") {
+        return `<h2 class="mt-4 mb-2 font-bold">${text}</h2>`;
+      }
+
+      if (type === "heading_2") {
+        return `<h3 class="mt-4 mb-2 font-bold">${text}</h3>`;
+      }
+
+      if (type === "heading_3") {
+        return `<h4 class="mt-4 mb-2 font-bold">${text}</h4>`;
+      }
+
+      if (type === "bulleted_list_item") {
+        return `<li class="ml-5 list-disc">${text}</li>`;
+      }
+
+      if (type === "numbered_list_item") {
+        return `<li class="ml-5 list-decimal">${text}</li>`;
+      }
+
+      if (
+        (type === "bookmark" || type === "embed" || type === "link_preview") &&
+        (block.url || block.href)
+      ) {
+        const url = block.url || block.href;
+
+        return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="my-3 block truncate rounded-xl border border-black/10 px-4 py-3 text-sm text-[var(--primary)] dark:border-white/10">${escapeHtml(url)}</a>`;
+      }
+
+      return `<p class="mb-3 last:mb-0">${text}</p>`;
+    };
+
+    const renderCapsule = (capsule) => {
+      const tags = (capsule.tags || [])
+        .map((tag) => `<span class="text-[var(--primary)]">#${escapeHtml(tag)}</span>`)
+        .join("");
+
+      const blocks = (capsule.blocks || [])
+        .map(renderBlock)
+        .join("");
+
+      const article = document.createElement("article");
+
+      article.className =
+        "capsule-card rounded-2xl border border-black/10 bg-[var(--card-bg)] p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10";
+
+      article.innerHTML = `
+        <header class="mb-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm">
+          <time datetime="${escapeHtml(capsule.date || "")}" class="font-mono text-black/45 dark:text-white/45">
+            ${formatDate(capsule.date)}
+          </time>
+
+          ${
+            tags
+              ? `<div class="flex flex-wrap justify-end gap-x-3 gap-y-1">${tags}</div>`
+              : ""
+          }
+        </header>
+
+        <div class="break-words text-[1rem] leading-8 text-black/80 dark:text-white/80">
+          ${blocks}
+        </div>
+      `;
+
+      return article;
+    };
+
+    button.addEventListener("click", () => {
+      const nextCapsules = capsules.slice(offset, offset + pageSize);
+
+      nextCapsules.forEach((capsule) => {
+        feed.appendChild(renderCapsule(capsule));
+      });
+
+      offset += nextCapsules.length;
+
+      if (offset >= capsules.length) {
+        button.textContent = "已经到底了";
+        button.disabled = true;
+        button.classList.add("cursor-default", "opacity-50");
+      }
+    });
+  }
+</script>
