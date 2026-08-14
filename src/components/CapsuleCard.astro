@@ -38,6 +38,7 @@ interface Props {
 const { capsule } = Astro.props;
 
 const date = capsule.date || "";
+const blocks = capsule.blocks || [];
 
 const tags = [
   ...(Array.isArray(capsule.tags) ? capsule.tags : []),
@@ -48,7 +49,7 @@ const tags = [
       : []),
 ].filter(Boolean);
 
-const blocks = capsule.blocks || [];
+const uniqueTags = [...new Set(tags)];
 
 function escapeHtml(value: unknown) {
   return String(value ?? "")
@@ -96,7 +97,11 @@ function renderRichText(items: RichText[]) {
       const annotations = item.annotations || {};
 
       if (annotations.code) {
-        content = `<code class="rounded bg-black/5 px-1 py-0.5 font-mono text-sm dark:bg-white/10">${content}</code>`;
+        content = `
+          <code class="rounded bg-black/5 px-1 py-0.5 font-mono text-sm dark:bg-white/10">
+            ${content}
+          </code>
+        `;
       }
 
       if (annotations.bold) content = `<strong>${content}</strong>`;
@@ -110,7 +115,7 @@ function renderRichText(items: RichText[]) {
             href="${escapeHtml(item.href)}"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-[var(--primary)] underline decoration-[var(--primary)]/40 underline-offset-4"
+            class="inline max-w-full break-all text-[var(--primary)] underline decoration-[var(--primary)]/40 underline-offset-4"
           >
             ${content}
           </a>
@@ -133,12 +138,12 @@ function renderBlock(block: CapsuleBlock) {
 
   if (type === "image" && block.url) {
     return `
-      <figure class="mt-4 overflow-hidden rounded-xl">
+      <figure class="mt-4 max-w-full overflow-hidden rounded-xl">
         <img
           src="${escapeHtml(block.url)}"
           alt="${escapeHtml(block.alt || block.caption || "")}"
           loading="lazy"
-          class="h-auto w-full object-cover"
+          class="block h-auto max-w-full"
         />
         ${
           block.caption
@@ -171,7 +176,7 @@ function renderBlock(block: CapsuleBlock) {
 
   if (type === "quote") {
     return `
-      <blockquote class="my-4 border-l-4 border-[var(--primary)]/40 pl-4 text-black/60 italic dark:text-white/60">
+      <blockquote class="my-4 max-w-full border-l-4 border-[var(--primary)]/40 pl-4 text-black/60 italic dark:text-white/60">
         ${content}
       </blockquote>
     `;
@@ -196,23 +201,23 @@ function renderBlock(block: CapsuleBlock) {
         href="${escapeHtml(url)}"
         target="_blank"
         rel="noopener noreferrer"
-        class="my-4 block truncate rounded-xl border border-black/10 px-4 py-3 text-sm text-[var(--primary)] transition hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/5"
+        class="my-4 block max-w-full break-all rounded-xl border border-black/10 px-4 py-3 text-sm text-[var(--primary)] transition hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/5"
       >
         ${escapeHtml(url)}
       </a>
     `;
   }
 
-  return `<p class="mb-3 last:mb-0">${content}</p>`;
+  return `<p class="mb-3 max-w-full last:mb-0">${content}</p>`;
 }
 
 const renderedBlocks = blocks.map(renderBlock).join("");
 ---
 
 <article
-  class="capsule-card rounded-xl border border-black/10 bg-white/70 p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-white/[0.03]"
+  class="capsule-card min-w-0 max-w-full rounded-xl border border-black/10 bg-white/70 p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-white/[0.03]"
 >
-  <header class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+  <header class="mb-4 flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2 text-sm">
     <time
       datetime={date}
       class="shrink-0 font-mono text-black/45 dark:text-white/45"
@@ -221,10 +226,10 @@ const renderedBlocks = blocks.map(renderBlock).join("");
     </time>
 
     {
-      tags.length > 0 && (
-        <div class="flex flex-wrap gap-x-3 gap-y-1">
-          {tags.map((tag) => (
-            <span class="text-[var(--primary)]">#{tag}</span>
+      uniqueTags.length > 0 && (
+        <div class="flex min-w-0 flex-wrap gap-x-3 gap-y-1">
+          {uniqueTags.map((tag) => (
+            <span class="break-all text-[var(--primary)]">#{tag}</span>
           ))}
         </div>
       )
@@ -232,7 +237,44 @@ const renderedBlocks = blocks.map(renderBlock).join("");
   </header>
 
   <div
-    class="break-words text-[1rem] leading-8 text-black/80 dark:text-white/80"
+    class="capsule-content min-w-0 max-w-full break-words text-[1rem] leading-8 text-black/80 dark:text-white/80"
     set:html={renderedBlocks}
   />
 </article>
+
+<style>
+  .capsule-content {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .capsule-content :global(*) {
+    max-width: 100%;
+  }
+
+  .capsule-content :global(p),
+  .capsule-content :global(li),
+  .capsule-content :global(blockquote),
+  .capsule-content :global(a),
+  .capsule-content :global(code) {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .capsule-content :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .capsule-content :global(pre) {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+</style>
