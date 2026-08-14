@@ -29,7 +29,7 @@ const getStars = (rating: number) => {
 
 <MainGridLayout title="Movies" description="影音剧" showSidebar={false} wide={true}>
     
-    <div class="max-w-[1200px] mx-auto pb-10 px-4 md:px-0">
+    <div class="w-full pb-10 px-4 md:px-0">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {movies.map((movie) => (
                 <div class="group relative flex flex-col rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
@@ -72,27 +72,6 @@ const getStars = (rating: number) => {
             ))}
         </div>
     </div>
-
-    {/* 侧边栏控制脚本逻辑不变 */}
-    <script is:inline>
-        function handleSidebarDisplay() {
-            const sidebar = document.getElementById('sidebar-container');
-            const mainGrid = document.getElementById('main-grid');
-            const mainElement = document.querySelector('main');
-            const isMoviePage = window.location.pathname.includes('/movies');
-            if (isMoviePage) {
-                if (sidebar) sidebar.style.display = 'none';
-                if (mainGrid) { mainGrid.style.gridTemplateColumns = '1fr'; mainGrid.style.maxWidth = '100%'; }
-                if (mainElement) { mainElement.style.gridColumn = 'span 1 / span 1'; mainElement.style.width = '100%'; }
-            } else {
-                if (sidebar) sidebar.style.display = '';
-                if (mainGrid) { mainGrid.style.gridTemplateColumns = ''; mainGrid.style.maxWidth = ''; }
-                if (mainElement) { mainElement.style.gridColumn = ''; mainElement.style.width = ''; }
-            }
-        }
-        handleSidebarDisplay();
-        document.addEventListener('swup:content_replaced', handleSidebarDisplay);
-    </script>
 </MainGridLayout>
 
 <style>
