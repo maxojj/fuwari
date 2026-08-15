@@ -11,7 +11,7 @@ on:
 
   # 每小时执行一次
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 2 * * 1"
 
   # 支持在 GitHub Actions 页面手动执行
   workflow_dispatch:
