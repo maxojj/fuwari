@@ -216,11 +216,19 @@ def clear_image_directory():
 
 def download_image(image_url, image_number):
     """
-    下载图片到 public/images/photos/。
+    下载图片并统一转换为 WebP。
 
-    HEIC/HEIF 会自动转换为 JPG，
-    以确保浏览器能够正常显示。
+    功能：
+    - 自动删除 EXIF
+    - 自动删除 GPS 信息
+    - 自动删除设备型号
+    - 自动删除拍摄时间
+    - HEIC 自动转 WebP
+    - JPG 自动转 WebP
+    - PNG 自动转 WebP
+    - WEBP 重新导出并清除元数据
     """
+
     response = requests.get(
         image_url,
         timeout=60,
@@ -245,70 +253,44 @@ def download_image(image_url, image_number):
     if not response.content:
         raise RuntimeError("图片内容为空")
 
-    # 先写入临时文件，避免下载失败时留下不完整文件
     temp_path = IMAGE_DIR / f".tmp_{image_number}"
 
     with temp_path.open("wb") as file:
         file.write(response.content)
 
-    # HEIC / HEIF 转换为 JPG
-    if content_type in {
-        "image/heic",
-        "image/heif",
-        "image/heic-sequence",
-        "image/heif-sequence",
-    }:
-        filename = f"{image_number:04d}.jpg"
-        output_path = IMAGE_DIR / filename
-
-        try:
-            with Image.open(temp_path) as image:
-                rgb_image = image.convert("RGB")
-                rgb_image.save(
-                    output_path,
-                    "JPEG",
-                    quality=92,
-                    optimize=True,
-                )
-        finally:
-            temp_path.unlink(missing_ok=True)
-
-        if output_path.stat().st_size < 100:
-            output_path.unlink(missing_ok=True)
-            raise RuntimeError("HEIC 转换后的 JPG 文件无效")
-
-        print(f"已下载并转换：{output_path}")
-
-        return f"/images/photos/{filename}"
-
-    # 其他常见图片格式
-    extension_map = {
-        "image/jpeg": ".jpg",
-        "image/jpg": ".jpg",
-        "image/png": ".png",
-        "image/webp": ".webp",
-        "image/gif": ".gif",
-        "image/avif": ".avif",
-    }
-
-    extension = extension_map.get(content_type)
-
-    if not extension:
-        extension = get_file_extension(image_url, response)
-
-    filename = f"{image_number:04d}{extension}"
+    filename = f"{image_number:04d}.webp"
     output_path = IMAGE_DIR / filename
 
-    temp_path.rename(output_path)
+    try:
+        with Image.open(temp_path) as image:
 
-    # 基本文件大小检查
+            # 统一颜色模式
+            if image.mode not in ("RGB", "RGBA"):
+                image = image.convert("RGB")
+
+            image.save(
+                output_path,
+                format="WEBP",
+                quality=88,
+                method=6,
+            )
+
+    finally:
+        temp_path.unlink(missing_ok=True)
+
+    if not output_path.exists():
+        raise RuntimeError("WebP 生成失败")
+
     if output_path.stat().st_size < 100:
         output_path.unlink(missing_ok=True)
+
         raise RuntimeError(
-            "下载后的文件过小，可能不是有效图片"
+            "生成的 WebP 文件无效"
         )
 
-    print(f"已下载：{output_path}")
+    print(
+        f"已下载并转换 WebP（EXIF 已移除）：{output_path}"
+    )
 
     return f"/images/photos/{filename}"
 
