@@ -219,6 +219,7 @@ def download_image(image_url, image_number):
     下载图片并统一转换为 WebP。
 
     功能：
+    - 自动修正 iPhone 竖图方向
     - 自动删除 EXIF
     - 自动删除 GPS 信息
     - 自动删除设备型号
@@ -263,6 +264,9 @@ def download_image(image_url, image_number):
 
     try:
         with Image.open(temp_path) as image:
+
+            # 根据 EXIF 自动旋转图片
+            image = ImageOps.exif_transpose(image)
 
             # 统一颜色模式
             if image.mode not in ("RGB", "RGBA"):
