@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 import pillow_heif
 import requests
-from PIL import Image
+from PIL import Image, ImageOps
 
 
 # 注册 HEIC/HEIF 图片读取支持
