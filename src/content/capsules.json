@@ -1,5 +1,43 @@
 [
   {
+    "id": "3bfc52ae-8db9-80b9-8125-c13fb2276a3a",
+    "date": "2026-08-17",
+    "tags": [
+      "社会观察",
+      "吐槽",
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "今天试用一个 agent 应用，想要他学着 cbvivi 的口吻跟我说话，他不认识 cbvivi 是谁。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "本来想着要是能学我长辈说话也挺有意思，发觉我们这代人可能是能这么做的第一代，再往前好像真就没那么多数据让人实现赛博永生了。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当然这里有很多悖论，一个声音像你的 AI，算不算赛博永生，思维多像算永生，诸如此类。"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "334c52ae-8db9-80f9-bd90-f6c0fcfc1219",
     "date": "2026-03-31",
     "tags": [
