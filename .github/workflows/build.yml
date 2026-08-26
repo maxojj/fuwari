@@ -9,7 +9,7 @@ on:
     branches:
       - main
 
-  # 每小时执行一次
+  # 每周一 UTC 02:00 执行一次（北京时间 10:00）
   schedule:
     - cron: "0 2 * * 1"
 
