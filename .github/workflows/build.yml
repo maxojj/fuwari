@@ -1,1 +1,140 @@
-bmFtZTogQnVpbGQgYW5kIENoZWNrCgpvbjoKICBwdXNoOgogICAgYnJhbmNoZXM6CiAgICAgIC0gbWFpbgogIHB1bGxfcmVxdWVzdDoKICAgIGJyYW5jaGVzOgogICAgICAtIG1haW4KICAjIOavj+WRqOS4gCBVVEMgMDI6MDAg5omn6KGM5LiA5qyh77yI5YyX5Lqs5pe26Ze0IDEwOjAw77yJCiAgc2NoZWR1bGU6CiAgICAtIGNyb246ICIwIDIgKiAqIDEiCiAgIyDmlK/mjIHlnKggR2l0SHViIEFjdGlvbnMg6aG16Z2i5omL5Yqo5omn6KGMCiAgd29ya2Zsb3dfZGlzcGF0Y2g6Cgpjb25jdXJyZW5jeToKICBncm91cDogJHt7IGdpdGh1Yi53b3JrZmxvdyB9fS0ke3sgZ2l0aHViLnJlZiB9fQogIGNhbmNlbC1pbi1wcm9ncmVzczogdHJ1ZQoKcGVybWlzc2lvbnM6CiAgY29udGVudHM6IHdyaXRlCgpqb2JzOgogIGNoZWNrOgogICAgc3RyYXRlZ3k6CiAgICAgIG1hdHJpeDoKICAgICAgICBub2RlOgogICAgICAgICAgLSAyMgogICAgcnVucy1vbjogdWJ1bnR1LWxhdGVzdAogICAgbmFtZTogQXN0cm8gQ2hlY2sgZm9yIE5vZGUuanMgJHt7IG1hdHJpeC5ub2RlIH19CiAgICBzdGVwczoKICAgICAgLSBuYW1lOiBTZXR1cCBOb2RlLmpzCiAgICAgICAgdXNlczogYWN0aW9ucy9zZXR1cC1ub2RlQHY0CiAgICAgICAgd2l0aDoKICAgICAgICAgIG5vZGUtdmVyc2lvbjogJHt7IG1hdHJpeC5ub2RlIH19CgogICAgICAtIG5hbWU6IENoZWNrb3V0CiAgICAgICAgdXNlczogYWN0aW9ucy9jaGVja291dEB2NAoKICAgICAgLSBuYW1lOiBTZXR1cCBwbnBtCiAgICAgICAgdXNlczogcG5wbS9hY3Rpb24tc2V0dXBAdjQKICAgICAgICB3aXRoOgogICAgICAgICAgcnVuX2luc3RhbGw6IGZhbHNlCgogICAgICAtIG5hbWU6IEluc3RhbGwgZGVwZW5kZW5jaWVzCiAgICAgICAgcnVuOiBwbnBtIGluc3RhbGwgLS1mcm96ZW4tbG9ja2ZpbGUKCiAgICAgIC0gbmFtZTogUnVuIEFzdHJvIENoZWNrCiAgICAgICAgcnVuOiBwbnBtIGFzdHJvIGNoZWNrIHx8IHRydWUKCiAgYnVpbGQ6CiAgICBzdHJhdGVneToKICAgICAgbWF0cml4OgogICAgICAgIG5vZGU6CiAgICAgICAgICAtIDIyCiAgICBydW5zLW9uOiB1YnVudHUtbGF0ZXN0CiAgICBuYW1lOiBBc3RybyBCdWlsZCBmb3IgTm9kZS5qcyAke3sgbWF0cml4Lm5vZGUgfX0KICAgIHN0ZXBzOgogICAgICAtIG5hbWU6IFNldHVwIE5vZGUuanMKICAgICAgICB1c2VzOiBhY3Rpb25zL3NldHVwLW5vZGVAdjQKICAgICAgICB3aXRoOgogICAgICAgICAgbm9kZS12ZXJzaW9uOiAke3sgbWF0cml4Lm5vZGUgfX0KCiAgICAgIC0gbmFtZTogQ2hlY2tvdXQKICAgICAgICB1c2VzOiBhY3Rpb25zL2NoZWNrb3V0QHY0CiAgICAgICAgd2l0aDoKICAgICAgICAgIGZldGNoLWRlcHRoOiAwCgogICAgICAtIG5hbWU6IFNldHVwIFB5dGhvbgogICAgICAgIHVzZXM6IGFjdGlvbnMvc2V0dXAtcHl0aG9uQHY1CiAgICAgICAgd2l0aDoKICAgICAgICAgIHB5dGhvbi12ZXJzaW9uOiAiMy54IgoKICAgICAgLSBuYW1lOiBJbnN0YWxsIFB5dGhvbiBkZXBlbmRlbmNpZXMKICAgICAgICBydW46IHwKICAgICAgICAgIHB5dGhvbiAtbSBwaXAgaW5zdGFsbCAtLXVwZ3JhZGUgcGlwCiAgICAgICAgICBweXRob24gLW0gcGlwIGluc3RhbGwgcmVxdWVzdHMgcGlsbG93IHBpbGxvdy1oZWlmCgogICAgICAtIG5hbWU6IENoZWNrIHN5bmMgc2NyaXB0cwogICAgICAgIHJ1bjogfAogICAgICAgICAgcHdkCiAgICAgICAgICBscyAtbGEgc2NyaXB0cwogICAgICAgICAgdGVzdCAtZiBzY3JpcHRzL3N5bmNfcGhvdG9zLnB5CiAgICAgICAgICB0ZXN0IC1mIHNjcmlwdHMvc3luY19jYXBzdWxlcy5weQoKICAgICAgIyBQdWxsIFJlcXVlc3Qg5LiN5omn6KGM5ZCM5q2l77yaCiAgICAgICMgUFIg6YCa5bi45peg5rOV6K+75Y+W5LuT5bqTIFNlY3JldHPvvIzogIzkuJTkuI3lupTor6Xkv67mlLnku5PlupPlhoXlrrnjgIIKICAgICAgLSBuYW1lOiBTeW5jIE5vdGlvbiBQaG90b3MKICAgICAgICBpZjogPgogICAgICAgICAgZ2l0aHViLmV2ZW50X25hbWUgPT0gJ3B1c2gnIHx8CiAgICAgICAgICBnaXRodWIuZXZlbnRfbmFtZSA9PSAnc2NoZWR1bGUnIHx8CiAgICAgICAgICBnaXRodWIuZXZlbnRfbmFtZSA9PSAnd29ya2Zsb3dfZGlzcGF0Y2gnCiAgICAgICAgY29udGludWUtb24tZXJyb3I6IHRydWUKICAgICAgICBlbnY6CiAgICAgICAgICBOT1RJT05fVE9LRU46ICR7eyBzZWNyZXRzLk5PVElPTl9UT0tFTiB9fQogICAgICAgIHJ1bjogfAogICAgICAgICAgcHl0aG9uIHNjcmlwdHMvc3luY19waG90b3MucHkKCiAgICAgIC0gbmFtZTogU3luYyBOb3Rpb24gQ2Fwc3VsZXMKICAgICAgICBpZjogPgogICAgICAgICAgZ2l0aHViLmV2ZW50X25hbWUgPT0gJ3B1c2gnIHx8CiAgICAgICAgICBnaXRodWIuZXZlbnRfbmFtZSA9PSAnc2NoZWR1bGUnIHx8CiAgICAgICAgICBnaXRodWIuZXZlbnRfbmFtZSA9PSAnd29ya2Zsb3dfZGlzcGF0Y2gnCiAgICAgICAgY29udGludWUtb24tZXJyb3I6IHRydWUKICAgICAgICBlbnY6CiAgICAgICAgICBOT1RJT05fQ0FQU1VMRVNfVE9LRU46ICR7eyBzZWNyZXRzLk5PVElPTl9DQVBTVUxFU19UT0tFTiB9fQogICAgICAgIHJ1bjogfAogICAgICAgICAgcHl0aG9uIHNjcmlwdHMvc3luY19jYXBzdWxlcy5weQoKICAgICAgLSBuYW1lOiBTZXR1cCBwbnBtCiAgICAgICAgdXNlczogcG5wbS9hY3Rpb24tc2V0dXBAdjQKICAgICAgICB3aXRoOgogICAgICAgICAgcnVuX2luc3RhbGw6IGZhbHNlCgogICAgICAtIG5hbWU6IEluc3RhbGwgZGVwZW5kZW5jaWVzCiAgICAgICAgcnVuOiBwbnBtIGluc3RhbGwgLS1mcm96ZW4tbG9ja2ZpbGUKCiAgICAgICMg5ZCM5q2l5a6M5oiQ5ZCO5o+Q5Lqk54Wn54mH5ZKM6Zeq5b+15paH5Lu2CiAgICAgIC0gbmFtZTogQ29tbWl0IHN5bmNlZCBOb3Rpb24gY29udGVudAogICAgICAgIGlmOiA+CiAgICAgICAgICBnaXRodWIuZXZlbnRfbmFtZSA9PSAncHVzaCcgfHwKICAgICAgICAgIGdpdGh1Yi5ldmVudF9uYW1lID09ICdzY2hlZHVsZScgfHwKICAgICAgICAgIGdpdGh1Yi5ldmVudF9uYW1lID09ICd3b3JrZmxvd19kaXNwYXRjaCcKICAgICAgICBydW46IHwKICAgICAgICAgIGdpdCBjb25maWcgdXNlci5uYW1lICJnaXRodWItYWN0aW9uc1tib3RdIgogICAgICAgICAgZ2l0IGNvbmZpZyB1c2VyLmVtYWlsICI0MTg5ODI4MitnaXRodWItYWN0aW9uc1tib3RdQHVzZXJzLm5vcmVwbHkuZ2l0aHViLmNvbSIKICAgICAgICAgIGdpdCBhZGQgXAogICAgICAgICAgICBwdWJsaWMvaW1hZ2VzL3Bob3RvcyBcCiAgICAgICAgICAgIHNyYy9jb250ZW50L3Bob3Rvcy5qc29uIFwKICAgICAgICAgICAgcHVibGljL2ltYWdlcy9jYXBzdWxlcyBcCiAgICAgICAgICAgIHNyYy9jb250ZW50L2NhcHN1bGVzLmpzb24KICAgICAgICAgIGlmIGdpdCBkaWZmIC0tY2FjaGVkIC0tcXVpZXQ7IHRoZW4KICAgICAgICAgICAgZWNobyAi5rKh5pyJ5paw55qEIE5vdGlvbiDlhoXlrrnlj5jljJYiCiAgICAgICAgICBlbHNlCiAgICAgICAgICAgIGdpdCBjb21taXQgLW0gIlN5bmMgY29udGVudCBmcm9tIE5vdGlvbiIKICAgICAgICAgICAgZ2l0IHB1c2gKICAgICAgICAgIGZpCgogICAgICAtIG5hbWU6IFJ1biBBc3RybyBCdWlsZAogICAgICAgIHJ1bjogcG5wbSBhc3RybyBidWlsZAo=
+name: Build and Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  # 每周一 UTC 02:00 执行一次（北京时间 10:00）
+  schedule:
+    - cron: "0 2 * * 1"
+  # 支持在 GitHub Actions 页面手动执行
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    strategy:
+      matrix:
+        node:
+          - 22
+    runs-on: ubuntu-latest
+    name: Astro Check for Node.js ${{ matrix.node }}
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Astro Check
+        run: pnpm astro check || true
+
+  build:
+    strategy:
+      matrix:
+        node:
+          - 22
+    runs-on: ubuntu-latest
+    name: Astro Build for Node.js ${{ matrix.node }}
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests pillow pillow-heif
+
+      - name: Check sync scripts
+        run: |
+          pwd
+          ls -la scripts
+          test -f scripts/sync_photos.py
+          test -f scripts/sync_capsules.py
+
+      # Pull Request 不执行同步：
+      # PR 通常无法读取仓库 Secrets，而且不应该修改仓库内容。
+      - name: Sync Notion Photos
+        if: >
+          github.event_name == 'push' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          python scripts/sync_photos.py
+
+      - name: Sync Notion Capsules
+        if: >
+          github.event_name == 'push' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          NOTION_CAPSULES_TOKEN: ${{ secrets.NOTION_CAPSULES_TOKEN }}
+        run: |
+          python scripts/sync_capsules.py
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 同步完成后提交照片和闪念文件
+      - name: Commit synced Notion content
+        if: >
+          github.event_name == 'push' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            public/images/photos \
+            src/content/photos.json \
+            public/images/capsules \
+            src/content/capsules.json
+          if git diff --cached --quiet; then
+            echo "没有新的 Notion 内容变化"
+          else
+            git commit -m "Sync content from Notion"
+            git push
+          fi
+
+      - name: Run Astro Build
+        run: pnpm astro build
