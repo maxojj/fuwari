@@ -272,6 +272,10 @@ def download_image(image_url, image_number):
             if image.mode not in ("RGB", "RGBA"):
                 image = image.convert("RGB")
 
+            # 长边限制 1920px，缩小文件体积，不影响网页显示效果
+            if max(image.size) > 1920:
+                image.thumbnail((1920, 1920), Image.LANCZOS)
+
             image.save(
                 output_path,
                 format="WEBP",
