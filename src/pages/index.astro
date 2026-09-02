@@ -191,14 +191,23 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
           + '</div>'
           + '</div>'
           + (c.comment ? '<div class="home-journey-popup-comment">' + c.comment + '</div>' : '')
+          + '<button class="hjp-close" id="hjp-close-btn">&times;</button>'
           + '</div>';
       }
+
+      // popup 打开时给自定义关闭按钮绑事件，直接调 map.closePopup()
+      map.on('popupopen', function () {
+        var btn = document.getElementById('hjp-close-btn');
+        if (btn) {
+          btn.onclick = function () { map.closePopup(); };
+        }
+      });
 
       var allMarkers = [];
       cities.forEach(function (c) {
         var marker = L.marker([c.lat, c.lng], { icon: makeIcon(c.rating) })
           .addTo(map)
-          .bindPopup(popupHtml(c), { closeButton: true, autoClose: false, autopanPadding: [0, 0], autopan: false });
+          .bindPopup(popupHtml(c), { closeButton: false, autoClose: false, autopanPadding: [0, 0], autopan: false });
         marker.rating = c.rating;
         allMarkers.push(marker);
       });
@@ -503,6 +512,10 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
   :global(.leaflet-container) {
     background: #f4f4f4;
   }
+  :global(.leaflet-popup-content-wrapper) {
+    position: relative !important;
+  }
+
   :global(.leaflet-popup-content) {
     margin: 14px 16px !important;
     line-height: 1.5;
@@ -527,6 +540,25 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
   /* 关闭按钮用 JS 拦截 href 跳转 */
   :global(a.leaflet-popup-close-button) {
     text-decoration: none !important;
+  }
+
+  :global(.hjp-close) {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.45;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: opacity 0.15s;
+  }
+  :global(.hjp-close:hover) {
+    opacity: 0.9;
   }
 
   :global(.home-journey-marker) {
