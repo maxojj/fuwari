@@ -227,6 +227,21 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
         });
       });
 
+      // popup 关闭时让地图失焦，防止滚轮事件冒泡到页面
+      map.on('popupclose', function () {
+        var container = document.getElementById('home-journey-map');
+        if (container) container.blur();
+        if (document.activeElement) document.activeElement.blur();
+      });
+
+      // 阻止地图容器内的滚轮事件冒泡到页面
+      var mapContainer = document.getElementById('home-journey-map');
+      if (mapContainer) {
+        mapContainer.addEventListener('wheel', function (e) {
+          e.stopPropagation();
+        }, { passive: true });
+      }
+
       // 主题切换时动态更换底图
       var observer = new MutationObserver(function () {
         var dark = isDark();
