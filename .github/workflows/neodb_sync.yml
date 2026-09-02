@@ -2,7 +2,7 @@ name: NeoDB Sync
 
 on:
   schedule:
-    - cron: '0 20 * * 3' # 每周三北京时间凌晨4点运行 (UTC 20:00 周三)
+    - cron: '0 19 */3 * *' # 每3天北京时间凌晨3点运行 (UTC 19:00)
   workflow_dispatch: # 允许你手动在 GitHub 页面点一下 "Run" 立即同步
 
 permissions:
