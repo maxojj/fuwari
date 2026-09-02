@@ -1,8 +1,37 @@
 ---
 import MainGridLayout from "../layouts/MainGridLayout.astro";
+import citiesData from "../content/cities.json";
+
+interface City {
+  city: string;
+  country: string;
+  lat: number;
+  lng: number;
+  date: string;
+  rating: "love" | "smile" | "cry";
+  comment: string;
+}
+
+const cities = (citiesData || []) as City[];
+
+const ratingConfig: Record<string, { label: string; symbol: string; color: string }> = {
+  love: { label: "强烈推荐", symbol: "🥰", color: "#e74c3c" },
+  smile: { label: "值得一去", symbol: "🙂", color: "#f39c12" },
+  cry: { label: "来都来了", symbol: "😤", color: "#7f8c8d" },
+};
+
+const totalCount = cities.length;
+const loveCount = cities.filter(c => c.rating === "love").length;
+const smileCount = cities.filter(c => c.rating === "smile").length;
+const cryCount = cities.filter(c => c.rating === "cry").length;
 ---
 
 <MainGridLayout title="西灵号" description="Digital Space" showSidebar={false} wide={false}>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  </Fragment>
+
   <!-- 优化后的引言部分：去掉了背景框，增强了文字质感 -->
   <div class="welcome-card-clean mt-4 mb-10 px-2 md:px-4">
     <div class="max-w-2xl space-y-4 leading-7 text-sm text-black/70 dark:text-white/70 italic-quote">
@@ -52,15 +81,41 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
       <div>
         <h2 id="journey-title" class="mt-2 text-3xl font-bold tracking-tight text-black/80 dark:text-white/90">🌍 Journey</h2>
       </div>
+      <a href="/journey" class="section-link">查看全部 →</a>
     </div>
 
-    <div class="card-base embed-card">
-      <iframe
-        src="https://www.google.com/maps/d/u/0/embed?mid=1tVuHkUA1rEgdLptEIvFdNLwiMmHY1vM&ehbc=2E312F&noprof=1"
-        title="我的旅行地图"
-        loading="lazy"
-        allowfullscreen
-      ></iframe>
+    <!-- 统计 dashboard -->
+    <div class="mb-4 rounded-2xl bg-black/5 dark:bg-white/5 p-3 md:p-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+        <div class="home-stat-card active flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-white/60 dark:bg-white/5 cursor-pointer transition-all hover:bg-white/80 dark:hover:bg-white/10"
+             data-filter="all" style="--card-color: var(--primary);">
+          <div class="text-3xl mb-1">🌍</div>
+          <div class="text-2xl font-bold text-black/80 dark:text-white/80">{totalCount}</div>
+          <div class="text-xs text-black/50 dark:text-white/50 mt-0.5">全部</div>
+        </div>
+        <div class="home-stat-card flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-white/60 dark:bg-white/5 cursor-pointer transition-all hover:bg-white/80 dark:hover:bg-white/10"
+             data-filter="love" style="--card-color: #e74c3c;">
+          <div class="text-3xl mb-1">🥰</div>
+          <div class="text-2xl font-bold text-black/80 dark:text-white/80">{loveCount}</div>
+          <div class="text-xs text-black/50 dark:text-white/50 mt-0.5">强烈推荐</div>
+        </div>
+        <div class="home-stat-card flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-white/60 dark:bg-white/5 cursor-pointer transition-all hover:bg-white/80 dark:hover:bg-white/10"
+             data-filter="smile" style="--card-color: #f39c12;">
+          <div class="text-3xl mb-1">🙂</div>
+          <div class="text-2xl font-bold text-black/80 dark:text-white/80">{smileCount}</div>
+          <div class="text-xs text-black/50 dark:text-white/50 mt-0.5">值得一去</div>
+        </div>
+        <div class="home-stat-card flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-white/60 dark:bg-white/5 cursor-pointer transition-all hover:bg-white/80 dark:hover:bg-white/10"
+             data-filter="cry" style="--card-color: #7f8c8d;">
+          <div class="text-3xl mb-1">😤</div>
+          <div class="text-2xl font-bold text-black/80 dark:text-white/80">{cryCount}</div>
+          <div class="text-xs text-black/50 dark:text-white/50 mt-0.5">来都来了</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 地图容器 -->
+    <div id="home-journey-map" class="w-full rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg bg-zinc-100 dark:bg-zinc-900 home-journey-map-height">
     </div>
   </section>
 
@@ -81,6 +136,129 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
     </div>
   </section>
 </MainGridLayout>
+
+<script is:inline define:vars={{ cities, ratingConfig }}>
+  function initHomeJourneyMap() {
+    if (typeof L === "undefined") {
+      setTimeout(initHomeJourneyMap, 100);
+      return;
+    }
+    if (!document.getElementById("home-journey-map")) return;
+    if (document.getElementById("home-journey-map")._leaflet_id) return;
+    (function () {
+
+      function isDark() {
+        return document.documentElement.classList.contains("dark");
+      }
+
+      var darkUrl = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}";
+      var lightUrl = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}";
+
+      var map = L.map("home-journey-map", {
+        center: [38, 65],
+        zoom: 3,
+        zoomControl: true,
+        scrollWheelZoom: true,
+      });
+
+      var currentLayer = L.tileLayer(isDark() ? darkUrl : lightUrl, {
+        attribution: 'Tiles &copy; Esri',
+        maxZoom: 19,
+      }).addTo(map);
+
+      function makeIcon(rating) {
+        var cfg = ratingConfig[rating];
+        var html = '<div style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:28px;line-height:1;">' + cfg.symbol + '</div>';
+        return L.divIcon({
+          html: html,
+          className: "home-journey-marker",
+          iconSize: [38, 38],
+          iconAnchor: [19, 19],
+          popupAnchor: [0, -16],
+        });
+      }
+
+      function popupHtml(c) {
+        var cfg = ratingConfig[c.rating];
+        var dateStr = c.date ? '<span>' + c.date + '</span><span style="margin:0 6px;opacity:0.3;">·</span>' : '';
+        return '<div class="home-journey-popup">'
+          + '<div class="home-journey-popup-header">'
+          + '<span class="home-journey-popup-emoji">' + cfg.symbol + '</span>'
+          + '<div>'
+          + '<div class="home-journey-popup-city">' + c.city + '</div>'
+          + '<div class="home-journey-popup-meta">' + dateStr + '<span>' + cfg.label + '</span></div>'
+          + '</div>'
+          + '</div>'
+          + (c.comment ? '<div class="home-journey-popup-comment">' + c.comment + '</div>' : '')
+          + '</div>';
+      }
+
+      var allMarkers = [];
+      cities.forEach(function (c) {
+        var marker = L.marker([c.lat, c.lng], { icon: makeIcon(c.rating) })
+          .addTo(map)
+          .bindPopup(popupHtml(c), { closeButton: true, autoClose: true });
+        marker.rating = c.rating;
+        allMarkers.push(marker);
+      });
+
+      function filterMarkers(rating) {
+        allMarkers.forEach(function (m) {
+          if (rating === null) {
+            if (!map.hasLayer(m)) m.addTo(map);
+          } else {
+            if (m.rating === rating) {
+              if (!map.hasLayer(m)) m.addTo(map);
+            } else {
+              if (map.hasLayer(m)) map.removeLayer(m);
+            }
+          }
+        });
+      }
+
+      document.querySelectorAll('.home-stat-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          document.querySelectorAll('.home-stat-card').forEach(function (c) {
+            c.classList.remove('active');
+          });
+          this.classList.add('active');
+          var filter = this.getAttribute('data-filter');
+          filterMarkers(filter === 'all' ? null : filter);
+        });
+      });
+
+      // 主题切换时动态更换底图
+      var observer = new MutationObserver(function () {
+        var dark = isDark();
+        var wantUrl = dark ? darkUrl : lightUrl;
+        if (currentLayer instanceof L.TileLayer) {
+          var curUrl = currentLayer._url;
+          if (curUrl !== wantUrl) {
+            map.removeLayer(currentLayer);
+            currentLayer = L.tileLayer(wantUrl, {
+              attribution: 'Tiles &copy; Esri',
+              maxZoom: 19,
+            }).addTo(map);
+          }
+        }
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
+      // swup 页面切换后重新计算尺寸
+      document.addEventListener("swup:content_replaced", function () {
+        if (map && document.getElementById("home-journey-map")) {
+          setTimeout(function () { map.invalidateSize(); }, 200);
+        }
+      });
+    })();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHomeJourneyMap);
+  } else {
+    initHomeJourneyMap();
+  }
+  document.addEventListener('swup:page:view', initHomeJourneyMap);
+</script>
 
 <style>
   /* 基础布局 */
@@ -110,6 +288,18 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
     opacity: 0.8;
   }
 
+  /* section 右侧「查看全部」链接 */
+  .section-link {
+    font-size: 0.875rem;
+    color: var(--primary);
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+  }
+  .section-link:hover {
+    opacity: 1;
+  }
+
   /* Works 网格与卡片 */
   .works-grid { 
     display: grid; 
@@ -137,7 +327,7 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
     transform: translateY(-5px); 
     border-color: var(--primary); 
     box-shadow: 0 15px 30px -10px rgb(var(--primary-rgb) / 0.2); 
-    background: rgb(255 255 255 / 0.8);
+    background: rgb(255 255 255 / 0.8); 
   }
   :global(.dark) .work-card:hover {
     background: rgb(255 255 255 / 0.06);
@@ -197,6 +387,122 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
   }
 }
 
+
+  /* 首页 Journey 地图高度 */
+  .home-journey-map-height {
+    height: 22rem;
+  }
+  @media (min-width: 641px) {
+    .home-journey-map-height {
+      height: 32rem;
+    }
+  }
+
+  /* 首页 dashboard stat-card（避免与 journey 页面冲突） */
+  :global(.home-stat-card) {
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  :global(.home-stat-card.active) {
+    box-shadow: 0 0 0 2px var(--card-color, var(--primary));
+  }
+
+  /* 首页 popup 样式 */
+  :global(.home-journey-popup) {
+    min-width: 220px;
+    max-width: 280px;
+    font-family: inherit;
+  }
+  :global(.home-journey-popup-header) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  :global(.home-journey-popup-emoji) {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  :global(.home-journey-popup-city) {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.3;
+    color: inherit;
+  }
+  :global(.home-journey-popup-meta) {
+    font-size: 12px;
+    opacity: 0.55;
+    margin-top: 2px;
+  }
+  :global(.home-journey-popup-comment) {
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: 0.8;
+    border-top: 1px solid rgba(128,128,128,0.15);
+    padding-top: 8px;
+    margin-top: 0;
+    max-height: 120px;
+    overflow-y: auto;
+  }
+
+  /* 深色模式 popup */
+  :global(.dark .leaflet-popup-content-wrapper),
+  :global(.dark .leaflet-popup-tip) {
+    background: #242424 !important;
+    color: #f0f0f0 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6) !important;
+  }
+  :global(.dark .leaflet-popup-content-wrapper) {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px !important;
+  }
+  :global(.dark .leaflet-container) {
+    background: #1a1a1a !important;
+  }
+  :global(.dark .leaflet-bar a) {
+    background: #2a2a2a !important;
+    color: #f0f0f0 !important;
+    border-color: rgba(255,255,255,0.1) !important;
+  }
+  :global(.dark .leaflet-bar a:hover) {
+    background: #3a3a3a !important;
+  }
+  /* 浅色模式 popup */
+  :global(.leaflet-popup-content-wrapper) {
+    background: #fff;
+    color: #333;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
+  }
+  :global(.leaflet-container) {
+    background: #f4f4f4;
+  }
+  :global(.leaflet-popup-content) {
+    margin: 14px 16px !important;
+    line-height: 1.5;
+    color: inherit;
+  }
+
+  /* popup 动效 */
+  :global(.leaflet-popup) {
+    animation: homePopupIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: bottom center;
+  }
+  @keyframes homePopupIn {
+    from {
+      opacity: 0;
+      transform: scale(0.85) translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  :global(.home-journey-marker) {
+    background: transparent !important;
+    border: none !important;
+  }
 
   /* 移动端适配 */
   @media (max-width: 640px) { 
