@@ -89,8 +89,8 @@ const formatDate = (date: string) => {
                 return document.documentElement.classList.contains("dark");
             }
 
-            var darkUrl = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
-            var lightUrl = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+            var darkUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+            var lightUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
             var map = L.map("journey-map", {
                 center: [30, 105],
@@ -100,7 +100,7 @@ const formatDate = (date: string) => {
             });
 
             var currentLayer = L.tileLayer(isDark() ? darkUrl : lightUrl, {
-                attribution: '&copy; OpenStreetMap &copy; CARTO',
+                attribution: 'attribution: '&copy; OpenStreetMap &copy; CARTO'copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors',
                 subdomains: "abcd",
                 maxZoom: 19,
             }).addTo(map);
@@ -148,7 +148,7 @@ const formatDate = (date: string) => {
                     if (curUrl !== wantUrl) {
                         map.removeLayer(currentLayer);
                         currentLayer = L.tileLayer(wantUrl, {
-                            attribution: '&copy; OpenStreetMap &copy; CARTO',
+                            attribution: 'attribution: '&copy; OpenStreetMap &copy; CARTO'copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors',
                             subdomains: "abcd",
                             maxZoom: 19,
                         }).addTo(map);
