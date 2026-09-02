@@ -67,6 +67,11 @@ export const navBarConfig: NavBarConfig = {
       name: "Movies",
       url: "/movies",
     },
+    // Journey
+    {
+      name: "Journey",
+      url: "/journey",
+    },
     // Moments
     {
       name: "Moments",
