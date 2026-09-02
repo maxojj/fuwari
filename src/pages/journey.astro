@@ -20,6 +20,11 @@ const ratingConfig: Record<string, { label: string; symbol: string; color: strin
   cry: { label: "不太推荐", symbol: "😤", color: "#7f8c8d" },
 };
 
+const totalCount = cities.length;
+const loveCount = cities.filter(c => c.rating === "love").length;
+const smileCount = cities.filter(c => c.rating === "smile").length;
+const cryCount = cities.filter(c => c.rating === "cry").length;
+
 const formatDate = (date: string) => {
   if (!date) return "";
   const d = new Date(`${date}T00:00:00`);
@@ -35,43 +40,38 @@ const formatDate = (date: string) => {
     </Fragment>
 
     <div class="max-w-[var(--page-width)] mx-auto pb-10 px-4">
-        <!-- 页面标题和介绍 -->
-        <header class="mb-8 pt-2 md:pt-4">
-            <h1 class="text-2xl md:text-3xl font-bold text-black/75 dark:text-white/75 mb-3">
-                我去过的地方
-            </h1>
-            <div class="max-w-2xl text-sm leading-7 text-black/55 dark:text-white/55 md:text-base">
-                <p>🗺️ 每个城市都有它的味道，有的想再去，有的不想再提。</p>
-                <p>点击地图上的标记，看看我怎么说。</p>
+        <!-- 统计 dashboard -->
+        <div class="mb-4 rounded-2xl bg-black/5 dark:bg-white/5 p-3 md:p-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+                <div class="stat-card active flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-white/60 dark:bg-white/5 cursor-pointer transition-all hover:bg-white/80 dark:hover:bg-white/10"
+                     data-filter="all" style="--card-color: var(--primary);">
+                    <div class="text-3xl mb-1">🗺️</div>
+                    <div class="text-2xl font-bold text-black/80 dark:text-white/80">{totalCount}</div>
+                    <div class="text-xs text-black/50 dark:text-white/50 mt-0.5">全部</div>
+                </div>
+                <div class="stat-card flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-white/60 dark:bg-white/5 cursor-pointer transition-all hover:bg-white/80 dark:hover:bg-white/10"
+                     data-filter="love" style="--card-color: #e74c3c;">
+                    <div class="text-3xl mb-1">🥰</div>
+                    <div class="text-2xl font-bold text-black/80 dark:text-white/80">{loveCount}</div>
+                    <div class="text-xs text-black/50 dark:text-white/50 mt-0.5">强烈推荐</div>
+                </div>
+                <div class="stat-card flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-white/60 dark:bg-white/5 cursor-pointer transition-all hover:bg-white/80 dark:hover:bg-white/10"
+                     data-filter="smile" style="--card-color: #f39c12;">
+                    <div class="text-3xl mb-1">🙂</div>
+                    <div class="text-2xl font-bold text-black/80 dark:text-white/80">{smileCount}</div>
+                    <div class="text-xs text-black/50 dark:text-white/50 mt-0.5">值得一去</div>
+                </div>
+                <div class="stat-card flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-white/60 dark:bg-white/5 cursor-pointer transition-all hover:bg-white/80 dark:hover:bg-white/10"
+                     data-filter="cry" style="--card-color: #7f8c8d;">
+                    <div class="text-3xl mb-1">😤</div>
+                    <div class="text-2xl font-bold text-black/80 dark:text-white/80">{cryCount}</div>
+                    <div class="text-xs text-black/50 dark:text-white/50 mt-0.5">不太推荐</div>
+                </div>
             </div>
-        </header>
+        </div>
 
         <!-- 地图容器 -->
         <div id="journey-map" class="w-full h-[300px] md:h-[500px] rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 shadow-lg bg-zinc-100 dark:bg-zinc-900">
-        </div>
-
-        <!-- 城市列表 -->
-        <div class="mt-8">
-            <h2 class="text-lg font-bold text-black/70 dark:text-white/70 mb-4">城市列表</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {cities.map((c) => (
-                    <div class="flex items-start gap-3 p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 transition hover:shadow-lg">
-                        <div class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white text-sm font-bold shadow"
-                             style={`background-color: ${ratingConfig[c.rating].color}; border: 2px solid rgba(255,255,255,0.3);`}>
-                            {ratingConfig[c.rating].symbol}
-                        </div>
-                        <div class="min-w-0 flex-1">
-                            <div class="flex items-baseline gap-2 flex-wrap">
-                                <span class="font-bold text-black/75 dark:text-white/75">{c.city}</span>
-                                <span class="text-sm text-black/40 dark:text-white/40">{c.country}</span>
-                                <span class="text-sm text-black/40 dark:text-white/40">·</span>
-                                <time class="text-sm text-black/40 dark:text-white/40" datetime={c.date}>{formatDate(c.date)}</time>
-                            </div>
-                            <p class="mt-1 text-sm text-black/50 dark:text-white/50 line-clamp-2">{c.comment}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
         </div>
     </div>
 
@@ -100,7 +100,7 @@ const formatDate = (date: string) => {
             });
 
             var currentLayer = L.tileLayer(isDark() ? darkUrl : lightUrl, {
-                attribution: 'attribution: '&copy; OpenStreetMap &copy; CARTO'copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors',
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                 subdomains: "abcd",
                 maxZoom: 19,
             }).addTo(map);
@@ -133,10 +133,38 @@ const formatDate = (date: string) => {
                     + '</div>';
             }
 
+            var allMarkers = [];
             cities.forEach(function (c) {
-                L.marker([c.lat, c.lng], { icon: makeIcon(c.rating) })
+                var marker = L.marker([c.lat, c.lng], { icon: makeIcon(c.rating) })
                     .addTo(map)
                     .bindPopup(popupHtml(c), { closeButton: true, autoClose: true });
+                marker.rating = c.rating;
+                allMarkers.push(marker);
+            });
+
+            function filterMarkers(rating) {
+                allMarkers.forEach(function (m) {
+                    if (rating === null) {
+                        if (!map.hasLayer(m)) m.addTo(map);
+                    } else {
+                        if (m.rating === rating) {
+                            if (!map.hasLayer(m)) m.addTo(map);
+                        } else {
+                            if (map.hasLayer(m)) map.removeLayer(m);
+                        }
+                    }
+                });
+            }
+
+            document.querySelectorAll('.stat-card').forEach(function (card) {
+                card.addEventListener('click', function () {
+                    document.querySelectorAll('.stat-card').forEach(function (c) {
+                        c.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    var filter = this.getAttribute('data-filter');
+                    filterMarkers(filter === 'all' ? null : filter);
+                });
             });
 
             // 主题切换时动态更换底图
@@ -148,7 +176,7 @@ const formatDate = (date: string) => {
                     if (curUrl !== wantUrl) {
                         map.removeLayer(currentLayer);
                         currentLayer = L.tileLayer(wantUrl, {
-                            attribution: 'attribution: '&copy; OpenStreetMap &copy; CARTO'copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors',
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                             subdomains: "abcd",
                             maxZoom: 19,
                         }).addTo(map);
@@ -174,6 +202,13 @@ const formatDate = (date: string) => {
     </script>
 
     <style is:global>
+        .stat-card {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .stat-card.active {
+            box-shadow: 0 0 0 2px var(--card-color, var(--primary));
+        }
         .journey-popup {
             color: var(--popup-text, #fff);
         }
