@@ -32,42 +32,44 @@ const getStars = (rating: number) => {
     <div class="w-full pb-10 px-4 md:px-0">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {movies.map((movie) => (
-                <div class="group relative flex flex-col rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden hover:shadow-2xl transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-2">
-                    
-                    <div class="relative aspect-[2/3] overflow-hidden">
-                        <img 
-                            src={movie.poster} 
-                            alt={movie.title} 
-                            loading="lazy"
-                            referrerpolicy="no-referrer"
-                            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" 
-                        />
+                <div class="group relative">
+                    <div class="relative flex flex-col rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden transition-[transform,box-shadow] duration-300 ease-out group-hover:shadow-2xl group-hover:-translate-y-2">
                         
-                        {/* 遮罩层：pointer-events-none 默认不拦截鼠标，group-hover 时启用交互 */}
-                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none backdrop-blur-[2px]">
-                            {/* 评论文字：从下淡入，75ms 延迟 */}
-                            <p class="text-white text-[13px] leading-relaxed italic line-clamp-6 mb-4 translate-y-3 group-hover:translate-y-0 transition-transform duration-300 delay-75 ease-out">
-                                {movie.comment ? `“ ${movie.comment} ”` : "观毕，暂无评价"}
-                            </p>
-                            {/* 链接按钮：从下淡入，150ms 延迟；pointer-events 仅在 hover 时启用 */}
-                            <a href={movie.link} target="_blank" class="w-full text-[11px] text-center py-2 bg-white/10 hover:bg-[var(--primary)] text-white border border-white/20 rounded-lg transition-all duration-300 delay-150 ease-out pointer-events-none group-hover:pointer-events-auto translate-y-3 group-hover:translate-y-0">
-                                查看详情
-                            </a>
+                        <div class="relative aspect-[2/3] overflow-hidden">
+                            <img 
+                                src={movie.poster} 
+                                alt={movie.title} 
+                                loading="lazy"
+                                referrerpolicy="no-referrer"
+                                class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" 
+                            />
+                            
+                            {/* 遮罩层：pointer-events-none 默认不拦截鼠标，group-hover 时启用交互 */}
+                            <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out pointer-events-none backdrop-blur-[2px]">
+                                {/* 评论文字：从下淡入，75ms 延迟 */}
+                                <p class="text-white text-[13px] leading-relaxed italic line-clamp-6 mb-4 translate-y-3 group-hover:translate-y-0 transition-transform duration-300 delay-75 ease-out">
+                                    {movie.comment ? `“ ${movie.comment} ”` : "观毕，暂无评价"}
+                                </p>
+                                {/* 链接按钮：从下淡入，150ms 延迟；pointer-events 仅在 hover 时启用 */}
+                                <a href={movie.link} target="_blank" class="w-full text-[11px] text-center py-2 bg-white/10 hover:bg-[var(--primary)] text-white border border-white/20 rounded-lg transition-all duration-300 delay-150 ease-out pointer-events-none group-hover:pointer-events-auto translate-y-3 group-hover:translate-y-0">
+                                    查看详情
+                                </a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="p-4 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
-                        {/* 标题：调大到 text-base (16px) 并加粗 */}
-                        <h3 class="text-base font-bold truncate mb-1 text-zinc-800 dark:text-zinc-100" title={movie.title}>
-                            {movie.title}
-                        </h3>
-                        <div class="flex flex-col gap-1">
-                            {/* 评分行：星星和加粗的数字评分 */}
-                            <div class="flex items-center gap-2">
-                                <span class="text-yellow-500 text-[11px]">{getStars(movie.rating)}</span>
-                                <span class="text-zinc-500 dark:text-zinc-400 font-bold font-mono text-[13px]">
-                                    {formatRating(movie.rating)}
-                                </span>
+                        <div class="p-4 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
+                            {/* 标题：调大到 text-base (16px) 并加粗 */}
+                            <h3 class="text-base font-bold truncate mb-1 text-zinc-800 dark:text-zinc-100" title={movie.title}>
+                                {movie.title}
+                            </h3>
+                            <div class="flex flex-col gap-1">
+                                {/* 评分行：星星和加粗的数字评分 */}
+                                <div class="flex items-center gap-2">
+                                    <span class="text-yellow-500 text-[11px]">{getStars(movie.rating)}</span>
+                                    <span class="text-zinc-500 dark:text-zinc-400 font-bold font-mono text-[13px]">
+                                        {formatRating(movie.rating)}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
