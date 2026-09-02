@@ -154,9 +154,10 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
       var darkUrl = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}";
       var lightUrl = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}";
 
+      var isMobile = window.innerWidth < 640;
       var map = L.map("home-journey-map", {
-        center: [38, 65],
-        zoom: 3,
+        center: isMobile ? [25, 100] : [38, 65],
+        zoom: isMobile ? 1 : 3,
         zoomControl: true,
         scrollWheelZoom: true,
       });
