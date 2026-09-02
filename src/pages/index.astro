@@ -227,16 +227,11 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
         });
       });
 
-      // 阻止 Leaflet 关闭按钮的 href="#close" 触发锚点跳转
-      map.on('popupopen', function () {
-        setTimeout(function () {
-          var closeBtn = document.querySelector('.leaflet-popup-close-button');
-          if (closeBtn) {
-            closeBtn.addEventListener('click', function (e) {
-              e.preventDefault();
-            });
-          }
-        }, 0);
+      // 用事件委托阻止 Leaflet 关闭按钮 href=#close 触发锚点跳转（一次绑定，不叠加）
+      document.getElementById('home-journey-map').addEventListener('click', function (e) {
+        if (e.target && e.target.classList.contains('leaflet-popup-close-button')) {
+          e.preventDefault();
+        }
       });
 
       // popup 关闭时让地图失焦，防止滚轮事件冒泡到页面
