@@ -228,13 +228,11 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
       });
 
       // 在 document 层拦截 Leaflet 关闭按钮的 href=#close，防止锚点跳转
-      document.addEventListener('click', function (e) {
-        var t = e.target;
-        if (t && (t.classList.contains('leaflet-popup-close-button') || t.closest('.leaflet-popup-close-button'))) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      }, true);
+      // 只用 popupopen 时直接把按钮的 href 属性清掉，不拦截 click 事件
+      map.on('popupopen', function (e) {
+        var closeBtn = e.popup._container && e.popup._container.querySelector('.leaflet-popup-close-button');
+        if (closeBtn) closeBtn.removeAttribute('href');
+      });
 
       // popup 关闭时让地图失焦，防止滚轮事件冒泡到页面
       map.on('popupclose', function () {
