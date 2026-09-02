@@ -16,8 +16,8 @@ const cities = (citiesData || []) as City[];
 
 const ratingConfig: Record<string, { label: string; symbol: string; color: string }> = {
   love: { label: "强烈推荐", symbol: "♥", color: "#e74c3c" },
-  smile: { label: "值得一去", symbol: "✦", color: "#f1c40f" },
-  cry: { label: "不太推荐", symbol: "✕", color: "#5d6d7e" },
+  smile: { label: "值得一去", symbol: "◎", color: "#f39c12" },
+  cry: { label: "不太推荐", symbol: "△", color: "#7f8c8d" },
 };
 
 const formatDate = (date: string) => {
@@ -76,11 +76,14 @@ const formatDate = (date: string) => {
     </div>
 
     <script is:inline define:vars={{ cities, ratingConfig }}>
-        (function () {
+        function initJourneyMap() {
             if (typeof L === "undefined") {
-                console.error("Leaflet not loaded");
+                setTimeout(initJourneyMap, 100);
                 return;
             }
+            if (!document.getElementById("journey-map")) return;
+            if (document.getElementById("journey-map")._leaflet_id) return;
+        (function () {
 
             function isDark() {
                 return document.documentElement.classList.contains("dark");
@@ -161,6 +164,13 @@ const formatDate = (date: string) => {
                 }
             });
         })();
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initJourneyMap);
+        } else {
+            initJourneyMap();
+        }
+        document.addEventListener('swup:page:view', initJourneyMap);
     </script>
 
     <style is:global>
