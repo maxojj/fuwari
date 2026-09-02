@@ -32,8 +32,8 @@ const getStars = (rating: number) => {
     <div class="w-full pb-10 px-4 md:px-0">
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {movies.map((movie) => (
-                <div class="group relative">
-                    <div class="relative flex flex-col rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden transition-[transform,box-shadow] duration-300 ease-out group-hover:shadow-2xl group-hover:-translate-y-2">
+                <div class="group relative overflow-hidden">
+                    <div class="relative flex flex-col rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 overflow-hidden transition-[transform,box-shadow] duration-300 ease-out group-hover:shadow-2xl group-hover:scale-[1.02]">
                         
                         <div class="relative aspect-[2/3] overflow-hidden">
                             <img 
@@ -58,7 +58,7 @@ const getStars = (rating: number) => {
                         </div>
 
                         <div class="p-4 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
-                            {/* 标题：调大到 text-base (16px) 并加粗 */}
+                            {/* 标题：调大为 text-base (16px) 并加粗 */}
                             <h3 class="text-base font-bold truncate mb-1 text-zinc-800 dark:text-zinc-100" title={movie.title}>
                                 {movie.title}
                             </h3>
