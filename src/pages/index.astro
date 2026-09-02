@@ -197,7 +197,7 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
       cities.forEach(function (c) {
         var marker = L.marker([c.lat, c.lng], { icon: makeIcon(c.rating) })
           .addTo(map)
-          .bindPopup(popupHtml(c), { closeButton: true, autoClose: true });
+          .bindPopup(popupHtml(c), { closeButton: true, autoClose: false, autopanPadding: [0, 0], autopan: false });
         marker.rating = c.rating;
         allMarkers.push(marker);
       });
