@@ -89,40 +89,45 @@ const formatDate = (date: string) => {
                 return document.documentElement.classList.contains("dark");
             }
 
-            var darkUrl = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
-            var lightUrl = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
+            var darkUrl = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}";
+            var lightUrl = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}";
 
             var map = L.map("journey-map", {
-                center: [30, 60],
-                zoom: 3,
+                center: [38, 65],
+                zoom: 4,
                 zoomControl: true,
                 scrollWheelZoom: true,
             });
 
             var currentLayer = L.tileLayer(isDark() ? darkUrl : lightUrl, {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                subdomains: "abcd",
+                attribution: 'Tiles &copy; Esri',
                 maxZoom: 19,
             }).addTo(map);
 
             function makeIcon(rating) {
                 var cfg = ratingConfig[rating];
-                var html = '<div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:22px;line-height:1;">' + cfg.symbol + '</div>';
+                var html = '<div style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:28px;line-height:1;">' + cfg.symbol + '</div>';
                 return L.divIcon({
                     html: html,
                     className: "journey-marker",
-                    iconSize: [32, 32],
-                    iconAnchor: [16, 16],
+                    iconSize: [38, 38],
+                    iconAnchor: [19, 19],
                     popupAnchor: [0, -16],
                 });
             }
 
             function popupHtml(c) {
                 var cfg = ratingConfig[c.rating];
-                return '<div class="journey-popup" style="min-width:200px;">'
-                    + '<div style="font-weight:bold;font-size:15px;margin-bottom:2px;">' + c.city + ', ' + c.country + '</div>'
-                    + '<div style="font-size:13px;opacity:0.7;margin-bottom:6px;">' + c.date + ' · ' + cfg.label + '</div>'
-                    + '<div style="font-size:13px;line-height:1.6;">' + c.comment + '</div>'
+                var dateStr = c.date ? '<span>' + c.date + '</span><span style="margin:0 6px;opacity:0.3;">·</span>' : '';
+                return '<div class="journey-popup">'
+                    + '<div class="journey-popup-header">'
+                    + '<span class="journey-popup-emoji">' + cfg.symbol + '</span>'
+                    + '<div>'
+                    + '<div class="journey-popup-city">' + c.city + '</div>'
+                    + '<div class="journey-popup-meta">' + dateStr + '<span>' + cfg.label + '</span></div>'
+                    + '</div>'
+                    + '</div>'
+                    + (c.comment ? '<div class="journey-popup-comment">' + c.comment + '</div>' : '')
                     + '</div>';
             }
 
@@ -169,8 +174,7 @@ const formatDate = (date: string) => {
                     if (curUrl !== wantUrl) {
                         map.removeLayer(currentLayer);
                         currentLayer = L.tileLayer(wantUrl, {
-                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                            subdomains: "abcd",
+                            attribution: 'Tiles &copy; Esri',
                             maxZoom: 19,
                         }).addTo(map);
                     }
@@ -202,17 +206,55 @@ const formatDate = (date: string) => {
         .stat-card.active {
             box-shadow: 0 0 0 2px var(--card-color, var(--primary));
         }
+        /* popup 容器 */
         .journey-popup {
-            color: var(--popup-text, #fff);
+            min-width: 220px;
+            max-width: 280px;
+            font-family: inherit;
         }
+        .journey-popup-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .journey-popup-emoji {
+            font-size: 28px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .journey-popup-city {
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 1.3;
+            color: inherit;
+        }
+        .journey-popup-meta {
+            font-size: 12px;
+            opacity: 0.55;
+            margin-top: 2px;
+        }
+        .journey-popup-comment {
+            font-size: 13px;
+            line-height: 1.7;
+            opacity: 0.8;
+            border-top: 1px solid rgba(128,128,128,0.15);
+            padding-top: 8px;
+            margin-top: 0;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        /* 深色模式 popup */
         .dark .leaflet-popup-content-wrapper,
         .dark .leaflet-popup-tip {
-            background: #1e1e1e !important;
+            background: #242424 !important;
             color: #f0f0f0 !important;
-            box-shadow: 0 3px 14px rgba(0,0,0,0.5) !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6) !important;
         }
         .dark .leaflet-popup-content-wrapper {
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px !important;
         }
         .dark .leaflet-container {
             background: #1a1a1a !important;
@@ -225,18 +267,36 @@ const formatDate = (date: string) => {
         .dark .leaflet-bar a:hover {
             background: #3a3a3a !important;
         }
-        /* 浅色模式 */
+        /* 浅色模式 popup */
         .leaflet-popup-content-wrapper {
             background: #fff;
             color: #333;
+            border-radius: 14px !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
         }
         .leaflet-container {
             background: #f4f4f4;
         }
-        /* popup 内文字 */
         .leaflet-popup-content {
-            margin: 12px 16px;
+            margin: 14px 16px !important;
             line-height: 1.5;
+            color: inherit;
+        }
+
+        /* popup 动效 */
+        .leaflet-popup {
+            animation: popupIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: bottom center;
+        }
+        @keyframes popupIn {
+            from {
+                opacity: 0;
+                transform: scale(0.85) translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
         .journey-marker {
             background: transparent !important;
