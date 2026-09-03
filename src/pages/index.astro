@@ -33,7 +33,7 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
   </Fragment>
 
   <!-- 优化后的引言部分：去掉了背景框，增强了文字质感 -->
-  <div class="welcome-card-clean mt-4 mb-10 px-2 md:px-4">
+  <div class="welcome-card-clean mt-4 mb-12 px-2 md:px-4">
     <div class="max-w-2xl space-y-4 leading-7 text-sm text-black/70 dark:text-white/70 italic-quote">
       <p>「西灵号」取自阿瑟·克拉克的科幻小说《月海沉船》。</p>
       <p>它因人类的高傲显得不可一世，在宇宙面前不堪一击，却使得人类幸存。</p>
@@ -311,10 +311,14 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
     --dur-quick: 150ms;
     --dur-card: 350ms;
     --dur-spring: 500ms;
+
+    --space-section: 4rem;
+    --space-card-padding: 1.5rem;
+    --space-grid-gap: 1.25rem;
   }
 
   /* 基础布局 */
-  .section-block { margin-top: 4rem; }
+  .section-block { margin-top: var(--space-section); }
 
   
   /* 引言部分优化：去掉背景，增加优雅度 */
@@ -356,7 +360,7 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
   .works-grid { 
     display: grid; 
     grid-template-columns: repeat(2, minmax(0, 1fr)); 
-    gap: 1.25rem; 
+    gap: var(--space-grid-gap); 
   }
 
   .work-card { 
@@ -364,7 +368,7 @@ const cryCount = cities.filter(c => c.rating === "cry").length;
     min-height: 9.5rem; 
     border: 1px solid rgb(0 0 0 / 0.05); 
     border-radius: var(--radius-card); 
-    padding: 1.5rem; 
+    padding: var(--space-card-padding); 
     background: rgb(255 255 255 / 0.5); 
     backdrop-filter: blur(4px);
     transition: all var(--dur-card) var(--ease-card); 
