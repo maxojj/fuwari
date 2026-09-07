@@ -7038,6 +7038,2667 @@
     ]
   },
   {
+    "id": "72425da2-a79a-4f8a-90f8-a1eba323528d",
+    "date": "2023-05-30",
+    "tags": [
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "同样是服务部门，我在上海的政府机构遇到过无数次「沪语优势」的现象，甚至到最后大部分沟通留给我妈，因为她可以运用沪语把所有的流程和要点在五分钟之内就跟柜台沟通清楚。（有时候更快，取决于门口的取号员知道多少内情）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「地域保护」很难被消除，但作为服务业，基于语言差异而拒绝提供服务确实说不过去。"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "那如果只提供最基本的服务，是不是就可以了呢？"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "服务中基于用户的语言差异，提供差异化服务，算不算违反契约精神呢？"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "如果语言对应文化或种族的话，这算不算一种文化/种族歧视呢？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这是个很不清晰的问题，倒霉在国泰是家香港公司。如果国内航空因为乘客只说东北话而不服务，那公司本身不会受多大冲击，处罚当事人即可。但你是香港，大陆就会要求你「摆正心态，不然你是想怎样？你说啊」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这个事件的大背景还是，香港「地位」的崩塌和港人对于「区域保护」的坚持，这可能在未来40年都还会是中港之间非常微妙的心态存在。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bc88397c-e099-4de5-9cfd-8bd7444e6608",
+    "date": "2023-05-26",
+    "tags": [
+      "运动"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "挺有讽刺意味的，飞盘局里的很多老手都在穿橡胶短钉的足球鞋。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当然这很合理，不然在人工草皮上运动，穿跑鞋么？"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fbcd4875-64da-424b-a8f3-84a18cfd5428",
+    "date": "2023-05-25",
+    "tags": [
+      "一个想法不一定对",
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "某些瞬间我会怀疑自己是否太过善良简单，也许别人看来就一个同事社交饭局，我却在认真交朋友。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ad746b70-efea-4055-8e34-01da80ceb810",
+    "date": "2023-05-23",
+    "tags": [
+      "geek",
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "通过 「AI 歌手」生成 「歌曲」这件事，算不算 「AI」时代背景下「采样」的一个模糊的方向？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "不是很懂，纯提问。刚接触 采样 的概念时，我基本也是类似的感觉。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bbb36e05-22f0-43de-90eb-afa7aedbc82b",
+    "date": "2023-05-17",
+    "tags": [
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "目前国内大环境就是这样："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "想赚钱就必须大众化，市场化"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "市场化了赚钱了，你就必须管好自己的嘴"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "赚钱了还不管嘴不承担责任，那你别玩了"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "想纯粹想自由，切记要小众，要独乐乐"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "下一个是谁，乐队么？"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2e694123-751a-4566-8984-ed787fc6e6e5",
+    "date": "2023-05-08",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "接下去看。"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "日本的芯片产业收到国家的资助而飞速发展，但由于东南亚金融危机的出现，元气大伤；"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "与此同时，美国意识到日本已经开始威胁到自己的芯片主控权，于是开始扶持欧洲和台湾的盟友，ASML 和 台积电 这两个巨头开始成形；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "同时，"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "由于芯片设计技术的革命性发展，使得芯片的设计和制造，可以成为分开的流程。"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "PC 端爆发之后，移动端成为了新的增长点，而 英特尔 错过了"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "Apple 的增长， 和他所使用的「仅作芯片设计」模式"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这也一定程度上形成了现在看到的： 芯片由美国公司设计，光刻机器由 ASML垄断，台积电完成生产，东南亚进行组装，这么一个长期稳定的合作关系。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "再往后，中国的组装供应链就开始加入了。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c69a9ecc-cd1e-4047-9dad-f9cf471cdeca",
+    "date": "2023-05-03",
+    "tags": [
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "没有公权力介入的结果之一就是，取证过程会演变为一个大型的，匿名的，无法证伪的，毫无标准和流程化的漫长网络活动。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "很多时候这个国家缺的不是意识，而是政府机构的作为。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "不确定这样对女性就是有利的：职场性骚扰没法做到标准化，我不招女同事行不行，我保持距离行不行，因为无法融入团队所以你没法升职行不行"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "避而不谈核心问题，比民主流程还会更低效。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c0925dec-0335-4729-bb3d-3db391744c38",
+    "date": "2023-04-26",
+    "tags": [
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "text": "http://www.bilibili.com/video/BV1Zs4y1d7PU",
+        "url": "http://www.bilibili.com/video/BV1Zs4y1d7PU"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "有点感叹瓦总选择配偶的眼光，虽说有钱就已经超过绝大多数人的生活质量了，但面对几乎无限的「资源」的时候，想把生活过到极尽「理想」还真是一个挺难的课题。Tim 书房这环境算很不错了，但总感觉很多点其实。。。就真的只剩下贵，仁者见仁吧。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "也推荐大家去即士多关注下不管姐，观摩观摩。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "如果我突然有了无限资源，什么样的书房会是我想要的呢？这是个非常让人兴奋但似乎毫无用武之地的问题。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ec066f21-7f89-4734-ac80-e6de9c70ecba",
+    "date": "2023-04-25",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "还没看《宇宙编辑部》，但从不少影评看来，似乎是一部情绪为主的作品。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "现在的大陆商业电影需要一些不一样的作品，从这个角度，这部作品完全有他存在的意义和必要性。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "但如果把时间拉得足够长，我们这一代人在这几年的情绪积累，有可能，将来不会是那么重要。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这其实也是我一直不太「直视」国产院线电影的原因，「恰快钱」，很现实很无奈。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6c1ffab3-5611-43e8-982c-6c42b91f902e",
+    "date": "2023-04-25",
+    "tags": [
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "其实面试在我的理解，跟中国传统的酒局社交没太大区别。说是来是喝酒吃饭，其实背后多少有其他的目的。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "面试成功不在于说把面试官怼得哑口无言，而是应该让对方从交流中充分确定他得到了他想要的东西，你入选的概念才会更大吧（当然你一开始就不想入职那就随便怼了"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "无非就是："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "我要的不多"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "我活特别好"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "我潜力股"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "我跟你们一路人"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "我有关系"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "至于说你提的问题有多刁钻，能让面试官难堪，真的就好像钢铁直男还在厕所比吊大不去谈恋爱一样，挺幼稚的。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b68275c0-45eb-4659-a368-722aed06c585",
+    "date": "2023-04-21",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "接上条 "
+          },
+          {
+            "type": "text",
+            "text": "一闪"
+          },
+          {
+            "type": "text",
+            "text": " "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "果然精彩，随着美国芯片产业体量增大，生产瓶颈很快就出现了。于是一个重要的盟友：日本 出现。其实不光 日本，整个东南亚包括香港都开始参与到芯片生产的环节中，此时中国还在文革阶段。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "更低的成本，更好的质量，以及盟友关系。完全没有理由拒绝。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "但日本并不满足于生产制作，开始大量抄袭甚至刺探美国的芯片核心技术。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "似曾相识。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8f6fc395-f038-4204-84cb-d2b6c3a01b65",
+    "date": "2023-04-20",
+    "tags": [
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "现有的大语言模型训练，需要大量文本资料的投喂才能达成较好的训练效果。 Vox 也讨论了为什么如今的 AI 除了英语别的语言都明显「不太行」，因为样本量的差距。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "那么，那么，如果人类选择了 AI 作为下一阶段的生产力提升力量的话，是否意味着更多的边缘语言将更加边缘化，甚至放弃。更加极端地说，全人类都讲同一种语言，才会实现社会福利的最大化？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这更放弃环境发展经济有什么区别呢？we just don't fucking care."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2f3a9abe-437b-4d59-b056-2a7cdadb5cfb",
+    "date": "2023-04-18",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "开始啃《Chip War》，前四章就很精彩，主要是二战后到1970年："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "美国几乎拥有所有发展芯片行业的条件："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "同时代的苏联："
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "跟现在大陆的处境基本相同"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/2f3a9abe-437b-4d59-b056-2a7cdadb5cfb-28b88ea69e7afa37.png",
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "id": "65c55a55-87a1-4991-9202-11e23f082a5b",
+    "date": "2023-04-17",
+    "tags": [
+      "产品"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "即刻 新上线的送礼 功能，在timeline 里的卡片还能再丑一点么？我以为大家在分享一个图都裂开的古早网页链接。。。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "然后汇率和价格设置也挺骚的，1元=10jb，送个礼物 299."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "NB"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fdfa0c1c-9a60-416d-9f8c-12d8b2d5f406",
+    "date": "2023-04-14",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "上影节对于普通观众的意义，不光是把文艺作品带进商业院线，至少对于我，更重要的部分在于片单。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我可以抢不到票，但拥有了片单就拥有了一份还不错的「电影研习指南」。如果有点条件的话，配合 Nas 和 投影，在家就能享受到高质量的影片享受。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "说到抢票，北上广是有挺强烈的「文艺电影」消费欲望和市场的。但这块对于面向大众的商业影院来说真的蝇头小利。所以电影节抢票环节，也算是观众和市场的一次双向选择，如果能够把「文艺院线」的需求集中起来，我觉得电影院中的「单向空间」不是没有可能。我说如果。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c271b670-d3c1-4a44-b8e7-22318d85c6f7",
+    "date": "2023-03-30",
+    "tags": [
+      "一个想法不一定对",
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "可能是个冷知识：但凡专业一点的天气或者空气质量App里，都可以设置你使用的空气质量指数标准。（发现彩云天气不支持选择了，不确定原因，建议优先考虑国外开发者的App）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "选项至少会包含两种： "
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "中国"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "美国"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/c271b670-d3c1-4a44-b8e7-22318d85c6f7-d7dd86afee9bf692.png",
+        "alt": ""
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "一般来说，同一个地点的数据源，中国AQI 会是 美标打上6折，也就是说如果 美标AQI 已经 150 了，国标会落在90左右，提示你空气质量为良。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "参考："
+          }
+        ]
+      },
+      {
+        "type": "link",
+        "text": "https://www.cnblogs.com/tiandi/p/6158576.html",
+        "url": "https://www.cnblogs.com/tiandi/p/6158576.html"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "消灭阶级，也就不会有斗争了。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4da21602-0ff1-4782-8dc5-aeac6c9d4f46",
+    "date": "2023-03-30",
+    "tags": [
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我拥抱现如今“AGC”的现状，但随着 AI 生成内容的增多，我们是否也开始需要对内容做一些界定和规范了？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "现实内容和虚拟生成内容，在消费层面存在很大的区别，如果混为一谈，将会是巨大的信任危机和效率降低。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "14dc239a-470d-478f-a5a0-b4a7103f36c2",
+    "date": "2023-03-29",
+    "tags": [
+      "生活",
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "一闪"
+          },
+          {
+            "type": "text",
+            "text": " "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "👆接上面的后续："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "后面没再接民警的电话，因为这本身就不是强制公民参加的环节，但作为可爱的人民公仆，他还是拥有特权的："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "最后也想通一件事，大陆中国哪有所谓的「为人民服务」，只是倒序牺牲优先级低的老百姓而已。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "26a7654e-76fb-491c-910c-0ee5c8df0cca",
+    "date": "2023-03-29",
+    "tags": [
+      "geek",
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "简单试用了下 Apple Music classical"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "基本和 Apple Music 给我的感觉是一致的：大幅降低了欣赏古典乐的门槛，配合空间音频更是锦上添花。（品质更高端的「自来水」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "Apple Music 系的优势在于两点："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "音频文件质量高：无损格式，数字母带，空间音频。这些在联网状态下只需要点击播放键即可，真就是自来水一样的逻辑；"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "始终追求「编辑推荐」：这点其实算是个人的「迷思」，不同推荐策略中还能够坚持人工推荐的播放列表，多少有点人情味在吧；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "对于Classical 的期望："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "目前只有 手机端 App，希望Mac可以尽快上，让高端耳机参与进来；"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "既然App独立出来，还是希望能有不同与 AM 的板块或者设计，比如古典入门之类，毕竟古典至少在大部分地区，欣赏能力还是有限的；"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "acba4e89-8923-455e-9eeb-cc82aef220c8",
+    "date": "2023-03-28",
+    "tags": [
+      "历史",
+      "今天很开心"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "好好好！！"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c918fd43-2f39-494d-b7fa-7fe1cfe6af41",
+    "date": "2023-03-28",
+    "tags": [
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "上海静安区社区民警"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "让人感动又害怕"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "我不知道哪样更让我害怕"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "那瞬间我宁愿是做诈骗那边的，操你妈。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "daaddda2-dfee-49de-8879-51db868b61a7",
+    "date": "2023-03-28",
+    "tags": [
+      "书影音",
+      "geek"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "非常不错的中英文信息源整合汇总，也推荐作者的免费插件。"
+          }
+        ]
+      },
+      {
+        "type": "link",
+        "text": "https://www.owenyoung.com/sources/",
+        "url": "https://www.owenyoung.com/sources/"
+      }
+    ]
+  },
+  {
+    "id": "e6cc1d4b-8963-40a8-b0b9-eceb4a11f678",
+    "date": "2023-03-21",
+    "tags": [
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "年轻人要不要买房，至少我个人，会把 买房 的 确定性「负担」 和 不确定「风险」 混为一谈。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "负担是永久的，只要不是全款，在可预见的未来都会存在定量的负担；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "风险是未知的，你永远不知道五年后的收入水平和健康状态能否继续承担肉眼可见的负担。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "05ab0492-37cc-4754-8bef-2674fc95f766",
+    "date": "2023-03-17",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "text": "https://www.bilibili.com/video/BV1Pk4y187bH/",
+        "url": "https://www.bilibili.com/video/BV1Pk4y187bH/"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "国内最喜欢的剪辑师，所做出的目前最喜欢的一期视频。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "士力架最牛的地方在于从繁杂的视频素材中能够找到最能集中展现主题的音乐和素材，当然我不确定主题和素材哪一个先确定，但最终成品体现出的一致性让人信服。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这期视频刚好是能打动我的点，杀伤力过于强大了。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "06337ac7-8b45-48e9-82be-7b3460caedc6",
+    "date": "2023-03-15",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "《瞬息全宇宙》得奖了，不知道 A24 厂牌能不能得到更多的支持。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "其实早在《瞬息》之前，A24 的很多作品就已经给我一种 「卧槽还能这样啊」的感觉。 比较早的有《原钻》，晚一点的有《Yang》，共性就是非常耐人回味，如今能够得到业界的认可，真的希望能够越做越好。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9c8a0d13-9c55-4456-8c3c-fa4f636cafb0",
+    "date": "2023-03-08",
+    "tags": [
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "差不多一年没打开「小宇宙」，发现现在竟然登录就需要绑定手机号。。。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "所以已经迈进了「实名制收听」的新时代了"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "459e1fdf-f237-47d0-ad67-f9569d3fcec7",
+    "date": "2023-03-06",
+    "tags": [
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "text": "https://twitter.com/wake_neko/status/1629757744109715458",
+        "url": "https://twitter.com/wake_neko/status/1629757744109715458"
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/459e1fdf-f237-47d0-ad67-f9569d3fcec7-745caa248abe7c5c.png",
+        "alt": ""
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/459e1fdf-f237-47d0-ad67-f9569d3fcec7-b5b91106ed0141fe.png",
+        "alt": ""
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/459e1fdf-f237-47d0-ad67-f9569d3fcec7-814d17b15a50e1ca.png",
+        "alt": ""
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我是没有读过上野，只是听过这位教授的名号。和气猫的概括未必全面，但我大概知道了上野的倡导和前因后果，也开始理解诸如hayami之类的未婚潜在中产对其的「崇高敬意」。很可惜这种思想是不可能在共党大陆生根发芽的，别说教授，叫人都不行。如果中华田园女权把上野作为「行动纲领」，我对国内的女权运动完全不抱希望。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bdc53049-9349-4f61-9f94-0ba991ecb469",
+    "date": "2023-03-02",
+    "tags": [
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "text": "https://blog.yitianshijie.net/2023/03/01/3579/",
+        "url": "https://blog.yitianshijie.net/2023/03/01/3579/"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我毫不怀疑他会寄到，因为这是中国，人民财富总是会豢养些存在不那么合理的机构。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "但我的问题会是：多久才能寄到？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当然这是我的问题，这也是我的问题吧。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4bd7ef1e-abd4-44fa-943b-ccb5a58354d6",
+    "date": "2023-02-23",
+    "tags": [
+      "吐槽",
+      "geek"
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "text": "https://blog.yitianshijie.net/2023/02/17/3562/",
+        "url": "https://blog.yitianshijie.net/2023/02/17/3562/"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "联想到之前的一个论调：「为什么我们有了互联网之后，越来越不开心了」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "没有人强制任何人使用互联网，也没有承诺过使用互联网会使人开心。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这个论调的前提，更多让我感到些许武断和傲慢。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b877b59d-6688-4e0f-9297-9e9f2c8d3af8",
+    "date": "2023-02-23",
+    "tags": [
+      "吐槽",
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "对于大多数人来说，做播客的意义不就是「可以不打草稿就能输出观点」吗？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "否则写 Blog 就好了。"
+          }
+        ]
+      },
+      {
+        "type": "link",
+        "text": "https://blog.yitianshijie.net/2023/02/23/3567/",
+        "url": "https://blog.yitianshijie.net/2023/02/23/3567/"
+      }
+    ]
+  },
+  {
+    "id": "685f3439-c81d-443b-a034-6bac252bac99",
+    "date": "2023-02-21",
+    "tags": [
+      "产品"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "老家结婚有个流程，叫「改口」。没啥特别的，就是当众叫丈母娘一声「妈」，意思从今以后就一家人了。结果这是我哥姐在传统婚礼中评价最高的一项环节：「后面喊人，顺滑多了，毫无心理障碍。」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "心态的转变，真的是很神奇的东西。有时候心理的暗示还不足够，你需要在一个比较「难堪」的环境里让现实「告知」你当前的情况，你才会百分百的接受这个局面。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "工作也是这样，leader走了，你是不是算是继承者？即便你知道这件事，如果没有一件事故来告诉你你需要团队负责，那可能你的表现永远不会有变化。被骂一顿可能比什么都管用。当然这是对我个人而言的经验。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fde86a32-2d22-4d54-9820-a91897cd3a21",
+    "date": "2023-02-20",
+    "tags": [
+      "社会观察",
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "text": "https://m.weibo.cn/status/4871296028509584?wm=3333_2001&from=10D2293010&sourcetype=weixin",
+        "url": "https://m.weibo.cn/status/4871296028509584?wm=3333_2001&from=10D2293010&sourcetype=weixin"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "女性权利也是权利的一种，真以为可以在2023年的中国大陆通过线上讨论达到任何效果么？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "就我而言，现阶段的田园女权运动除了固步自封以外，没有对需要产生影响的人有任何的正面影响或转变。不止一次听到同事朋友跟我吐槽公司群里的XXX。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我这话非常不「政治正确」，但我对这项运动的失望，恰恰源于我对平权成功的渴望。与其去希望一个更大群体运动的成功，女性群体有空前的凝聚力，且国内的现实决定了其中大部分成员都是收到较高的良好教育的。说不上「怒其不争」，只是期待女性权利能给逐渐式微的公民权利做个榜样。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "乐观地看，田园女权可以瞬间号召起大陆一半的人口。但现在的悲观事实是，不但没能团结起一半，倒是先把另一半得罪了。类如hayami这样的同志，我不知道是在宣扬平权，还是在打造kol，可能女权只是副业吧，「大厂」现在是她最大的敌人🌚。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f221eb58-9b4d-4008-b8cc-f13950609c09",
+    "date": "2023-02-20",
+    "tags": [
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "url": "/images/capsules/f221eb58-9b4d-4008-b8cc-f13950609c09-619fffee41d6f9a9.png",
+        "alt": ""
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "Blow my mind"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7bd2e9b6-3876-4a24-a927-7410c19a3b44",
+    "date": "2023-02-16",
+    "tags": [
+      "数码"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "只看数码圈子，因为我熟。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "假如 B 站小红书频繁出现「XX保姆级教程」，那么这玩意大概率是看着用得爽，成本火葬场。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "而且对大多数人没什么卵用（简称 吃灰），切记三思。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "比如 Apple TV，比如 ChatGPT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9c0ce884-3a46-44c3-8b5c-d751e623dab6",
+    "date": "2023-02-16",
+    "tags": [
+      "geek"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "仅限互联网行业范围的话："
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当我们说「设计」，是将一个已经成形的抽象想法具体化。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当我们说「创作」，更多是在思绪的大洋上漂流，等待遇到某个小岛。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "前者是 AI 可以替代的，后者我暂时认为不行。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "72465790-4308-4a8e-b007-cd1e5a6b3e8d",
+    "date": "2023-02-14",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「平原上的摩西」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我能体会到这是一个悲剧循环的故事，每个人身上的悲剧总是会传递到子女/师徒 或是其他的继承者身上，这也是东北衰落过程中最容易被感知到的悲剧性。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "拍摄风格过于文艺，太多冗长的长镜头 空镜头，似乎是对观众鉴赏能力的不信任。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "剧本本身问题是不大的，但在悬疑和情感当中，并没能找到一个合适的比例，导致悬疑不过瘾，情感又不深刻。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "总的说，市场应当允许/鼓励这样作品的存在，这样的，要求观众经过思考才能有所得的作品。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1946a557-9cce-4381-be66-aa071373fa98",
+    "date": "2023-02-13",
+    "tags": [
+      "吐槽",
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "嘴上说着「各年龄层的人表达情绪认同的方式是不同的」， 但心里也清楚，即便是 AC/DC 来了，我也不太可能在 livehouse 里蹦上一晚了。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "#苏州观脏手指有感"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cd2eb73d-4ec6-4ae8-80e3-93c3331e7869",
+    "date": "2023-02-09",
+    "tags": [
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "大部分90后真的默认在他们60岁的时候，社会环境跟现在还是一样的。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这是我目前为止听过，对共产党统治的最诚挚的祝福。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f4d02786-64de-4750-ade9-41e11f753a90",
+    "date": "2023-02-06",
+    "tags": [
+      "geek",
+      "数码"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "试用了下 Midjourney，AI创作（姑且这么称呼吧）跟人类的创作思维确实不同，和点菜很像，或者说与点「私房菜」很像。"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "首先你需要了解菜肴烹饪的基本方法，蒸炸煮炒"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "然后向厨师指明想包含的食材"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "最后根据厨子的demo，把握下大方向"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "所以一切的前提是，你需要对烹饪有大致且最好丰富的了解。精专的部分交给AI。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这也会倒逼人类更加广泛地去拓展自己的艺术知识边界，只是可以少考虑实践部分。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "有人称：这会让绝大部分的插画师失业。此话不假，但插画师也是可以调整技能重心，通过AI重新就业的。这也是事实。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "至于少部分创作者，我们绝对还是需要的。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "顺着这个思路，目前的 Midjourney 有两种用法："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "今天家里有这些菜，你看能做个啥吃的"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "我想吃个XXX，你看你能用什么方法给我整出来"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "最后贴个我的实验品，已设为博客 icon."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/f4d02786-64de-4750-ade9-41e11f753a90-c2a848122f3a78a9.png",
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "id": "5ed10c26-efef-4a2f-ac6a-7acf7d866c65",
+    "date": "2023-02-06",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "接上条 "
+          },
+          {
+            "type": "text",
+            "text": "一闪"
+          },
+          {
+            "type": "text",
+            "text": " "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "看到有人说：只要你能跳过/忽略 其中的主旋律，那「狂飙」还是挺好看的。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "就好像说：这菜虽然有老鼠屎，但挺好吃的，你把老鼠屎挑了再吃就行。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "看到的有屎，看不到就万事大吉。倒不是我对一部中央机关参与制作的剧集有多大意见，而是部分国人对于自身精神消费的「审查」如此草率，有点失望。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "活用中共「审查」制度。我审查不合格，看可以，但我不信，并加入样本库进行学习，举一反三。此条适用于中外任何形式的文艺作品。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "68fee29f-a2f8-4d69-a6bc-3f6a97c25aff",
+    "date": "2023-02-06",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「无论是小说还是游戏改编的影视剧，只要抱住原著的核心优势，基本就不会太差。」持这样观点的，大多是从原著喜爱者的角度出发。如果我本身对原著没有特别偏好，那么剧集本身的质量才是我评价的基本标准。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这么去看，剧版「三体」截止到22集，做得很一般。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "难得跳脱原著，节奏过于拖沓，增加的三朵「金花」不知所云，甚至还有史强的感情戏，好吧魔鬼也是有感情的。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "近半年内，看到较为成功的改编，倒是都来自游戏。「赛博朋克」和「美国末日」，都是在游戏设定的框架内，一个玩家熟悉的体系中，重新打造一个全新的故事。当然「美国末日」我仅仅指 S1E3 这一集。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "如果这个世界是这样的，那么还会发生什么故事呢？类似 「Yes, and…」的设定，既满足原著党，又让剧集本身有吸引力，才有机会做好。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0cfa7759-3f24-4bb2-8461-1157d5027ebb",
+    "date": "2023-02-01",
+    "tags": [
+      "社会观察",
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「不是很理解玩游戏的，我从小到大都没沉迷过游戏」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「你以为他们是在玩游戏，其实是在逃避A，寻找B」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「好的游戏，可以让你体验不同的人生」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当他们讨论「玩游戏」话题的时候："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "有的人重点在「玩」。它跟「学」是对立的，是不被家长老师认可的，所以我不要"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "有的人在于动机分析。你这么喜欢玩游戏，是不是现实中没朋友没生活"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "有的人更注重「游戏」中的经历体验。我来到世界，渴望感受更多，体会更多"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "无所谓好坏优劣，各家观点挺有意思的。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "108a92a3-39bf-4e65-bde5-cc6c0480473e",
+    "date": "2023-01-31",
+    "tags": [
+      "书影音",
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "中宣部 硕果累累的一年。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "不论大小荧幕，把政治宣传+审查彻底融入商业影视创作，非常高明的一步棋，应该花了不少心血和资金。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "直接卖💩️没人吃，那我找到最好的酒楼，与他「合作」在每道菜加入适量「米田共」，日积月累也能达到吃💩️的效果，同时还能赚钱，这才是权力的正确打开方式。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "PS：我是容易大惊小怪的人，也不反对抵制其余人观赏剧集。只是想说世界上还有一个人是这么看待这件事情并有些许担忧未来的发展趋势的。（比如以后不加💩️就不让卖；会不会不吃反而有戒断反应等等"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b2235e7c-5c49-4689-8c9c-654e5b8e0876",
+    "date": "2023-01-30",
+    "tags": [
+      "数码"
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "text": "https://twitter.com/jike_collection/status/1619471709689765889?s=46&t=-Mvp9nGBuX7xPr-adCqVpg",
+        "url": "https://twitter.com/jike_collection/status/1619471709689765889?s=46&t=-Mvp9nGBuX7xPr-adCqVpg"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这不就是「硅谷」里，一群哥们围着饼干打飞机，最后一个人吃掉 的现实版么👆🏻（上为推特链接）"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ad84f9b9-86eb-4c74-9261-a44df28fa6be",
+    "date": "2023-01-17",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "国内剧版「三体」的相对好评的原因，我认为不是尊重原著（当然会让原著党更加满意），而是利用电视剧的优势，把原著中的「AHA时刻」成功释放出来。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "大刘的文笔是公认的「直男」，电视剧的镜头语言，配乐和演员的微表情恰恰可以填补原著这部份的空缺。所以只要原著中 blow your mind 的部分还在，那这部剧作的效果就不会太差（还是原著底子好啊）。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当然剧作中的气氛烘托，在有些原著的边角料上我觉得有点过：比如花很长的篇幅在智子的视网膜倒计时投影上，且配乐氛围过于悬疑，似乎是想抓住非原著读者的兴趣，但知道怎么回事的观众会觉得有些无聊冗长。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "以及，目前场景还局限在「正常世界」，后期涉及更多的科幻场景，制作水平能否保证，是个问号。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "保留小说中宏大的宇宙观，再把原先扁平角色在电视剧中加以填充和复杂化，这是很保险的改编思路，也确实适合大刘这类不善于科幻以外的描写的作品。做到了，就不会差。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "所以我期待网飞版的原因就在于：是否是一个更完整版本的呈现，还是彻底不同的改编思路。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当然西餐是否合口味，这是个问题。但能够同时看到这么多版本的改编，确实是件挺有意思的事情， 尤其对于原著爱好者来说。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7ff2546d-cf67-4749-be90-188b13fa15a0",
+    "date": "2023-01-16",
+    "tags": [
+      "一个想法不一定对",
+      "产品"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "要以我2023的标准去评价的话，不合格的产品经理就是没有工作的那些产品经理。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "跟十年前不同的是，如今的环境不需要产品做出高创意、高风险的决策。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "一切看数据，看竞品，看老板，看流程。当代产品更像是职业经理人，有能力给企业产出效益，那就是合格的。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "所以怎么去评价网红产品呢？没有任何意义，当代不需要网红产品，只有大厂职业经理。（严谨一些：产品组不需要，营销组可能需要）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当然我不排除未来的科技革新出现新的空白给产品经理去发挥创造，但在这个机会出现之前，PM都消逼停的吧。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5022e86d-3625-4b37-8ce5-2672f16b9fe4",
+    "date": "2023-01-09",
+    "tags": [
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "差不多三周时间，从新冠中基本恢复「正常生活」了。（没有疫苗接种，身体健康的成年人）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "结合自己身体的反应，还是很难想像三年前，在武汉会是何等的惨烈，可怕。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "也很难想像22年所有人的代价，究竟是为了什么。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9fd643a5-927e-49a3-b85d-51ffc84b9027",
+    "date": "2022-12-22",
+    "tags": [
+      "geek"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这是一篇 Notion AI 的测试帖，回答部分由Notion AI生成，不代表本人观点："
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "如何在中国推广女权运动？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "现在，在中国推广女权运动的最好的方式是从基础层面开始，通过宣传和教育来激励人们。首先，可以在教育环境中实施关于女性权利的课程，以提高人们对女性权利问题的认识。其次，可以采取多种措施来推动社会变革，例如通过媒体宣传来引发公众讨论，通过政府政策来鼓励参与女性权利运动，以及在社区等场合开展宣传活动等。在这些活动和策略的支持下，人们将能够有效地开展女权运动，从而更好地促进中国的社会发展。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "中国足球应该如何改革？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "应该从培养技术和培养青少年足球运动员开始，同时鼓励更多的人参与足球运动。应该加强对足球运动员的培训，使他们更具竞争力，同时建立一个良好的联赛体系，以提高足球的水平。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "如何看待脑机接口技术？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "对于脑机接口技术，人们有着不同的看法，有些人认为它是一项前所未有的技术，它有助于我们更好地理解脑的工作原理，也可以使人们更加直接地与机器进行交流；另一些人则担心这种技术会破坏人的隐私，或者会产生一些未知的后果；此外，还有部分人认为，脑机接口技术有可能威胁到人类的自主意识，且具有潜在的威胁性。无论如何，脑机接口技术确实是一项极其具有潜力的技术，它有可能在接下来的日子里改变我们的生活，让我们更加自由自在地与世界沟通，但我们同时也必须在使用它的同时小心翼翼，以免造成不可预料的后果。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "异地如何优雅地过春节？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "异地如何优雅地过春节？这是一个让许多人头疼的问题。尤其是在当今社会，人们总是因为工作或学业的原因而无法回家过年。但是，这并不意味着你就无法体验到春节的喜悦，也不必担心会失去传统的习俗。因此，我们可以采取一些办法来过一个不同凡响的春节，比如，可以利用现代科技，与家人们进行视频通话，这样既能够满足亲情的需求，也能够感受到春节的气氛；另外，也可以与朋友们一起准备一顿丰盛的年夜饭，一起聊聊过去一年的点点滴滴，分享彼此的快乐和收获；此外，也可以利用春节假期，去一个全新的地方旅游，丰富自己的阅历，给自己一个新的开始。总之，只要有心思，就一定能够在异地也过一个优雅而美好的春节。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d9521ec6-a839-4e69-a25c-7c7d4420c202",
+    "date": "2022-12-13",
+    "tags": [
+      "生活",
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "中午买了包供港蔬菜，后有感。"
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "children": [
+          {
+            "type": "link",
+            "text": "境内销售的高档蔬菜主要是有机蔬菜及绿色蔬菜、无公害蔬菜等，但因为这些所谓高档蔬菜的认证管理无法得到有效监管，所以在基于这些特性情况下，使得供港蔬菜在境内市场很受热捧及消费者青睐",
+            "url": "https://baike.baidu.com/item/%E4%BE%9B%E6%B8%AF%E8%94%AC%E8%8F%9C/4570640"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "任何选择都是有代价的。看似免费的选择，代价往往是隐形的，即便是看起来付出过的代价，也可能到最后是徒劳。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "想吃得好一点，可以尝试额外支付些「保护费」；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "想获得更好的文化精神生活，不妨自己做做功课，而不是盲目听信综艺里几个「老师」的意见；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "想要被当作人对待，那可能需要平时就具有些「公民意识」；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "2022年，可能是中国大陆近20年有最多人在独立思考的一年，也是很多问题浮出水面的一年。和往年一样，问题答案依然在风中飘扬。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "34c4b7d8-f050-4eaf-a265-0afefab25efa",
+    "date": "2022-12-06",
+    "tags": [
+      "一个想法不一定对"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "对于江泽民，我不确定现在是否是一个好的时机，去对其的一生进行评价。诚如大家所说「靠同行衬托」，以及再久一点的「开倒车」。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "作为政治决策的背锅人，总会「做过」好事和坏事。国内民众怀念的，可能更多是江执政时期，使其拥有的对生活的无限希望和期待。但一个国家不会永远活在黄金时代，当前的人口结构问题其实在毛时代就已经埋下祸根，其中的功与过放到一人身上，是否有点过分了呢？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "最后，我觉得：一个人如果竭力想展示出对前任的释怀和大度，那他大概率是个小肚鸡肠之人，要谨慎。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3e0d490d-e4e1-4aff-97fd-e4bdd767ec7f",
+    "date": "2022-12-06",
+    "tags": [
+      "吐槽",
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "从甄嬛之后，多年没碰国产古装剧。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当前热议的卿卿，个人感觉即使演员下一秒掏出手机我也不会有任何违和感。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我是会本能反感古装片的服化道所营造出来的「虚假美好」："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "几根蜡烛，照明亮度比我家都亮"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "私人花园的木桥上肉眼可见的滚轮划痕"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "古人口中的现代用语，品种优良的食材"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "一尘不染的街道和服装"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "除此以外，编剧想跟你聊聊现代话题之心，昭然若揭。似乎编剧为了保全剧本，国内写手已经掌握了一套求生之术。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "借古讽今，顾左右而言他：「你知道我在说什么，对吧？」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这未必是编剧的错，但这是我们每个人要面对的问题。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6c53dc58-f2e1-4cb4-974c-e3702331f7df",
+    "date": "2022-12-03",
+    "tags": [
+      "书影音"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "音乐喜好转型的一年"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/6c53dc58-f2e1-4cb4-974c-e3702331f7df-a0bf95858f6356fb.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "id": "ad3495d1-9f14-436a-b86f-927a900fa864",
+    "date": "2022-12-01",
+    "tags": [
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "最近确实有点「抑郁」，甚至上班路上还要担心是否会被拦下「检查手机」。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "可笑的是，由于「健康码」的存在，大部分人的备用机已经没法再用了。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "34725400-c24c-4277-93f7-8fba472b46c9",
+    "date": "2022-11-28",
+    "tags": [
+      "历史"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "图片存档"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "注：来源于网络和群聊，非原创，不保证真实性，仅供参考"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/34725400-c24c-4277-93f7-8fba472b46c9-80f5b477c03c9f9e.png",
+        "alt": ""
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/34725400-c24c-4277-93f7-8fba472b46c9-f37a7c9beafa0883.jpg",
+        "alt": "大约凌晨一点，大量警察进场"
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/34725400-c24c-4277-93f7-8fba472b46c9-ad0252ab2c98b32f.jpg",
+        "alt": "图来源网络，估计晚十点至十二点左右"
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/34725400-c24c-4277-93f7-8fba472b46c9-bf6909b3660d06a8.jpg",
+        "alt": "晚十一点至十二点"
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/34725400-c24c-4277-93f7-8fba472b46c9-d26d5531997282d8.jpg",
+        "alt": "凌晨三点左右，开始清场时"
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/34725400-c24c-4277-93f7-8fba472b46c9-c619d39a14335a9a.jpg",
+        "alt": "开始清场时，凌晨三点左右"
+      }
+    ]
+  },
+  {
+    "id": "704318e2-2f0b-4ffb-a5d4-1368e99dd379",
+    "date": "2022-11-27",
+    "tags": [
+      "历史",
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当时看 天安门记录片，里面的工人小贩不能跟着同学出发游行，只能递水买冰棍。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "2022年，我也有相似的感觉，佩服年轻人的担当，也愿意支持他们，可能我没办法到现场，但也希望能够贡献一份力。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "快点好起来吧。"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "b40ae83e-cf5f-4317-bc1c-1dd6087cfa1e",
     "date": "2022-11-25",
     "tags": [
@@ -14233,6 +16894,1819 @@
           {
             "type": "text",
             "text": "阿森纳球迷线下聚会、其他同好聚会，我很少「社恐」"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2267521f-76e0-4a04-a379-f5173e940e00",
+    "date": "2021-10-10",
+    "tags": [
+      "吐槽",
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "个人不喜欢或「讨厌」的播客，如果剥离开内容向的因素，大概分为几种情况："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "不提供RSS订阅链接"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "不提供海外「完整版」"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "只在「小宇宙」平台上架"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "目前观察，甚至第3点已经成为1、2的导火索。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "并没有反小宇宙平台的意思，但如果平台仅仅关注自身发展和利益，那么其中播客的内容质量在现今的管理条例下，话题可能真的只局限于「吃饺子蘸什么醋」这种话题上。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "而广大播客创作者，不能说蠢或者坏，希望从创作者的角度，再多一些担当和勇气。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "播客，博客，皆如此。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b31164a6-f7ea-443a-b668-86feae235407",
+    "date": "2021-10-09",
+    "tags": [
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "如果你在某段时间内突然对某事物疯狂上瘾，那么或许你的生活出现「问题」了"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5cbb526c-d73a-4b4f-8641-12b319ecf556",
+    "date": "2021-09-30",
+    "tags": [
+      "社会观察",
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "工作的原因开始频繁使用 Google Suite，文档的保存纯自动化处理，不要说新一代，就连我上次点击「保存」按钮，已经想不起是什么时候了。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "互联网把我们宠坏了"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "城市把我们宠坏了"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "地球把我们宠坏了"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "人类 要被惩罚了"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1b964b90-8c96-4fa0-ab53-a3151292542d",
+    "date": "2021-09-29",
+    "tags": [
+      "社会观察",
+      "历史"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "古典乐是需要乐手大量、专业的训练和练习。也就是说，你没办法「立刻」「容易」获取到古典乐的资源（如果你认为磁带CD算是音乐资源的话，那没有太大的谈论意义了），所以古典音乐成为上流的文化食粮，因为他丰富、优美、愉悦，传统，并不是因为他贵；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "那工薪和大众的需求如何满足？民谣、摇滚，不需要太多的练习和门槛就可以让大多数人获得技能，流行文化能够流行因为大多数人玩得起，而不是因为他有多好；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "所以你说为什么咖啡可以在中国流行，而传统茶饮不行，我觉得可以从相同的角度去考虑"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cd879ba7-9aa9-42e2-b4c0-f9be094a9b1a",
+    "date": "2021-09-29",
+    "tags": [
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "一个更好订阅 newsletter 的小技巧："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "订阅 newsletter 时的邮箱，可以在邮件名后增加「+xxxx」的后缀"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "输入类似格式的邮件地址，不会对你的收信地址有任何影响，仍然可以在收件箱中收到确认邮件"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "但是，「xxxx」的部分可以作为过滤器的判断条件，实现类似邮件的自动化处理"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "所以，我可以将所有的 newsletter 邮件，通过「xxxx」统一整理到某个标签下，且不会污染收件箱，同时在有空的时候可以一网打尽。当然，这种分类也可以用于某些服务或者订阅消息的分类，而不是想之前一样，统统出现在 inbox 里。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "38fac8a1-d071-423d-bb9b-f21f66288145",
+    "date": "2021-09-28",
+    "tags": [
+      "数码"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "iOS15 最让我满意的一个特性就是：小组件的智能推荐"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "连上AirPods，组件展示音乐列表推荐；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "播放歌曲时，组件显示正在播放；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "醒来打开手机，组件显示「偷能量」的快捷操作；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "日程时间接近，组件显示接下来的行程安排；"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "所有这些显示的组件，都不属于我一开始添加的组件队列，仅仅是「Siri」觉得我现在「可能」会用到，当然我确实用到了。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "从古早时代的「PDA」到初代Siri，再到iOS15，我可以清晰感受到apple期望打造一个真正意义上「个人数字助理」的愿景，从工具到助理，尤其是不泄密的助理，太难了。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a5910a8b-0e34-47df-b2f6-fec7d8759cb5",
+    "date": "2021-09-25",
+    "tags": [
+      "运动"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "FPL的kol也算是主流价值观了，也需要我们自己去思考跟鉴别。说得有疑问还不如不信，否则你跟其他玩家拉不开差距，这是信息层面的difference，也可能是大部分人忽略的一个层面。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "因为可能排名前十万的玩家，有90％的信息源是重合的，关键在于，你用哪部分"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7f38d0dc-c162-46f8-a6f4-b306289dc5bf",
+    "date": "2021-09-18",
+    "tags": [
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "text": "https://www.bilibili.com/video/BV12P4y1p7Cf",
+        "url": "https://www.bilibili.com/video/BV12P4y1p7Cf"
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "耳目一新。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "近几年科技评测的自媒体逐步走向了「用户为中心」的创作方向。只说只讲只看只关心用户能够「感受」的部分，甚至「testv」之类的频道，直接把自己定位成了「消费者」，至于某同学，个人更愿意定义为使用「科技词汇」进行情感抒发的创作者。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "当然这里大概因为，自媒体的媒介形式和受众市场对生产侧做了一次「自然选择」，但难能可贵的是还可以看到与众不同，仍然坚持「古典科技测评」的频道。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "自媒体一开始并不需肩负某种特定社会责任或愿景，但随着影响力逐渐扩张，甚至形成某种「注意力垄断」的时候，平台和作者的责任会不期而至，否则。。。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ca0748de-09d0-4c31-87a3-41a7f267647a",
+    "date": "2021-09-15",
+    "tags": [
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「深圳校服」现象"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "不缺idng是否因为社交网络的审美泛滥，学生们的审美已经被同化且趋同"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "学校除去传授知识，是否也应该提供帮助学生建立基本人生观的服务？（虽然早就应该有，但似乎现在更加紧迫）"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "每代人都有自己的own shit，我甚至怀疑自己很难熬过这样的「审美宣判」"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5275b841-5af5-45ec-b533-6285e1f92bde",
+    "date": "2021-09-14",
+    "tags": [
+      "生活",
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "经常会去「感慨」：人是多么渺小，但同时有可以如此伟大。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "问题在于，当时这样的感慨，「扎实程度」有多大？ 在玩《Humankind》的时候，感觉是在过山车。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b3aae91a-7ef2-476f-a66b-5786671aa6ee",
+    "date": "2021-09-14",
+    "tags": [
+      "运动",
+      "FPL周记"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "非原创，随手记"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "【一点点关于#FPL#的个人理解和心得（1）】"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "玩FPL已经五个赛季了，上赛季在让让群（硬广@让让我梦幻英超 ）各位群友的通力协作下取得了个人有史以来的最高分和最高全球排名。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "新赛季还有不到十天就开赛了，接下来会不定期分享一些个人对于这个游戏的理解以及一些心得，希望能有所帮助。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "⋄ 你的球队可以看作是一支基金"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "‣ 为什么这么说？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "因为它的组成形式和操作手法和基金非常类似："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "一支梦幻球队就是一支基金\n• 玩家就是基金经理\n• 每个经理可以挑选15支股票（球员）组成自己的基金（球队）\n• 每周一次免费调仓的机会，每个赛季两次无限调仓机会\n• 球员的FPL得分就是个股的收益，球队的得分就是基金收益\n• 球员的身价就是股价"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "那么，既然FPL和基金如此类似，是不是可以借鉴一些理财的思路呢？\n可以的。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "‣ 将理财思路运用在FPL里"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "首先需要声明，我不是理财好手（让让群有的是炒股高手），所以如果有说错的请见谅。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "一般人们会将股市中的股票分类，最常见的就是按照市值总额分类，一般可以分为大盘股，中盘股，小盘股等等。大盘股实力较强，前景比较确定，一般风险较小；小盘股一般成长空间较大。看到这里，我们可以再做一个概念匹配，"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "球员的持有率就是股票的市值总额"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "一个球员，如果持有率越高，比如Salah，KDB等等，全服玩家有超过30%，甚至40%持有他们。如果你持有他们，那么当他们获得高分的时候，其实你自己并没有获利很多。同样，当他们发挥不好的时候，其实你也不会亏损很多。这种球员就是大盘股。他们的表现对于排名的影响不大，持有他们的风险相对较小。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "相反，如果一个球员的持有率不高，常年全服持有率在5%左右（也就是differential）。如果你持有他们，那么当他们获得高分的时候，你就会大赚一笔，排名有质的飞跃。然而当他们发挥不好，而其他的大盘股球员稳定输出，那你的排名就会显著下降。因此这种球员就是小盘股。他们的表现对于排名的影响较大，持有他们的风险相对较大，但排名成长的空间也较大。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "现实中基金经理会在基金里持有各种类型的股票（或者债券），目的是为了平衡风险。最明显的就是股债混合基金，可以利用股市和债市的特性做风险对冲。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "在FPL里，玩家也可以做相似的操作，即在球队中平衡选择我们的”大盘股“，”中盘股“，和”小盘股“，以此来将风险最小化。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我们都知道风险和收益是成正比的，那么"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "⋄ 如何在风险承受范围内获得最大收益？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "（待续）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "【一点点关于#FPL#的个人理解和心得（2）】\n（1）：（放了链接就会被屏蔽[费解]）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "⋄ 如何在风险承受范围内获得最大收益？\n就像是否选择了合适的股票组成基金能决定理财收益一样，是否选择了合适的球员也能决定玩家是否能最大可能地获得高分，接下来主要分析一下选人。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "‣ 根据球员在球队中的定位挑选球员"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我一般喜欢把进攻球员分类成："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "Playmaker（Bruno，Salah，KDB，Pulisic）\n• 射手（Auba，Vardy，Ings，Sterling）\n• 综合（Mane，Martial，Rashford，Kane，Raul，Son）\n• 僚机（Firmino，DCL）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "在我的择股策略里，playmaker的优先级是最高的。他们掌握着全队的进攻节奏，最多的进攻资源，在持球的时候有权限做任何处理球的决定，可以传，带，射，在一个进球中参与度很高，混不到进球也能混到助攻。因此在数据统计上，强队的playmaker进球和助攻之和排名很高，一般我喜欢将他们作为蓝·筹·股长期持有。而弱队的playmaker进球和助攻比较平均（Grealish），是小号的前者，可以在赛程较好的时候选择。（有资金，没受伤一定要选，并长期持有）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "射手型球员在数据上的体现是进球远远大于助攻，他们是球队的主攻手，有稳定的进球率，全队的目标就是尽可能多地给他们提供资源，让他们进球。但这种球员选择难度不大，在选择优先级上仅次于playmaker，但由于价格普遍比综合性球员高，在实际选择上需要结合资金考虑。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "综合型球员在球队中扮演多于一种的角色，他们需要进球，做支点，突击，分球等等。随着现代足球的发展，球员要承担的角色越来越多样化，这种球员的数量会越来越多。这种球员选择的难度较大，我会在下面着重分析如何选择这种球员。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "僚机型球员，尽量别选，即使他们看起来数据也凑合。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "‣ 如何在几个同类型球员中选中合适的"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "上面的分类是我个人的看法，事实上有些球员的分类很模糊，比如Kane，他以前是个射手型球员，但是随着球队需要，逐渐成为全能型支点，但仍然是球队的主攻手。再比如Martial，他前两年的定位主要是突击，但复赛之后成为了射手和支点"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "按照上面的分类，综合型球员的选择难度很大，这里我主要分享一下我如何选择这个类型的球员。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "一般来说，有球能力和持球率是我考量的很大因素。因为有球能力和持球率代表着这个球员有多大程度可以接近playmaker，这就是为什么Salah和Mane经常互为替代，但是高排位玩家持有Salah的时长总是大于Mane（见图1，Salah在top100，top1k和top10k玩家的平均持有时长在20个GW，Mane在12个GW左右。P.S. 可能会单独抽一篇分析top10k玩家的操作习惯，如果有人看的话）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "其次这个球员是否有足够的定位球参与度。因为定位球，甚至点球都是极好的得分机会。尤其是点球（0.79的xG），如果一个综合性球员拥有点球主罚权，将在优先级上占优，比如Kane。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "因此，可以根据上述两点做一个自己心目中的排序，然后选择资金可以负担的最好的那个球员。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "（待续）"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "url": "/images/capsules/b3aae91a-7ef2-476f-a66b-5786671aa6ee-1915e6bf369eca4d.jpg",
+        "alt": ""
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "【一点点关于#FPL#的个人理解和心得（3）】\n（1）：FPL与基金\n（2）：如何选股"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "⋄ 炒股"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "上一篇简单谈了谈如何对进攻球员分类，并如何根据分类选择球员。但是有时候我们做了一堆分析决定选某一个球员的时候，却发现资金不够。结果要么只好退而求其次选一个次选球员，要么从其他位置上抠出一点资金（还要搭上-4）。虽然FPL游戏本身的目的是获取高分，但是资金却是达到这个目的当中很重要的手段。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "那么如何让资金变多一点，从而让我们在选购球员的时候自由度更大呢？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这就是为什么这一节叫做“炒股”。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "就像基金经理会调整持有股票来做到低买高卖，FPL玩家也同样可以通过低买高卖来增加自己的资金。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "‣ 什么时候炒股？"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "从GW1就开始，至少要炒半个赛季（所以得先把这篇写出来）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我们看一下top1k玩家，活跃玩家，以及所有玩家的球队身价走势图（图1）。可以看到，在前半个赛季，top1k玩家的球队身价一直在上涨。也就是说，在后半赛季，这些玩家的阵容里能比一般玩家多出半个中前场premium球员。而如果把差价分散投资在后防线，几乎就是整条防线的大升级。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "图2是我自己在2019/2020赛季的球队身价走势图，和top1k玩家的趋势基本重合，也就是高排位玩家的共性就是分数和身价同时上涨。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "‣ 如何炒股"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "然而不要忘记了，FPL游戏本身的目标是获得更高的分数，而不是追求更高的身价。很显然，高排位玩家只是选择了能带来高分的球员，而身价的上涨只是高分的附加结果。因为球员得分好了，会吸引更多玩家买入，身价自然会上涨。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "那是不是只要注重选择正确的球员就可以了呢？是，也不是。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "跟买卖股票一样，买入和卖出的时机非常重要。这里分享一些我个人的经验："
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "避免在GW1之前买入持有率很高的中低身价球员（£5.0m以下）。因为这些球员很可能只是你为了凑够15人阵容选择的，并不会真的让他们上场。而当赛季开始后，玩家的注意力会被得分的球员吸引走，他们也许会卖出/置换这些中低身价的球员来凑钱，这时候这些球员可能会被大幅卖出，导致身价下跌。（避免吃跌）"
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "在新赛季的前几个GW适当追涨。尤其是估值偏低的球员，可以在GW1之前买入。（赛季初期大胆追涨）"
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "如果决定使用第一张wildcard，不要等到深思熟虑后在ddl之前一起做一大波操作。不要犹豫，直接先买入那些在第二天就身价要上涨的球员，即使他们并没有在你的计划当中。理由一是反正已经准备开卡，把这些人先买进来，这样买入价就比第二天涨价后的身价低£0.1m，如果在接下来几天里改变主意要继续持有他们，那恭喜你，你赚了，你的买入价低。理由二是如果先把这些人先买进来，到ddl你还是没有继续持有的计划，到时候你把他们再卖出去，至少不会亏。如果涨了£0.2m，你卖出的时候还能净赚£0.1m。（开卡做多）"
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "承接上一点，如果准备开卡，不要犹豫，直接卖掉那些在第二天身价就要下跌的球员，即使他们在你的计划当中。理由是，反正已经准备开卡，就没有必要吃跌，如果还想要这个球员，在ddl之前买回来。（开卡做空）"
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "如果一个球员A在一个GW表现不佳，你有意将A替换成另一个球员B，此时绝对不要在比赛结束后情绪换人。合理的操作是等到A将要跌£0.1m的前一天做转会操作；而如果这一波跌£0.1m不会影响你的卖出价的时候，等到下一个GW开赛前再做转会操作。理由是，你有更多的时间来做决定，尤其是A或B在周中有杯赛，身价涨跌的趋势可能会发生变化。同理，如果B的身价处于上涨趋势，也不要提早买入，等到身价将要上涨£0.1m的前一天操作（不到影响身价的那一天不操作）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "（待续）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "【一点点关于#FPL#的个人理解和心得（4）】"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "（1）：FPL与基金\n（2）：如何选股\n（3）：如何炒股"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这两天开市了，今天结合凶残的市场说一说自己的炒股实操策略："
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "永远记得，FPL市场跟现实市场一样，大部分都是很盲目且短视的玩家。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "很多第一轮的高分球员都在被疯狂买入，让人眼红，这时候必须理智在线，毕竟这只是一轮。"
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "将自己看中的球员分好优先级，并按照优先级考虑（你不可能买进所有处于上涨趋势的球员）。对我来说，bruno是开赛前就准备好的第一选择，我已经在今天预计涨价前买入，花掉了银行储备的2m（harvetz -> bruno）"
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "处于上涨趋势的球员中有一些是陷阱，比如bamford，他的上涨原因有两个：一个是第一轮进球，另一个是相对较便宜的价位。但是利兹赛程不好，而且bamford还面临首发位置的竞争压力，球队也无法一直保持第一轮的进攻效率。如果在5.5m买入就算了，但现在已经涨了0.1m。如果此时在5.6m的价位买入，一旦第二轮blank，这一周积累的巨大买盘的抛压将非常大。这种无法提供未来几轮的持续性输出的球员，我一般不会考虑。"
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "一般来说，玩家对于新买入的高价球员的容忍度比低价球员高（请注意是新买入）。比如说同时在这一周新买入bruno和willian，然后bruno和willian接下来连续几轮一起blank，willian的抛压将比bruno大。这里可以类比经济学中的沉没成本，投入越多，越难下定决心止损。"
+          }
+        ]
+      },
+      {
+        "type": "numbered_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "承接上一点，相比低价球员，玩家对于刚卖出的高价球员立刻回光返照得高分所产生的后悔之情更多。因为玩家对于高价球员的得分预期比对低价球员的预期高，因此低价球员回光返照得高分更多地会被视为相对较低的概率事件，错过他们更容易原谅自己。因此为了避免过多的后悔，低价球员会被更早卖出（没有reference的个人心理学思考，待求证）"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "综上，划分优先级，不要贪心，估计目标球员的可持续输出性，优先追涨高价球员。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "（待续）"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "70fda37a-e23a-4a9b-8b4e-b953f1f727bb",
+    "date": "2021-09-10",
+    "tags": [
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "有时候，也许是仅仅有时候，我觉得在门槛不是很高就能接触到国外相对很高的FPL内容的情况下，几位大哥每周开麦聊一个多小时还没啥营养，图啥😂真的咸"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a3602ae7-4b2e-479c-938b-2c6ed792ec91",
+    "date": "2021-09-09",
+    "tags": [
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "似乎，在中国境内想要成为拥有「独立人格」的人，你基本上要把共党轻视、忽略、禁止的目类（主要指精神向的）尽量都轮一遍"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "922ab8d6-0592-4eb8-aa26-add93c97848b",
+    "date": "2021-09-09",
+    "tags": [
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "算是某种情绪的发泄。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "但经历过大大小小的互联网公司，成功的已经美股上市，失败的已经破产清算。但凡暴露出的大小问题，无一不跟「管理者」有关。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "这位「管理者」可能是大老板，也许是小组leader，但错误的决策或者用人决定，很容易将发展轨迹走歪。这倒还好，最可怕的是，进入这样的轨道，当事人们是浑然不知的，没有突发状况可能这辈子都不会醒悟。作为下层/新加入员工，对这些细节往往最敏感，但可惜的是，这些人往往并没有发言权。这也是为什么「格局小的公司」往往都会有一些「可归纳」的共性。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4c1e46d0-5c0f-45ae-b26c-744aa37fa6fe",
+    "date": "2021-09-06",
+    "tags": [
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "学会做自己的「情绪预算」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "互联网的发展是迅速且「看上去无尽」的，但人的生理进化却极其缓慢。这也是为什么大多数人面对社交媒体的海量信息+情绪，开始力不从心，逐渐脱敏，甚至冷漠。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "学会体量自己的「平凡」，建立「情绪预算」，有选择得关心应该关心的内容："
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "哪些是我应该做的事情，哪些不是我应该做的事情？"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "哪些是我应该说的，哪些不是我应该说的？"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "哪些是我应该关心的，哪些不是我应该关心的？"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9670bed7-2488-4642-9da7-88aae68e3d12",
+    "date": "2021-09-04",
+    "tags": [
+      "书影音",
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "私认为一直很注意与手机保持距离，不依赖不成瘾。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "但似乎已经跟城市生活和资本体系，密不可分完全hooked住了。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "观《无依之地》"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b25829ad-7560-444b-bcee-719b698d86d3",
+    "date": "2021-09-02",
+    "tags": [
+      "社会观察",
+      "历史"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "疫情来临一年多后，我们从一开始的人文关怀，成功「进化」到「数字关怀」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "对疫情的关心仅限于数字，没有人再去考虑灾区活生生人的生活现状，除非有你的私人情感。旷日持久的消耗，榨干了所有人的耐心和同情，没人想看也就没人再写。Welcome to the Internet 3.0"
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "children": [
+          {
+            "type": "text",
+            "text": "在寻找关于扬州的报道时，最近半个月的文章基本都是官方的数据通告，看起来都是很好的数据，但是有很多东西却是缺失了的：封城状态下，医院的就诊情况如何；独居老人的状况如何；其他重病患者的治疗情况如何；每个小区都能及时的买到食物吗？再比如，封城期间，扬州市市民的心理求助情况有没有发生变化？"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "95925c2e-fb8d-400e-83d8-596f8f8cb92e",
+    "date": "2021-09-02",
+    "tags": [
+      "社会观察",
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "很长时间里，至少是我，一直把「物质」和「精神」上的富裕当成可以独立分开进行的两件事。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "可以先有钱了，我再去专注于精神世界的建设；或者说生活富裕之后，精神世界自然会有提升。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "现在觉得不是这样。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "至少在目前，应该没人能够准确定义「有钱」的门槛是多少，如果「有钱」的目标一直没有实现，那么自然始终谈不上「精神」。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "关于「精神」，一方面可以是头脑里虚无缥缈的精神世界；另一方面，也可指整个人的精神面貌。并不要求每个人多肌肉壮硕，运动神经发达。但现代社会对健康有完整且正确认识的人，几乎都屈指可数。有胸肌就是健身达人，有屁股就是性感尤物。满地铁的圆肩和啤酒肚，精神世界以一种很不美好的方式溢出到现实，并被别人利用被赚钱。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d0178bbf-a1d5-4dc2-a32b-2861a40c8d7a",
+    "date": "2021-09-01",
+    "tags": [
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "我看到的是，把应聘者的个人信息当作商品，放在流水线上，供人审视。或者说任意审视。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "没人知道这些信息是否受到一点点的保护和脱敏。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "还是那句话，但有人在乎吗？"
+          }
+        ]
+      },
+      {
+        "type": "link",
+        "text": "https://mp.weixin.qq.com/s/fEX9dR252eN4bA7FDhighw",
+        "url": "https://mp.weixin.qq.com/s/fEX9dR252eN4bA7FDhighw"
+      }
+    ]
+  },
+  {
+    "id": "3503eadf-e66a-4eb5-a445-83125e6a264d",
+    "date": "2021-08-17",
+    "tags": [
+      "历史",
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "决不能轻信、依赖巨人。巨人眼里只有自己的利益，没有长久的朋友。"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "巨人不仅存在于国与国之间，也在于国民之间。"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "到最后，所有的政治举动，都不过是计算等式的两边，数字大的获胜，而不是爬上飞机起落架的生命；"
+          }
+        ]
+      },
+      {
+        "type": "bulleted_list_item",
+        "children": [
+          {
+            "type": "text",
+            "text": "拼到现在，诸如中美这样的庞然大物也已经弹尽粮绝。面对旷日持久但消耗巨大的疫情战场，只能「磨刀霍霍向猪羊」了"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "413626e5-98a3-41cd-a9a2-97afb221c8bb",
+    "date": "2021-08-10",
+    "tags": [
+      "书影音",
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "看到这样的说法："
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "“做电影音效老师跟我说他最讨厌的就是环绕音响，家庭环绕音响"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "因为电影的声音根本就不是为这么小的空间，这么近的听音距离做的，坐在家里听那音效在耳边飞觉得特别难受”"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "对也不全对，曾经的「电影」以电影院为场景做音效设计，但将来未必。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "也许有一天，电影院的音效反而不如便携智能设备。但电视为核心的「家庭影院系统」，前途的确令人担忧。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "也许这也是为什么员工都不看好 Apple TV项目的原因吧。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eab100f8-8196-4a28-bcfb-52a9e4d8aa4b",
+    "date": "2021-08-10",
+    "tags": [
+      "生活",
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「内容的好坏，与其形式新旧酷炫并无关联。」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "值得深思。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c52da34b-c898-45c1-b8c9-37045dcdeb4b",
+    "date": "2021-08-06",
+    "tags": [
+      "生活",
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "讨厌某人或组织，大概率是他做了你想做却没能完成的事。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d89500ea-8578-4015-a514-136773e2582e",
+    "date": "2021-08-06",
+    "tags": [
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "目前国内基本上，所有对行业的政策性调整都可归纳为「德不配位」。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "也可理解为：赚钱了不上贡，或贡得不够。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d3517c3c-3cff-48fd-9926-10bedc4bcf3e",
+    "date": "2021-08-03",
+    "tags": [
+      "生活",
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "children": [
+          {
+            "type": "text",
+            "text": "你把房子看成 bitcoin 就可以了，它沒有用途，也不需要有用途。它只是一個 token，一個儲存財富的單位，其價值來自有限的供應量，它能夠住人，只是因為「剛好」能夠住人。能住人是其副作用，而非主要用途。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "只要富人有钱「投资」，且投资有收益（即房价不跌甚至上涨），那么这套逻辑是成立的。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "同理，即使楼价下跌，有钱人也会入场，届时房价又会回归高位。这是「为什么房价不会跌？」的另一面原因吧。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "为啥普通人买房这么困难？看清楚自己的对手。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f53a6eb1-ce0a-41c8-b5bc-25ab97a4487e",
+    "date": "2021-08-02",
+    "tags": [
+      "社会观察",
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "现在回到一年前，看英国提出的「群体免疫」策略，似乎也没有那么疯狂了。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "没有一个国家可以承受这样的财政消耗，尤其是似乎看不到结局的战争。与其说共存，不如算投降，最后的悬念，可能就是这个难缠的敌人，究竟来自何方？"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4609f4b1-3062-402f-8063-92bf47a46b94",
+    "date": "2021-08-02",
+    "tags": [
+      "历史",
+      "运动"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "容国团来自于香港，且在文革中丧命，以及「红双喜」名字的由来。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "中共此前一直希望透過一個世界冠軍，證明共產主義的成功。當時毛澤東形容，容國團的勝利是精神上的核武器。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "周恩來總理更把容國團奪冠和建國十周年國慶，並列為 1959 年的兩件大喜事，並把首個國產乒乓球品牌命名為「紅雙喜」。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a2026c6b-3cd9-4c20-98be-c35417579d78",
+    "date": "2021-07-30",
+    "tags": [
+      "社会观察",
+      "生活"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「打不过，就加入他们。」"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "打不过党，就加入党，这套思维逻辑没什么问题。如果滴滴、新东方这样的企业都能放弃，那没有什么饭碗是不会砸掉的。未来几年的企业家可能需要周频率地表下忠心。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "期望「中产」的打工人也会有所顾忌，互联网的就业狂潮也许会相对好转些。「中产」阶级可能也就此消失一段时间，不是「打工人」，就是被「被国打压的资本家」。而刚刚如火如荼的「新快消」，可能会受些打击。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "就业回归理性，重新考虑对口就业，正确择专业，似乎是好的影响。但如果国企、公务员成为择业首选目标，似乎还是哪里不太对。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "斜杠青年们，机会来了呀。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "061bf099-21a7-4371-af4b-bbc031ad174b",
+    "date": "2021-07-29",
+    "tags": [
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "奥运上的民族冲突似乎越来越频繁，「二手信息」和帐号的危害和弊端，体现得淋漓尽致。得不到知识不要紧，还无端传播「垃圾情绪」。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "「2021年，奥运会还有人看吗？」我们需要先确定「看」的定义和主体。"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "世界可能真的不会好了。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8efe571c-5b2d-4df1-8aad-81e2738fc388",
+    "date": "2021-07-28",
+    "tags": [
+      "吐槽"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "妄想独立于世界，偏安一隅，是要遭受惨痛失败的。堡垒总是从内部攻破，现在到了中央政府抉择的时刻了，保经济还是救人民？"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "85383dc7-7029-4b4b-8bf3-eaa455634729",
+    "date": "2021-07-27",
+    "tags": [
+      "社会观察"
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "text": "最讽刺的是，借着支持国货的由头，筛选出热血民族分子，在欢乐祥和的气氛中，挨个杀熟压榨。"
           }
         ]
       }
