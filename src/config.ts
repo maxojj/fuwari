@@ -9,7 +9,7 @@ import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
   title: "西灵沉船",
-  subtitle: "You can listen You can talk",
+  subtitle: "feedId:1241030392689852416+userId:72087582767683584",
   lang: "en", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
   themeColor: {
     hue: 65, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
